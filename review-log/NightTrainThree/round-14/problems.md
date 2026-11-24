@@ -1,6 +1,6 @@
 # NightTrainThree — round 14 review
 
-Frame inspection pending.
+Frame inspection pending. Confirm low-shot locomotive bounds at frame 210 and verify all three screen-space travel directions.
 
 ## Three highest-impact checks
 1. Verify the locomotive is fully in frame at the start of each shot, including low shot frame 210.
