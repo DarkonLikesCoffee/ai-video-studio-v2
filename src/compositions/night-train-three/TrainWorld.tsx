@@ -66,10 +66,10 @@ const Snowfall:React.FC=()=>{
 const SceneLights:React.FC=()=> <><ambientLight intensity={.32}/><directionalLight position={[-8,13,4]} intensity={1.5} color="#b8d5ef"/><directionalLight position={[5,6,-7]} intensity={.8} color="#809fc7"/><pointLight position={[5,3,2]} intensity={22} distance={25} color="#ffc777"/></>;
 export const TrainWorld:React.FC<{shot:"side"|"low"|"high"}> = ({shot})=>{
  const f=useCurrentFrame();
- const trainX=shot==="side"?interpolate(f,[0,209],[-10,10]):shot==="low"?interpolate(f,[0,209],[-7,5]):interpolate(f,[0,209],[-2,2]);
+ const trainX=shot==="side"?interpolate(f,[0,209],[-5,10]):shot==="low"?interpolate(f,[0,209],[-7,5]):interpolate(f,[0,209],[-2,2]);
  // Track the nose with the camera in the first two shots. The closing shot
  // deliberately cranes upward and backward while the locomotive keeps moving.
- const camera=shot==="side"?{from:[-12,4.5,19] as V3,to:[-2,4.2,19] as V3}:shot==="low"?{from:[-7,2.05,12] as V3,to:[0.2,2.2,12] as V3}:{from:[-6,8,19] as V3,to:[-10.5,10,25] as V3};
+ const camera=shot==="side"?{from:[-12,4.5,19] as V3,to:[-2,4.2,19] as V3}:shot==="low"?{from:[-7,2.05,12] as V3,to:[0.2,2.2,12] as V3}:{from:[-6,8,19] as V3,to:[-13.5,10,25] as V3};
  return <ThreeScene background="#081522" {...(shot==="high" ? {} : {fog:"#263b50"})} cameraFrom={camera.from} cameraTo={camera.to} durationInFrames={shot==="high" ? 216 : 210}>
   <SceneLights/><ambientLight intensity={shot==="high" ? 1.05 : .32}/><directionalLight position={[7,9,8]} intensity={shot==="high" ? 2.4 : 1.1} color="#d7e9f5"/><directionalLight position={[-6,5,-5]} intensity={shot==="high" ? 1.5 : .75} color="#8db9ff"/><pointLight position={[8,4,5]} intensity={shot==="high" ? 46 : 32} distance={shot==="high" ? 48 : 32} color="#ffd28c"/><pointLight position={[-8,5,-2]} intensity={shot==="high" ? 25 : 18} distance={35} color="#9ec8ef"/>
   <group position={[0,-.08,0]}><GroundPlane color="#1b2c3b" width={70} depth={40}/></group>
