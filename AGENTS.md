@@ -1,54 +1,22 @@
-# AGENTS.md
+# Video production rules
 
-For every video request, follow this sequence:
+## Plan and composition
+1. Before coding, write a per-scene plan naming the technique and why; plan story, palette, motion, sound, timing, and transitions.
+2. Generated images are optional. Without them, every scenic shot must use Three.js via `src/shared/three-scene.tsx` plus code overlays. SVG is only for text, UI, and small overlays; never use SVG for scenery, characters, or vehicles.
+3. Create a new Remotion composition under `src/compositions/<slug>/`, with substantial scene files in `scenes/`. Keep scene files focused. Preserve existing compositions when adding alternatives for comparison.
+4. Every scene needs real camera or subject motion, multiple depth layers moving at different speeds, an animated code overlay, and a distinct composition. Use real transitions; avoid hard cuts caused by `Math.floor(frame / N)`.
+5. Keep the main subject large and readable. For trains or vehicles, show visible motion through most of the video, at least about a quarter of frame width, and avoid edge-cropping beyond brief moments.
+6. Title/caption cards may last at most 2 seconds and must not overlap high-contrast scenery lines. Prefer short captions fading in/out over moving scenery.
 
-1. Before coding, write a per-scene plan naming the technique (Three.js or images + parallax) and why. Define a style string only when images are used; reuse it verbatim in every image prompt.
-2. Image generation is optional. If it is unavailable, build the video with Three.js scenes and code overlays only, and say so in the plan. Do not stop for unavailable image generation.
-3. Plan the story, scenes, palette, motion, sound, and timing.
-4. Write a NEW Remotion composition in `src/compositions/<slug>/`. Put one substantial scene per file in `scenes/`, then sequence those scene components from `index.tsx`. Keep files focused and generally under about 150 lines.
-5. Run `npm run check`.
-6. Render stills at the start, middle, and end of EVERY scene. View the actual PNG frames (locally or through a GitHub Actions artifact) before judging them. The only stop condition is inability to VIEW rendered frames, and you may conclude that only after attempting the render-and-download workflow below.
-7. Compare at least two frames from `reference/` next to your own stills when references are available. Write one sentence in the round's `problems.md` naming the biggest quality gap versus the references.
-8. At the end of each review round, write `out/review/<CompositionId>/round-N/problems.md` with the three WORST AESTHETIC problems, ranked by impact, then copy that file and the stills into `review-log/<CompositionId>/round-N/` for the committed record. Technical bugs (black frames, missing elements, render errors) do not count toward these three; list them separately.
-9. A round only counts if code changes address problem #1 or #2 from that round's list. Re-render the same scene coverage, inspect it, and complete at least two fix rounds.
-10. After review rounds, always render the final MP4 with `npm run render -- <CompositionId>`, even when the user did not explicitly ask for a final render. Report the measured render time.
+## Review loop
+7. Run `npm run check`. Render scene start, middle, end, and additional one-second samples for motion review. Open and inspect actual rendered PNGs/contact sheet before making visual claims.
+8. Each round writes `out/review/<CompositionId>/<round>/problems.md` with the three worst aesthetic problems ranked by impact; list technical issues separately. Commit small PNG stills and that round's `problems.md` to `review-log/<CompositionId>/<round>/`. Do not create extra review docs such as `implementation.md`.
+9. Compare at least two available reference frames. References are stylized low-poly 3D, not photographs. State concrete gaps such as depth, lighting, scale, or camera; never cite missing “photographic texture.”
+10. If problem #1 is the technique itself (flat, vector-like, illustrative, or lacking depth), the next round must change technique, not polish details. Each round must change code to address problem #1 or #2 and then re-render and inspect the same coverage.
+11. Motion check every contact sheet: if 3 or more consecutive one-second samples are nearly identical, list insufficient motion as an aesthetic problem. Never hold a static frame for more than about 2 seconds.
+12. Complete at least two review/fix rounds. Never say output looks good unless you viewed its rendered frames.
 
-## Render and view without a local machine
-- Push a commit to a `review/**` branch; the message must include `composition=ThreeSmoke frames=30 round=1 final=false` (replace values as needed).
-- The `review.yml` push fallback reads those values and runs stills, a contact sheet, and optionally the final MP4.
-- Wait for the Actions run, download its single artifact, and open the PNGs/contact sheet to inspect them.
-- This connector cannot dispatch `workflow_dispatch`; use the `review/**` push trigger.
-
-## Visual production rules
-
-- Every scene must use at least two layers or objects moving at different speeds, one animated code overlay, real transitions, and one substantial scene file (not a five-line wrapper).
-- Never draw scenery or characters as stacks of handmade SVG shapes. Choose Three.js (`@remotion/three` + `@react-three/fiber`) for real spatial depth, camera movement, and characters/props; choose generated imagery plus parallax for atmospheric and establishing scenes.
-- Use a consistent style string across all image prompts in one video. Save generated images under `public/<slug>/` and view them before using them.
-- If transparent layers cannot be generated, use one background image with `CameraPush` and animated overlays.
-- Every scene needs real motion and a distinct composition, scale, palette, or visual technique. Keep all actions inside the scene duration and transitions.
-- Each review round must include a technical-issues check for hard-edged shapes, boxes, seams in overlays, and visible beam edges. List technical issues separately from aesthetic rankings.
-- Never say something looks good unless you viewed the actual rendered frames.
-
-## Asset convention
-
-- Store scene assets in `public/<slug>/`.
-- Background: `<scene>-bg.jpg`, maximum 1920x1080 and approximately 500 KB.
-- Optional transparent layers: `<scene>-mid.png` and `<scene>-fg.png`, each approximately 500 KB or less.
-- If transparent layers are not available, use the background alone with parallax camera movement and overlays.
-
-## Rendering and performance
-
-- Use `--gl=swangle` for Remotion renders on GitHub Actions (CI); the render scripts apply this automatically when `process.env.CI` is set.
-- Measure the actual MP4 render duration with `/usr/bin/time` on GitHub Actions and report the measured elapsed time.
-- Performance budget: a 20-second 1080p video should render in a reasonable GitHub Actions runtime. If a scene exceeds the budget, simplify geometry, reduce lights/shadows, or switch that scene to generated imagery plus parallax.
-- Keep Three.js geometry low-poly and light, with minimal shadows and no heavy post-processing.
-- Avoid `Math.floor(frame / N)` hard cuts. Join scenes using real transitions from `@remotion/transitions`.
-- Make motion purposeful; stagger entrances, exits, and related actions to establish hierarchy.
-
-## Project commands and review records
-
-- `npm run check` — TypeScript check.
-- `npm run still -- <CompositionId> <frame,frame,...>` — render selected PNG frames.
-- `npm run sheet -- <CompositionId>` — render a contact sheet.
-- `npm run render -- <CompositionId>` — render an MP4.
-- Save round stills and `problems.md` under `out/review/<CompositionId>/round-N/`; copy reviewed stills and notes to `review-log/<CompositionId>/round-N/`.
+## Rendering and delivery
+13. For review renders, push to a `review/**` branch with commit metadata in the message: `composition=<id> frames=<comma-separated-frames> round=<n> final=<true|false>`. The review workflow renders stills/contact sheet and, when final=true, MP4 plus measured elapsed time.
+14. Use `npm run still -- <id> <frames>`, `npm run sheet -- <id>`, and finally `npm run render -- <id>`. CI uses `--gl=swangle`.
+15. Keep Three.js geometry low-poly and render-efficient. Report the measured final MP4 render time, not an estimate.
