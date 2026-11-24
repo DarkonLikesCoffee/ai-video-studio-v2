@@ -11,7 +11,7 @@ permissions:
 jobs:
   check-and-still:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -20,27 +20,13 @@ jobs:
           cache: npm
       - run: npm ci --no-audit --no-fund
       - run: npm run check
-      - name: Render Lighthouse Storm round-two review stills
-        env:
-          REVIEW_ROUND: round-2
-        run: npm run still -- LighthouseStorm 0,50,99,100,150,199,200,250,299,300,350,399,400,450,499,500,550,599
-      - name: Record round 2 visual review
-        run: |
-          cat > out/review/LighthouseStorm/round-2/summary.txt <<'EOF'
-          1. The round-one set contained all 18 start, middle and end samples across six scenes.
-          2. The opening frame now showed the keeper and tower immediately instead of a black plate.
-          3. The storm exterior had visible rain, shoreline movement and intermittent lightning.
-          4. The approach scene moved the keeper closer to the lighthouse entrance.
-          5. The lens repair scene was distinct and kept the keeper visible beside the mechanism.
-          6. The ignition setup then lost the keeper for the entire shot, weakening story continuity.
-          7. The final frame was nearly transparent because the outro fade reduced opacity to almost zero.
-          8. Added the keeper back into the ignition setup as the beacon powers up.
-          9. Removed the end fade so the completed beam and coast remain visible on the final frame.
-          10. Round two checks those continuity changes at every scene start, midpoint and end.
-          EOF
+      - run: npm run sheet -- LighthouseStorm
+      - run: npm run render -- LighthouseStorm
       - uses: actions/upload-artifact@v4
         with:
-          name: lighthouse-storm-round-2
-          path: out/review/LighthouseStorm/round-2/*
+          name: lighthouse-storm-final-render
+          path: |
+            out/LighthouseStorm.mp4
+            out/review/LighthouseStorm/contact-sheet/*
           if-no-files-found: error
           retention-days: 7
