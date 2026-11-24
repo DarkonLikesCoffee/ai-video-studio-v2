@@ -1,12 +1,12 @@
 import React, {useLayoutEffect, useMemo, useRef} from "react";
-import {useCurrentFrame, useVideoConfig, interpolate, Easing} from "remotion";
+import {useCurrentFrame, interpolate, Easing} from "remotion";
 import {useThree} from "@react-three/fiber";
 import * as THREE from "three";
 import {ThreeScene, GroundPlane} from "../../shared/three-scene";
 
 type V3=[number,number,number];
-const CameraMove:React.FC<{from:V3;to:V3;lookFrom:V3;lookTo:V3}> = ({from,to,lookFrom,lookTo})=>{
- const f=useCurrentFrame(),{durationInFrames}=useVideoConfig(),{camera}=useThree();
+const CameraMove:React.FC<{from:V3;to:V3;lookFrom:V3;lookTo:V3;durationInFrames:number}> = ({from,to,lookFrom,lookTo,durationInFrames})=>{
+ const f=useCurrentFrame(),{camera}=useThree();
  const t=interpolate(f,[0,durationInFrames-1],[0,1],{extrapolateRight:"clamp",easing:Easing.inOut(Easing.cubic)});
  camera.position.set(...from.map((v,i)=>THREE.MathUtils.lerp(v,to[i]!,t)) as V3);
  const target=lookFrom.map((v,i)=>THREE.MathUtils.lerp(v,lookTo[i]!,t)) as V3; camera.lookAt(...target); return null;
@@ -77,8 +77,8 @@ export const TrainWorld:React.FC<{shot:"side"|"low"|"high"}> = ({shot})=>{
  // Track the nose with the camera in the first two shots. The closing shot
  // deliberately cranes upward and backward while the locomotive keeps moving.
  const camera=shot==="side"?{from:[-10,4.5,19] as V3,to:[0,4.2,19] as V3,lookFrom:[-10,1.1,-7] as V3,lookTo:[0,1.1,-7] as V3}:shot==="low"?{from:[-7,2.05,12] as V3,to:[0.2,2.2,12] as V3,lookFrom:[-7,1.2,0] as V3,lookTo:[0.2,1.2,0] as V3}:{from:[-6,8,19] as V3,to:[-6,10,25] as V3,lookFrom:[-6,1.1,-1] as V3,lookTo:[-7.5,1.1,-1] as V3};
- return <ThreeScene background="#081522" {...(shot==="high" ? {} : {fog:"#263b50"})} cameraFrom={camera.from} cameraTo={camera.to}>
-  <CameraMove {...camera}/>
+ return <ThreeScene background="#081522" {...(shot==="high" ? {} : {fog:"#263b50"})}>
+  <CameraMove {...camera} durationInFrames={shot==="high" ? 216 : 210}/>
   <SceneLights/><ambientLight intensity={shot==="high" ? 1.05 : .32}/><directionalLight position={[7,9,8]} intensity={shot==="high" ? 2.4 : 1.1} color="#d7e9f5"/><directionalLight position={[-6,5,-5]} intensity={shot==="high" ? 1.5 : .75} color="#8db9ff"/><pointLight position={[8,4,5]} intensity={shot==="high" ? 46 : 32} distance={shot==="high" ? 48 : 32} color="#ffd28c"/><pointLight position={[-8,5,-2]} intensity={shot==="high" ? 25 : 18} distance={35} color="#9ec8ef"/>
   <group position={[0,-.08,0]}><GroundPlane color="#1b2c3b" width={70} depth={40}/></group>
   <Track/>
