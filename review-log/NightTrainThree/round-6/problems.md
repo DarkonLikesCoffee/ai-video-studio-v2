@@ -1,6 +1,6 @@
 # NightTrainThree — round 6 review
 
-Frame inspection pending.
+Frame inspection pending. This round specifically samples every 30 frames from 420–570 to verify the nose-first screen-space travel and the train's on-screen width.
 
 ## Three highest-impact checks
 1. Verify all three shots show the locomotive nose pointing +X and the train moving rightward on screen without cropping the locomotive.
