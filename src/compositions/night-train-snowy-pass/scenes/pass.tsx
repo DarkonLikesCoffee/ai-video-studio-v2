@@ -4,8 +4,8 @@ import {AtmosphereParticles,Fog,Vignette,LightSweep} from "../../../shared/overl
 export const Pass:React.FC=()=>{
  const f=useCurrentFrame(),move=interpolate(f,[0,210],[0,1],{easing:Easing.inOut(Easing.cubic)});
  const trainX=interpolate(f,[0,210],[2400,-2100],{easing:Easing.inOut(Easing.cubic)});
- const ridgeFar="M0 520 130 330 245 410 390 170 520 370 675 115 810 380 960 220 1090 415 1260 150 1410 395 1570 205 1740 435 1920 260V1080H0Z";
- const ridgeNear="M0 700 160 540 280 600 470 390 610 630 800 420 950 655 1150 390 1310 650 1500 430 1660 625 1810 470 1920 560V1080H0Z";
+ const ridgeFar="M0 555 120 390 245 430 385 215 500 380 670 145 800 420 950 260 1090 445 1260 185 1410 425 1560 245 1740 455 1920 300V1080H0Z";
+ const ridgeNear="M0 715 145 585 260 640 450 455 600 690 785 470 950 700 1140 455 1300 690 1495 475 1660 670 1815 520 1920 595V1080H0Z";
  return <AbsoluteFill style={{overflow:"hidden",background:"linear-gradient(180deg,#071522,#294052 62%,#091825)"}}>
   <svg viewBox="0 0 1920 1080" style={{position:"absolute",width:"100%",height:"100%"}}>
    <defs>
@@ -55,8 +55,8 @@ export const Pass:React.FC=()=>{
     </g>
    </g>
   </svg>
-  <div style={{position:"absolute",left:130,top:100,color:"#f1f6f8",fontSize:22,letterSpacing:5}}>02:19 / CROSSING THE RIDGELINE</div>
-  <div style={{position:"absolute",right:125,bottom:100,color:"#d7e3e9",fontSize:18,letterSpacing:4}}>ALTITUDE 2,418 M</div>
+  <div style={{position:"absolute",left:130,top:92,color:"#f1f6f8",fontSize:20,letterSpacing:5,textShadow:"0 2px 14px #071522"}}>02:19 / CROSSING THE RIDGELINE</div>
+  <div style={{position:"absolute",right:125,bottom:92,color:"#d7e3e9",fontSize:17,letterSpacing:4,textShadow:"0 2px 14px #071522"}}>ALTITUDE 2,418 M</div>
   <Fog opacity={.24}/><AtmosphereParticles kind="snow" count={210}/><LightSweep opacity={.11}/><Vignette strength={.48}/>
  </AbsoluteFill>;
 };
