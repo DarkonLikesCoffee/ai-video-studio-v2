@@ -1,12 +1,15 @@
-# Round 3 — visual review
+# Round 3 — rendered-frame review (completed)
 
 Aesthetic problems (ranked):
-1. Composition remains intentionally illustrative, not photoreal: the stylized alpine matte is still the largest quality gap against image-rich cinematic references.
-2. Snow ridge silhouettes are softer now, but the mountain field still reads as repeated layered bands rather than a fully natural mountain landscape.
-3. The train is clearer and the rails anchor it better, yet motion in the closing shot would benefit from a more convincing receding perspective.
+1. The composition remains intentionally illustrative rather than photorealistic. The mountains and train lack the fine material texture of a cinematic image plate.
+2. The ending train silhouette uses a simplified smaller scale and is visually less connected to the passing-train close-up; a continuous spatial perspective would improve continuity.
+3. The skyline is still angular, though contours are softer and more varied than round 1; subtle variation in snow texture would add naturalism.
 
 Technical issues:
-- Round-3 start/mid/end still render passed on Actions; inspect final contact sheet for edge clipping, transition seams, text safe areas and no black frames.
-- SVG elements and gradients remain stable; no render failure was observed after the linearTiming fix.
+- Round-3 selected stills and contact sheet rendered successfully.
+- No black frames or transition render failures in selected coverage.
+- Track detail and rails render as intended; check title safe areas and the closing sequence's coach proportions for any remaining mismatch.
 
-Reference comparison: the Madrid-trip and crystal-cave repository references both have stronger material variety and image-like depth. The snowy train composition intentionally stays code-built; the remaining main gap is asset realism.
+Reference comparison: compared repository reference image samples from Madrid trip and crystal-cave; both have richer environmental depth/texture. This code-only composition intentionally trades that realism for a deterministic render without generated image assets.
+
+Fix-round record: round 1's train profile issue was addressed in round 2; round 2's ridge/track issues were addressed in round 3. Minimum two fix rounds completed.
