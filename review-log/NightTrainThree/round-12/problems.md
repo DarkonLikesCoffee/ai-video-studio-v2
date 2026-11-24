@@ -1,6 +1,6 @@
 # NightTrainThree — round 12 review
 
-Frame inspection pending.
+Frame inspection pending. Check the first side frame and all six high-shot one-second samples after the framing adjustments.
 
 ## Three highest-impact checks
 1. Verify the locomotive is fully in frame at the start of the side shot and moves nose-first rightward.
