@@ -1,6 +1,6 @@
 import React, {useLayoutEffect, useMemo, useRef} from "react";
 import {useCurrentFrame, interpolate, Easing} from "remotion";
-import {useThree} from "@react-three/fiber";
+import {useThree, useFrame} from "@react-three/fiber";
 import * as THREE from "three";
 import {ThreeScene, GroundPlane} from "../../shared/three-scene";
 
@@ -8,8 +8,9 @@ type V3=[number,number,number];
 const CameraMove:React.FC<{from:V3;to:V3;lookFrom:V3;lookTo:V3;durationInFrames:number}> = ({from,to,lookFrom,lookTo,durationInFrames})=>{
  const f=useCurrentFrame(),{camera}=useThree();
  const t=interpolate(f,[0,durationInFrames-1],[0,1],{extrapolateRight:"clamp",easing:Easing.inOut(Easing.cubic)});
- camera.position.set(...from.map((v,i)=>THREE.MathUtils.lerp(v,to[i]!,t)) as V3);
- const target=lookFrom.map((v,i)=>THREE.MathUtils.lerp(v,lookTo[i]!,t)) as V3; camera.lookAt(...target); return null;
+ // Apply after ThreeScene's default CameraRig so this shot owns the camera.
+ useFrame(()=>{camera.position.set(...from.map((v,i)=>THREE.MathUtils.lerp(v,to[i]!,t)) as V3);const target=lookFrom.map((v,i)=>THREE.MathUtils.lerp(v,lookTo[i]!,t)) as V3;camera.lookAt(...target);});
+ return null;
 };
 const Mountain:React.FC<{position:V3;scale:V3;color:string;seed:number}> = ({position,scale,color,seed})=>{
  const geometry=React.useMemo(()=>{
