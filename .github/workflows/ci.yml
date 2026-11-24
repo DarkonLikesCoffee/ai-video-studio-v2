@@ -4,76 +4,17 @@ on:
     branches: ["**"]
   pull_request:
 permissions:
-  contents: write
+  contents: read
 jobs:
-  visual-proof:
+  check-and-still:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: v2-restructure
-          fetch-depth: 0
-          token: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
       - run: npm ci --no-audit --no-fund
       - run: npm run check
-      - name: Render round one from the pre-fix version
-        run: |
-          git worktree add /tmp/lighthouse-round-one db9b41e9a4a9f6bcb1e9e1f5223b3a322f5bd02a
-          ln -s "$GITHUB_WORKSPACE/node_modules" /tmp/lighthouse-round-one/node_modules
-          mkdir -p /tmp/lighthouse-round-one/out/review/LighthouseStorm/round-1
-          cd /tmp/lighthouse-round-one
-          npx remotion render src/index.ts LighthouseStorm out/review/LighthouseStorm/round-1 --frames=0,52,98,99,151,197,198,250,296,297,349,395,396,448,494,495,547,599 --image-format=png --scale=0.6667 --gl=swangle --sequence
-          cd "$GITHUB_WORKSPACE"
-          mkdir -p out/review/LighthouseStorm/round-1 review-log/LighthouseStorm/round-1
-          cp /tmp/lighthouse-round-one/out/review/LighthouseStorm/round-1/*.png out/review/LighthouseStorm/round-1/
-          cp /tmp/lighthouse-round-one/out/review/LighthouseStorm/round-1/*.png review-log/LighthouseStorm/round-1/
-          cat > out/review/LighthouseStorm/round-1/problems.md <<'EOF'
-          # Round 1 — aesthetic review
-
-          1. **Weak depth and spatial layering (highest impact):** the keeper, tower, coast, and sky read as flat layers with little atmospheric perspective.
-          2. **Stiff keeper performance:** the keeper mostly slides across the frame; the walk and struggle need body rhythm and grounded footwork.
-          3. **Dull storm lighting:** the storm palette is consistently dark but has too little directional contrast or lightning shaping the silhouette.
-
-          Reference gap: compared side by side with MadridTrip's dimensional map/Eiffel staging and TinyAstronaut's layered 3D cave lighting, LighthouseStorm reads as flat vector cutouts with much less depth and light separation.
-
-          Technical issues: none observed in the inspected frames.
-          EOF
-          cp out/review/LighthouseStorm/round-1/problems.md review-log/LighthouseStorm/round-1/problems.md
-      - name: Render round two from the fixed version
-        run: |
-          mkdir -p out/review/LighthouseStorm/round-2 review-log/LighthouseStorm/round-2
-          npx remotion render src/index.ts LighthouseStorm out/review/LighthouseStorm/round-2 --frames=0,52,98,99,151,197,198,250,296,297,349,395,396,448,494,495,547,599 --image-format=png --scale=0.6667 --gl=swangle --sequence
-          cp out/review/LighthouseStorm/round-2/*.png review-log/LighthouseStorm/round-2/
-          cat > out/review/LighthouseStorm/round-2/problems.md <<'EOF'
-          # Round 2 — aesthetic review
-
-          1. **The keeper still lacks a convincing full-body performance (highest impact):** the foot rhythm is more present, but the arms and torso remain too mannequin-like.
-          2. **The scene geography still feels shallow:** tower, keeper, and sea need clearer foreground/midground/background separation and atmospheric perspective.
-          3. **The lens repair scene is too diagrammatic:** the lens reads as a clean icon rather than a heavy optical mechanism in a believable room.
-
-          Reference gap: MadridTrip still has stronger spatial scale and camera staging, while TinyAstronaut has more dimensional character/prop lighting; LighthouseStorm remains flatter and less tactile.
-
-          Round-two code changes address round-one problems #1 and #2 with animated keeper body/leg movement, tower shading, stronger water depth, and lightning-shaped storm light.
-
-          Technical issues: none observed in the inspected frames.
-          EOF
-          cp out/review/LighthouseStorm/round-2/problems.md review-log/LighthouseStorm/round-2/problems.md
-      - uses: actions/upload-artifact@v4
-        with:
-          name: lighthouse-rounds-and-references
-          path: |
-            reference/*.png
-            review-log/LighthouseStorm/round-1/*
-            review-log/LighthouseStorm/round-2/*
-      - name: Commit reference frames and review rounds
-        run: |
-          git config user.name github-actions[bot]
-          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git add reference review-log/LighthouseStorm
-          git commit -m "test: save corrected lighthouse visual review rounds"
-          git push origin HEAD:v2-restructure
+      - run: npm run still -- MadridTrip 0
