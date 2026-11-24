@@ -1,0 +1,2 @@
+# Round 3 implementation
+Softened and irregularized far/near snow ridge profiles, reduced harsh angular repetition, and added perspective rail lines/track details. The same 9 key review frames were rendered for validation.
