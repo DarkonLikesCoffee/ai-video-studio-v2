@@ -64,7 +64,7 @@ export const LighthouseStorm=()=>{
  const ignition=smooth(frame,450,510);const sunrise=smooth(frame,510,600);
  const intro=spring({frame,fps,config:{damping:20,stiffness:70}});
  const scene=Math.min(5,Math.floor(frame/100));
- const fade=interpolate(frame,[0,582,600],[1,1,0],clamp);
+ const fade=1;
  const camera:CSSProperties={transform:`scale(${1.02+Math.sin(frame*.017)*.013+sunrise*.035})`,transformOrigin:"center"};
  return <AbsoluteFill style={{background:"#071321",opacity:fade}}>
   <div style={camera}><Sky frame={frame} storm={1-sunrise*.62}/></div>
@@ -72,7 +72,7 @@ export const LighthouseStorm=()=>{
   {scene===1&&<><Tower frame={frame}/><Keeper frame={frame} x={650} work={struggle}/><Beam frame={frame} intensity={.15}/></>}
   {scene===2&&<><Tower frame={frame}/><Keeper frame={frame} x={1000-climb*240} work={climb} scale={.86}/></>}
   {scene===3&&<Interior frame={frame} repair={repair}/>}
-  {scene===4&&<><Tower frame={frame} beam={ignition}/><Beam frame={frame} intensity={ignition}/></>}
+  {scene===4&&<><Tower frame={frame} beam={ignition}/><Keeper frame={frame} x={500} work={ignition} scale={.82}/><Beam frame={frame} intensity={ignition}/></>}
   {scene===5&&<><Sky frame={frame} storm={.15}/><Tower frame={frame} beam={1}/><Beam frame={frame} intensity={1}/><Keeper frame={frame} x={480} work={1}/><div style={{position:"absolute",inset:0,background:`linear-gradient(180deg,rgba(247,191,119,${sunrise*.17}),transparent 65%)`}}/></>}
   <Rain frame={frame} density={scene===3?45:110}/>
   <AbsoluteFill style={{background:"#dcebf5",opacity:scene<3?Math.pow(Math.max(0,Math.sin(frame*.075+1)),22)*.32:0,pointerEvents:"none"}}/>
