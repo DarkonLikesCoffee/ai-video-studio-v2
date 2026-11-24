@@ -23,14 +23,14 @@ jobs:
       - name: Render references
         run: |
           mkdir -p reference
-          npx remotion render src/index.ts MadridTrip out/ref-madrid --frames=60,250,450,600 --image-format=png --scale=0.6667 --sequence
-          npx remotion render src/index.ts TinyAstronautCrystalCave out/ref-astronaut --frames=120,350,500 --image-format=png --scale=0.6667 --sequence
+          npx remotion render src/index.ts MadridTrip out/ref-madrid --frames=60,250,450,600 --image-format=png --scale=0.6667 --gl=swangle --sequence
+          npx remotion render src/index.ts TinyAstronautCrystalCave out/ref-astronaut --frames=120,350,500 --image-format=png --scale=0.6667 --gl=swangle --sequence
           i=1; for f in $(find out/ref-madrid -type f -name '*.png' | sort); do cp "$f" "reference/madrid-trip-0$i.png"; i=$((i+1)); done
           i=1; for f in $(find out/ref-astronaut -type f -name '*.png' | sort); do cp "$f" "reference/tiny-astronaut-0$i.png"; i=$((i+1)); done
       - name: Render LighthouseStorm round one
         run: |
           mkdir -p out/review/LighthouseStorm/round-1
-          npx remotion render src/index.ts LighthouseStorm out/review/LighthouseStorm/round-1 --frames=0,52,104,105,157,209,210,262,314,315,367,419,420,472,524,525,562,599 --image-format=png --scale=0.6667 --sequence
+          npx remotion render src/index.ts LighthouseStorm out/review/LighthouseStorm/round-1 --frames=0,52,104,105,157,209,210,262,314,315,367,419,420,472,524,525,562,599 --image-format=png --scale=0.6667 --gl=swangle --sequence
           mkdir -p review-log/LighthouseStorm/round-1
           cp out/review/LighthouseStorm/round-1/*.png review-log/LighthouseStorm/round-1/
           cat > review-log/LighthouseStorm/round-1/problems.md <<'EOF'
