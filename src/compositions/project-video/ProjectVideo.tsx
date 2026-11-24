@@ -2,10 +2,10 @@ import { Audio } from "@remotion/media";
 import { AbsoluteFill, Easing, Img, OffthreadVideo, Sequence, interpolate, staticFile, useCurrentFrame } from "remotion";
 import { useMemo } from "react";
 import type { CSSProperties, FC, ReactNode } from "react";
-import type { AnimationTracks, AudioTrack, GraphicElement, ParticleSystem, SceneMedia, SceneTransition, SubtitleCue, VideoProject, VideoScene } from "../project";
-import { isRemoteMediaUrl } from "../project";
-import { evaluateAnimationTrack, evaluateSvgPathMorph } from "../animation";
-import { getSceneTransitionStyle } from "../transitions";
+import type { AnimationTracks, AudioTrack, GraphicElement, ParticleSystem, SceneMedia, SceneTransition, SubtitleCue, VideoProject, VideoScene } from "./project";
+import { isRemoteMediaUrl } from "./project";
+import { evaluateAnimationTrack, evaluateSvgPathMorph } from "../../shared/animation";
+import { getSceneTransitionStyle } from "../../shared/transitions";
 
 type SceneCardProps = {
   scene: VideoScene;
