@@ -45,7 +45,7 @@ const Locomotive:React.FC=()=> <group>
 const Track:React.FC=()=> <group position={[0,.03,0]}>
  <mesh rotation={[-Math.PI/2,0,0]} position={[0,0,0]}><planeGeometry args={[100,12]}/><meshStandardMaterial color="#172532" roughness={1} /></mesh>
  {Array.from({length:72},(_,i)=><mesh key={i} position={[-40+i*1.15,.08,0]}><boxGeometry args={[.22,.16,3.8]}/><meshStandardMaterial color="#5d6264" roughness={1} /></mesh>)}
- {[-1.15,1.15].map(z=><mesh key={z} position={[0,.2,z]}><boxGeometry args={[100,.2,.16]}/><meshStandardMaterial color="#85929a" metalness={.8} roughness={.35}}/></mesh>)}
+ {[-1.15,1.15].map(z=><mesh key={z} position={[0,.2,z]}><boxGeometry args={[100,.2,.16]}/><meshStandardMaterial color="#85929a" metalness={.8} roughness={.35} /></mesh>)}
  </group>;
 const Snowfall:React.FC=()=>{
  const f=useCurrentFrame();
