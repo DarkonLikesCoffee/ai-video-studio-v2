@@ -1,24 +1,57 @@
 name: CI
-# Keep CI intentionally small: typecheck and one known-good still render.
-
 on:
   push:
     branches: ["**"]
   pull_request:
-
 permissions:
-  contents: read
-
+  contents: write
 jobs:
-  check-and-still:
+  visual-proof:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: v2-restructure
+          token: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
       - run: npm ci --no-audit --no-fund
       - run: npm run check
-      - run: npm run still -- MadridTrip 0
+      - name: Render references
+        run: |
+          mkdir -p reference
+          npx remotion render src/index.ts MadridTrip out/ref-madrid --frames=60,250,450,600 --image-format=png --scale=0.6667 --sequence
+          npx remotion render src/index.ts TinyAstronautCrystalCave out/ref-astronaut --frames=120,350,500 --image-format=png --scale=0.6667 --sequence
+          i=1; for f in $(find out/ref-madrid -type f -name '*.png' | sort); do cp "$f" "reference/madrid-trip-0$i.png"; i=$((i+1)); done
+          i=1; for f in $(find out/ref-astronaut -type f -name '*.png' | sort); do cp "$f" "reference/tiny-astronaut-0$i.png"; i=$((i+1)); done
+      - name: Render LighthouseStorm round one
+        run: |
+          mkdir -p out/review/LighthouseStorm/round-1
+          npx remotion render src/index.ts LighthouseStorm out/review/LighthouseStorm/round-1 --frames=0,52,104,105,157,209,210,262,314,315,367,419,420,472,524,525,562,599 --image-format=png --scale=0.6667 --sequence
+          mkdir -p review-log/LighthouseStorm/round-1
+          cp out/review/LighthouseStorm/round-1/*.png review-log/LighthouseStorm/round-1/
+          cat > review-log/LighthouseStorm/round-1/problems.md <<'EOF'
+          # Round 1 — aesthetic review
+
+          1. **Weak depth and spatial layering (highest impact):** the keeper, tower, coast, and sky read as flat layers with little atmospheric perspective.
+          2. **Stiff keeper performance:** the keeper mostly slides across the frame; the walk and struggle need body rhythm and grounded footwork.
+          3. **Dull storm lighting:** the storm palette is consistently dark but has too little directional contrast or lightning shaping the silhouette.
+
+          Reference gap: compared with MadridTrip's dimensional camera/map staging and TinyAstronaut's layered 3D lighting, LighthouseStorm reads like a set of flat vector cutouts.
+
+          Technical issues: none observed in the first source review; render/typecheck verification is recorded by the run.
+          EOF
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-round-1
+          path: review-log/LighthouseStorm/round-1/*
+      - name: Commit reference frames and round one
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add reference review-log/LighthouseStorm/round-1
+          git commit -m "test: add composition references and lighthouse round one"
+          git push origin HEAD:v2-restructure
