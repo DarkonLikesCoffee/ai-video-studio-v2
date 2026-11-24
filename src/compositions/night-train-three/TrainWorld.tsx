@@ -1,5 +1,5 @@
 import React, {useLayoutEffect, useMemo, useRef} from "react";
-import {useCurrentFrame} from "remotion";
+import {useCurrentFrame, interpolate} from "remotion";
 import * as THREE from "three";
 import {ThreeScene, GroundPlane} from "../../shared/three-scene";
 
