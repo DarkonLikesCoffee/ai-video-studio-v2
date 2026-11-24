@@ -3,13 +3,14 @@ import {
   AbsoluteFill,
   Easing,
   interpolate,
-  spring,
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
 import { ThreeCanvas } from "@remotion/three";
 import { useThree } from "@react-three/fiber";
 import { COLORS, FONT } from "./constants";
+import {cameraTrack} from "../../shared/camera";
+import {StaggeredText} from "../../shared/staggered-text";
 import { EiffelTower } from "./EiffelTower";
 
 const clamp = {
@@ -28,27 +29,16 @@ const CameraRig: React.FC<{ y: number; z: number }> = ({ y, z }) => {
 
 export const EiffelScene: React.FC = () => {
   const frame = useCurrentFrame();
-  const { width, height, fps, durationInFrames } = useVideoConfig();
+  const { width, height, durationInFrames } = useVideoConfig();
 
   const build = interpolate(frame, [15, 150], [0, 1], {
     ...clamp,
     easing: Easing.inOut(Easing.cubic),
   });
-  const dolly = interpolate(frame, [0, durationInFrames], [22, 19.5], {
-    ...clamp,
-    easing: Easing.out(Easing.cubic),
-  });
-  const camY = interpolate(frame, [0, 150], [7.5, 5.6], {
-    ...clamp,
-    easing: Easing.out(Easing.cubic),
-  });
+  const dolly = cameraTrack(frame, [0, durationInFrames], [22, 19.5], "out");
+  const camY = cameraTrack(frame, [0, 150], [7.5, 5.6], "out");
   const spin = frame * 0.014;
 
-  const title = spring({
-    frame: frame - 25,
-    fps,
-    config: { damping: 200 },
-  });
   const glow = 14 + Math.sin(frame / 6) * 4;
 
   return (
@@ -80,15 +70,11 @@ export const EiffelScene: React.FC = () => {
           bottom: 72,
           fontFamily: FONT,
           color: COLORS.text,
-          opacity: title,
-          transform: `translateY(${(1 - title) * 30}px)`,
         }}
       >
-        <div style={{ fontSize: 96, fontWeight: 800, lineHeight: 1 }}>
-          Paris
-        </div>
-        <div style={{ fontSize: 34, marginTop: 12, opacity: 0.8 }}>
-          La Tour Eiffel
+        <StaggeredText text="Paris" startFrame={25} staggerFrames={8} style={{fontSize: 96, fontWeight: 800, lineHeight: 1}} />
+        <div style={{marginTop: 12}}>
+          <StaggeredText text="La Tour Eiffel" startFrame={36} staggerFrames={5} style={{fontSize: 34, opacity: 0.8}} />
         </div>
       </div>
     </AbsoluteFill>

@@ -1,7 +1,7 @@
 import React from "react";
 
-import { TransitionSeries, linearTiming } from "@remotion/transitions";
-import { fade } from "@remotion/transitions/fade";
+import {TransitionSeries} from "@remotion/transitions";
+import {FadeTransition} from "../../shared/fade-transition";
 import { EIFFEL_DURATION, FADE, MAP_DURATION } from "./constants";
 import { EiffelScene } from "./EiffelScene";
 import { MapScene } from "./MapScene";
@@ -14,10 +14,7 @@ export const MadridTrip: React.FC = () => (
       <TransitionSeries.Sequence durationInFrames={MAP_DURATION}>
         <MapScene />
       </TransitionSeries.Sequence>
-      <TransitionSeries.Transition
-        presentation={fade()}
-        timing={linearTiming({ durationInFrames: FADE })}
-      />
+      <FadeTransition durationInFrames={FADE} />
       <TransitionSeries.Sequence durationInFrames={EIFFEL_DURATION}>
         <EiffelScene />
       </TransitionSeries.Sequence>

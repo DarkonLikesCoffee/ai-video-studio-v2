@@ -7,11 +7,7 @@ import {
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
-import {
-  evolvePath,
-  getPointAtLength,
-  getTangentAtLength,
-} from "@remotion/paths";
+import {getPointAtLength, getTangentAtLength} from "@remotion/paths";
 import {
   BASE_ZOOM,
   CITIES,
@@ -33,6 +29,7 @@ import {
   graticulePath,
   landPath,
 } from "./geo";
+import {AnimatedMapLine} from "../../shared/map-line";
 
 const clamp = {
   extrapolateLeft: "clamp",
@@ -164,43 +161,6 @@ const Plane: React.FC<{
   );
 };
 
-const Route: React.FC<{
-  path: string;
-  progress: number;
-  zoom: number;
-}> = ({ path, progress, zoom }) => {
-  const evolved = evolvePath(progress, path);
-  return (
-    <>
-      <path
-        d={path}
-        fill="none"
-        stroke={COLORS.routeGhost}
-        strokeWidth={2 / zoom}
-        strokeDasharray={`${8 / zoom} ${12 / zoom}`}
-        opacity={0.55}
-      />
-      <path
-        d={path}
-        fill="none"
-        stroke={COLORS.route}
-        strokeWidth={14 / zoom}
-        strokeLinecap="round"
-        opacity={0.22}
-        {...evolved}
-      />
-      <path
-        d={path}
-        fill="none"
-        stroke={COLORS.route}
-        strokeWidth={4 / zoom}
-        strokeLinecap="round"
-        {...evolved}
-      />
-    </>
-  );
-};
-
 export const MapScene: React.FC = () => {
   const frame = useCurrentFrame();
   const cam = getCamera(frame);
@@ -247,8 +207,8 @@ export const MapScene: React.FC = () => {
             vectorEffect="non-scaling-stroke"
           />
 
-          <Route path={ROUTE_1} progress={cam.p1} zoom={cam.scale} />
-          <Route path={ROUTE_2} progress={cam.p2} zoom={cam.scale} />
+          <AnimatedMapLine path={ROUTE_1} progress={cam.p1} zoom={cam.scale} color={COLORS.route} ghostColor={COLORS.routeGhost} />
+          <AnimatedMapLine path={ROUTE_2} progress={cam.p2} zoom={cam.scale} color={COLORS.route} ghostColor={COLORS.routeGhost} />
 
           <Pin xy={MADRID_XY} name={CITIES.madrid.name} appearAt={0} zoom={cam.scale} />
           <Pin

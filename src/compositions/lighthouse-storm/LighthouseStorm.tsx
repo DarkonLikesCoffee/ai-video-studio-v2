@@ -1,8 +1,9 @@
-import { AbsoluteFill, Easing, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
-import type { CSSProperties } from "react";
+import {AbsoluteFill, useCurrentFrame} from "remotion";
+import type {CSSProperties} from "react";
+import {easeProgress} from "../../shared/easing";
+import {StormRain} from "../../shared/particles";
 
-const clamp={extrapolateLeft:"clamp" as const,extrapolateRight:"clamp" as const};
-const smooth=(f:number,a:number,b:number)=>interpolate(f,[a,b],[0,1],{...clamp,easing:Easing.inOut(Easing.cubic)});
+const smooth=(f:number,a:number,b:number)=>easeProgress(f,a,b);
 const Sky=({frame,storm=1}:{frame:number;storm?:number})=><svg viewBox="0 0 1920 1080" style={{position:"absolute",inset:0,width:"100%",height:"100%"}}>
  <defs><linearGradient id="sky" x2="0" y2="1"><stop stopColor="#071321"/><stop offset=".65" stopColor="#233e4f"/><stop offset="1" stopColor="#0d202c"/></linearGradient><linearGradient id="water" x2="0" y2="1"><stop stopColor="#17465c"/><stop offset="1" stopColor="#061521"/></linearGradient></defs>
  <rect width="1920" height="1080" fill="url(#sky)"/>
@@ -10,9 +11,6 @@ const Sky=({frame,storm=1}:{frame:number;storm?:number})=><svg viewBox="0 0 1920
  <path d="M0 670 Q190 610 390 676 T780 666 T1170 678 T1560 660 T1950 680 V1080 H0Z" fill="url(#water)"/>
  {Array.from({length:18},(_,i)=><path key={i} d={`M${i*120-30} ${720+(i%5)*61+Math.sin(frame*.08+i)*16} q48 -13 98 0`} fill="none" stroke="#c5d9df" strokeWidth="4" opacity=".23"/>)}
  <path d="M0 1080 0 940 210 825 380 870 570 760 770 860 960 700 1150 850 1350 705 1540 855 1740 755 1920 900 1920 1080Z" fill="#142630"/>
-</svg>;
-const Rain=({frame,density=105}:{frame:number;density?:number})=><svg viewBox="0 0 1920 1080" style={{position:"absolute",inset:0,width:"100%",height:"100%",pointerEvents:"none"}}>
- {Array.from({length:density},(_,i)=>{const x=(i*173+frame*10)%2000,y=(i*97+frame*24)%1120;return <path key={i} d={`M${x} ${y} l-24 47`} stroke="#c2dce4" strokeWidth={i%3+2} opacity=".18"/>;})}
 </svg>;
 const Tower=({frame,beam=0}:{frame:number;beam?:number})=><svg viewBox="0 0 1920 1080" style={{position:"absolute",inset:0,width:"100%",height:"100%"}}>
  <path d="M1060 980 1125 280 Q1220 235 1315 280 L1382 980Z" fill="#9c9b8c" stroke="#d8cfb9" strokeWidth="12"/>
@@ -58,11 +56,10 @@ const Interior=({frame,repair}:{frame:number;repair:number})=><svg viewBox="0 0 
  <Keeper frame={frame} x={430} work={repair} scale={.7}/>
 </svg>;
 export const LighthouseStorm=()=>{
- const frame=useCurrentFrame();const {fps}=useVideoConfig();
+ const frame=useCurrentFrame();
  const walk=smooth(frame,45,135);const struggle=smooth(frame,140,238);
  const climb=smooth(frame,245,340);const repair=smooth(frame,345,448);
  const ignition=smooth(frame,450,510);const sunrise=smooth(frame,510,600);
- const intro=spring({frame,fps,config:{damping:20,stiffness:70}});
  const scene=Math.min(5,Math.floor(frame/100));
  const fade=1;
  const camera:CSSProperties={transform:`scale(${1.02+Math.sin(frame*.017)*.013+sunrise*.035})`,transformOrigin:"center"};
@@ -74,7 +71,7 @@ export const LighthouseStorm=()=>{
   {scene===3&&<Interior frame={frame} repair={repair}/>}
   {scene===4&&<><Tower frame={frame} beam={ignition}/><Keeper frame={frame} x={500} work={ignition} scale={.82}/><Beam frame={frame} intensity={ignition}/></>}
   {scene===5&&<><Sky frame={frame} storm={.15}/><Tower frame={frame} beam={1}/><Beam frame={frame} intensity={1}/><Keeper frame={frame} x={480} work={1}/><div style={{position:"absolute",inset:0,background:`linear-gradient(180deg,rgba(247,191,119,${sunrise*.17}),transparent 65%)`}}/></>}
-  <Rain frame={frame} density={scene===3?45:110}/>
+  <StormRain frame={frame} density={scene===3?45:110}/>
   <AbsoluteFill style={{background:"#dcebf5",opacity:scene<3?Math.pow(Math.max(0,Math.sin(frame*.075+1)),22)*.32:0,pointerEvents:"none"}}/>
   <AbsoluteFill style={{background:"radial-gradient(ellipse,transparent 38%,rgba(0,0,0,.5) 100%)"}}/>
  </AbsoluteFill>;

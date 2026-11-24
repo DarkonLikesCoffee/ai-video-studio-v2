@@ -10,9 +10,12 @@ import {
   useVideoConfig,
 } from "remotion";
 
+import {cameraTrack} from "../../shared/camera";
+import {easeProgress} from "../../shared/easing";
+
 const clamp = { extrapolateLeft: "clamp" as const, extrapolateRight: "clamp" as const };
 const smooth = (frame: number, range: [number, number]) =>
-  interpolate(frame, range, [0, 1], { ...clamp, easing: Easing.inOut(Easing.cubic) });
+  easeProgress(frame, range[0], range[1]);
 
 const Terrain: FC<{ frame: number }> = ({ frame }) => (
   <group>
@@ -312,9 +315,9 @@ export const TinyAstronautCrystalCave: FC = () => {
   const reveal = smooth(frame, [390, 495]);
   const awaken = smooth(frame, [490, 580]);
   const camera = {
-    x: interpolate(frame, [0, 90, 210, 300, 390, 480, 600], [4.6, 1.6, 2.6, 1.2, 0.8, 0.2, -0.4], { ...clamp, easing: Easing.inOut(Easing.cubic) }),
-    y: interpolate(frame, [0, 90, 210, 300, 390, 480, 600], [2.8, 1.5, 2.1, 1.4, 1.0, 0.7, 0.8], { ...clamp, easing: Easing.inOut(Easing.cubic) }),
-    z: interpolate(frame, [0, 90, 210, 300, 390, 480, 600], [11, 8.6, 9.5, 8.4, 7.6, 6.5, 7.0], clamp),
+    x: cameraTrack(frame, [0, 90, 210, 300, 390, 480, 600], [4.6, 1.6, 2.6, 1.2, 0.8, 0.2, -0.4]),
+    y: cameraTrack(frame, [0, 90, 210, 300, 390, 480, 600], [2.8, 1.5, 2.1, 1.4, 1.0, 0.7, 0.8]),
+    z: cameraTrack(frame, [0, 90, 210, 300, 390, 480, 600], [11, 8.6, 9.5, 8.4, 7.6, 6.5, 7.0], "linear"),
   };
   const cameraYaw = Math.atan2(camera.x, camera.z);
   const cameraPitch = -Math.atan2(camera.y, Math.hypot(camera.x, camera.z));

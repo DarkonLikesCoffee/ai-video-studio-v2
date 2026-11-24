@@ -2,8 +2,6 @@ import {mkdir,writeFile} from "node:fs/promises";
 import path from "node:path";
 import {selectComposition, renderStill} from "@remotion/renderer";
 import {bundle} from "@remotion/bundler";
-import {ensureBrowser} from "@remotion/renderer";
-import {getCompositions} from "@remotion/renderer";
 
 const [id]=process.argv.slice(2);
 if(!id){console.error("Usage: npm run sheet -- <CompositionId>");process.exit(1);}
