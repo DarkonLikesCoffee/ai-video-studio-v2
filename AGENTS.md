@@ -34,7 +34,7 @@ For every video request, follow this exact sequence:
 
 - Keep the GitHub Actions workflow minimal: install dependencies, run checks, and render one representative test still. Put multi-frame/manual review stills in a manually triggered workflow if needed.
 - Remotion documents `angle` for WebGL on a desktop and warns it fails on GPU-less GitHub Actions runners. In this repository, `--gl=swiftshader` also failed to create a WebGL context (`GL_VENDOR = Disabled`). Keep the minimal CI still non-WebGL until a runner with working WebGL is available; never claim this validates Three.js rendering.
-- Measure the 3D smoke still render on GitHub Actions and report the elapsed time; do not estimate it from local performance.
+- Measure the 3D smoke still render on a runner with working WebGL and report the elapsed time; do not estimate it from local performance. This repository's current Actions runner disabled both `angle` and `swiftshader` WebGL context creation, so the 3D CI still is not measurable there. The non-WebGL baseline CI run took about 17s for its one-frame still (including bundle/startup); do not report this as a 3D measurement.
 - Performance budget: a 20-second 1080p video should render in a reasonable GitHub Actions runtime. If a scene exceeds the budget, simplify geometry, reduce lights/shadows, or switch that scene to generated imagery plus parallax.
 - Keep Three.js geometry low-poly and light, with minimal shadows and no heavy post-processing.
 - Avoid `Math.floor(frame / N)` hard cuts. Join scenes using real transitions from `@remotion/transitions`.
