@@ -21,7 +21,9 @@ jobs:
         run: |
           /usr/bin/time -f "THREESMOKE_STILL_SECONDS=%e" npm run still -- ThreeSmoke 30
           mkdir -p out/ci-artifacts
-          cp out/review/ThreeSmoke/latest/00030.png out/ci-artifacts/ThreeSmoke-frame-30.png
+          frame=$(find out/review/ThreeSmoke -type f -name "*.png" -print -quit)
+          test -n "$frame"
+          cp "$frame" out/ci-artifacts/ThreeSmoke-frame-30.png
       - name: Render ThreeSmoke MP4 (swangle, concurrency 1)
         run: |
           /usr/bin/time -f "THREESMOKE_MP4_SECONDS=%e" npx remotion render src/index.ts ThreeSmoke out/ci-artifacts/ThreeSmoke.mp4 --gl=swangle --concurrency=1
