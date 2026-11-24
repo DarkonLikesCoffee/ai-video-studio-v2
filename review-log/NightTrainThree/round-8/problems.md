@@ -1,6 +1,6 @@
 # NightTrainThree — round 8 review
 
-Frame inspection pending.
+Frame inspection pending. Confirm the widened low shot and final crane/pan across the ten requested sample frames.
 
 ## Three highest-impact checks
 1. Verify the locomotive nose points +X and travels rightward on screen in all three shots; it must stay fully in frame.
