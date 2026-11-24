@@ -1,0 +1,581 @@
+{
+  "schemaVersion": 1,
+  "id": "golden-hour-dog-walk",
+  "title": "Golden Hour — A Walk With a Friend",
+  "description": "A 20-second original illustrated short about the small joy of taking a dog for a walk. Four painterly-vector environments, camera drift, atmospheric particles and scene transitions.",
+  "composition": {
+    "id": "ProjectVideo",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30
+  },
+  "scenes": [
+    {
+      "id": "morning",
+      "type": "title",
+      "durationInFrames": 150,
+      "eyebrow": "A SMALL ADVENTURE / 01",
+      "title": "THE CITY WAKES",
+      "body": "A familiar route. A new morning.",
+      "backgroundColor": "#9bc4df",
+      "accentColor": "#f2c78e",
+      "mediaLayers": [
+        {
+          "id": "illustration",
+          "type": "image",
+          "src": "assets/01-morning.svg",
+          "x": 0,
+          "y": 0,
+          "width": 100,
+          "height": 100,
+          "fit": "cover",
+          "zIndex": 0,
+          "animations": {
+            "scaleX": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 1.08,
+                  "easing": "ease-out"
+                },
+                {
+                  "frame": 149,
+                  "value": 1
+                }
+              ]
+            },
+            "scaleY": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 1.08,
+                  "easing": "ease-out"
+                },
+                {
+                  "frame": 149,
+                  "value": 1
+                }
+              ]
+            },
+            "x": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 1
+                },
+                {
+                  "frame": 149,
+                  "value": -1
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "cameraMotion": {
+        "zoom": 1.08,
+        "panX": -1,
+        "panY": 0,
+        "easing": "ease-in-out"
+      },
+      "titleAnimation": {
+        "opacity": {
+          "keyframes": [
+            {
+              "frame": 0,
+              "value": 0
+            },
+            {
+              "frame": 24,
+              "value": 1
+            },
+            {
+              "frame": 125,
+              "value": 1
+            },
+            {
+              "frame": 149,
+              "value": 0
+            }
+          ]
+        },
+        "y": {
+          "keyframes": [
+            {
+              "frame": 0,
+              "value": 14
+            },
+            {
+              "frame": 30,
+              "value": 0,
+              "easing": "ease-out"
+            }
+          ]
+        }
+      },
+      "particleSystems": [
+        {
+          "id": "sun-dust",
+          "count": 24,
+          "seed": 42,
+          "originX": 50,
+          "originY": 45,
+          "spreadX": 90,
+          "spreadY": 60,
+          "lifeInFrames": 150,
+          "angleMinDeg": 220,
+          "angleMaxDeg": 320,
+          "speedMin": 0.2,
+          "speedMax": 0.8,
+          "sizeMin": 2,
+          "sizeMax": 4,
+          "opacity": 0.3,
+          "colors": [
+            "#fff2d2",
+            "#ffe0a8"
+          ],
+          "shape": "circle"
+        }
+      ]
+    },
+    {
+      "id": "riverside",
+      "type": "content",
+      "durationInFrames": 150,
+      "transitionIn": {
+        "type": "fade",
+        "durationInFrames": 18,
+        "easing": "ease-in-out"
+      },
+      "eyebrow": "FOLLOW THE WATER / 02",
+      "title": "TAKE THE LONG WAY",
+      "body": "He slows down. The world does too.",
+      "backgroundColor": "#a8d8e7",
+      "accentColor": "#f2c78e",
+      "mediaLayers": [
+        {
+          "id": "illustration",
+          "type": "image",
+          "src": "assets/02-riverside.svg",
+          "x": 0,
+          "y": 0,
+          "width": 100,
+          "height": 100,
+          "fit": "cover",
+          "zIndex": 0,
+          "animations": {
+            "scaleX": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 1.05
+                },
+                {
+                  "frame": 149,
+                  "value": 1
+                }
+              ]
+            },
+            "scaleY": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 1.05
+                },
+                {
+                  "frame": 149,
+                  "value": 1
+                }
+              ]
+            },
+            "x": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": -2
+                },
+                {
+                  "frame": 149,
+                  "value": 2
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "cameraMotion": {
+        "zoom": 1.06,
+        "panX": 1.5,
+        "panY": 0,
+        "easing": "ease-in-out"
+      },
+      "titleAnimation": {
+        "opacity": {
+          "keyframes": [
+            {
+              "frame": 0,
+              "value": 0
+            },
+            {
+              "frame": 20,
+              "value": 1
+            },
+            {
+              "frame": 120,
+              "value": 1
+            },
+            {
+              "frame": 149,
+              "value": 0
+            }
+          ]
+        },
+        "x": {
+          "keyframes": [
+            {
+              "frame": 0,
+              "value": -8
+            },
+            {
+              "frame": 22,
+              "value": 0,
+              "easing": "ease-out"
+            }
+          ]
+        }
+      },
+      "particleSystems": [
+        {
+          "id": "river-glints",
+          "count": 20,
+          "seed": 108,
+          "originX": 45,
+          "originY": 65,
+          "spreadX": 70,
+          "spreadY": 30,
+          "lifeInFrames": 110,
+          "angleMinDeg": 0,
+          "angleMaxDeg": 180,
+          "speedMin": 0.3,
+          "speedMax": 1,
+          "sizeMin": 1,
+          "sizeMax": 3,
+          "opacity": 0.25,
+          "colors": [
+            "#e6f5f3",
+            "#d7e8de"
+          ],
+          "shape": "circle"
+        }
+      ]
+    },
+    {
+      "id": "park",
+      "type": "content",
+      "durationInFrames": 150,
+      "transitionIn": {
+        "type": "fade",
+        "durationInFrames": 16,
+        "easing": "ease-in-out"
+      },
+      "eyebrow": "A PAUSE, NOT A PLAN / 03",
+      "title": "LET THEM SNIFF",
+      "body": "A thousand stories in one patch of grass.",
+      "backgroundColor": "#d8c8d9",
+      "accentColor": "#f4d3a6",
+      "mediaLayers": [
+        {
+          "id": "illustration",
+          "type": "image",
+          "src": "assets/03-park-detail.svg",
+          "x": 0,
+          "y": 0,
+          "width": 100,
+          "height": 100,
+          "fit": "cover",
+          "zIndex": 0,
+          "animations": {
+            "scaleX": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 1.12,
+                  "easing": "ease-out"
+                },
+                {
+                  "frame": 149,
+                  "value": 1
+                }
+              ]
+            },
+            "scaleY": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 1.12,
+                  "easing": "ease-out"
+                },
+                {
+                  "frame": 149,
+                  "value": 1
+                }
+              ]
+            },
+            "y": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 2
+                },
+                {
+                  "frame": 149,
+                  "value": -1
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "cameraMotion": {
+        "zoom": 1.1,
+        "panX": -1,
+        "panY": 1,
+        "easing": "ease-in-out"
+      },
+      "titleAnimation": {
+        "opacity": {
+          "keyframes": [
+            {
+              "frame": 0,
+              "value": 0
+            },
+            {
+              "frame": 20,
+              "value": 1
+            },
+            {
+              "frame": 120,
+              "value": 1
+            },
+            {
+              "frame": 149,
+              "value": 0
+            }
+          ]
+        },
+        "y": {
+          "keyframes": [
+            {
+              "frame": 0,
+              "value": 10
+            },
+            {
+              "frame": 24,
+              "value": 0,
+              "easing": "ease-out"
+            }
+          ]
+        }
+      },
+      "particleSystems": [
+        {
+          "id": "floating-seeds",
+          "count": 18,
+          "seed": 22,
+          "originX": 50,
+          "originY": 42,
+          "spreadX": 75,
+          "spreadY": 55,
+          "lifeInFrames": 120,
+          "angleMinDeg": 250,
+          "angleMaxDeg": 330,
+          "speedMin": 0.2,
+          "speedMax": 0.7,
+          "sizeMin": 2,
+          "sizeMax": 5,
+          "opacity": 0.28,
+          "colors": [
+            "#f8e6c5",
+            "#e8d6a8"
+          ],
+          "shape": "circle"
+        }
+      ]
+    },
+    {
+      "id": "sunset",
+      "type": "outro",
+      "durationInFrames": 150,
+      "transitionIn": {
+        "type": "fade",
+        "durationInFrames": 20,
+        "easing": "ease-in-out"
+      },
+      "eyebrow": "THE BEST PART / 04",
+      "title": "HOME, TOGETHER",
+      "body": "Some days are made of moments like this.",
+      "backgroundColor": "#6f8fae",
+      "accentColor": "#f5d7a1",
+      "mediaLayers": [
+        {
+          "id": "illustration",
+          "type": "image",
+          "src": "assets/04-sunset-home.svg",
+          "x": 0,
+          "y": 0,
+          "width": 100,
+          "height": 100,
+          "fit": "cover",
+          "zIndex": 0,
+          "animations": {
+            "scaleX": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 1.07
+                },
+                {
+                  "frame": 149,
+                  "value": 1
+                }
+              ]
+            },
+            "scaleY": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 1.07
+                },
+                {
+                  "frame": 149,
+                  "value": 1
+                }
+              ]
+            },
+            "x": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 1.5
+                },
+                {
+                  "frame": 149,
+                  "value": -1.5
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "cameraMotion": {
+        "zoom": 1.07,
+        "panX": 0,
+        "panY": -1,
+        "easing": "ease-in-out"
+      },
+      "titleAnimation": {
+        "opacity": {
+          "keyframes": [
+            {
+              "frame": 0,
+              "value": 0
+            },
+            {
+              "frame": 25,
+              "value": 1
+            },
+            {
+              "frame": 125,
+              "value": 1
+            }
+          ]
+        },
+        "y": {
+          "keyframes": [
+            {
+              "frame": 0,
+              "value": 8
+            },
+            {
+              "frame": 26,
+              "value": 0,
+              "easing": "ease-out"
+            }
+          ]
+        }
+      },
+      "particleSystems": [
+        {
+          "id": "evening-dust",
+          "count": 22,
+          "seed": 77,
+          "originX": 55,
+          "originY": 45,
+          "spreadX": 100,
+          "spreadY": 65,
+          "lifeInFrames": 150,
+          "angleMinDeg": 230,
+          "angleMaxDeg": 310,
+          "speedMin": 0.2,
+          "speedMax": 0.6,
+          "sizeMin": 2,
+          "sizeMax": 4,
+          "opacity": 0.28,
+          "colors": [
+            "#fff0ca",
+            "#f6d4a1"
+          ],
+          "shape": "circle"
+        }
+      ]
+    }
+  ],
+  "output": {
+    "format": "mp4",
+    "codec": "h264"
+  },
+  "audioTracks": [
+    {
+      "id": "golden-hour-score",
+      "role": "music",
+      "src": "assets/audio/score.wav",
+      "startInFrames": 0,
+      "durationInFrames": 600,
+      "volume": 0.42,
+      "loop": true,
+      "fadeInFrames": 36,
+      "fadeOutFrames": 45,
+      "preservePitch": true
+    },
+    {
+      "id": "riverside-whoosh",
+      "role": "sfx",
+      "src": "assets/audio/transition-whoosh.wav",
+      "startInFrames": 142,
+      "durationInFrames": 40,
+      "volume": 0.22,
+      "fadeInFrames": 4,
+      "fadeOutFrames": 10
+    },
+    {
+      "id": "park-whoosh",
+      "role": "sfx",
+      "src": "assets/audio/transition-whoosh.wav",
+      "startInFrames": 292,
+      "durationInFrames": 40,
+      "volume": 0.2,
+      "fadeInFrames": 4,
+      "fadeOutFrames": 10
+    },
+    {
+      "id": "sunset-whoosh",
+      "role": "sfx",
+      "src": "assets/audio/transition-whoosh.wav",
+      "startInFrames": 442,
+      "durationInFrames": 40,
+      "volume": 0.18,
+      "fadeInFrames": 4,
+      "fadeOutFrames": 10
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "language": "es",
+  "voice": "ef_dora",
+  "speed": 1.0,
+  "speaker": "NARRADOR",
+  "text": "¿Sabías que la luz del Sol contiene todos los colores? Al entrar en la atmósfera, las moléculas del aire dispersan la luz azul mucho más que la roja. Esa luz llega a tus ojos desde todas las direcciones. Por eso, durante el día, el cielo nos parece azul.",
+  "subtitle": {
+    "maxWords": 5,
+    "maxPauseSeconds": 0.42,
+    "maxDurationSeconds": 2.8,
+    "position": "bottom",
+    "fontSize": 42,
+    "fontWeight": 700,
+    "color": "#FFFFFF",
+    "activeWordColor": "#F5C66B",
+    "backgroundOpacity": 0.34
+  }
+}

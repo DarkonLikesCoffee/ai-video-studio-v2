@@ -1,0 +1,243 @@
+{
+  "schemaVersion": 1,
+  "id": "tiny-astronaut-crystal-cave",
+  "title": "The Last Light",
+  "delivery": {
+    "durationSeconds": 20,
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "format": "mp4",
+    "platform": "web",
+    "language": "none"
+  },
+  "creativeDirection": {
+    "objective": "Tell a compact, wordless science-fiction discovery story: a tiny astronaut lands on a rust-coloured alien world, enters an ancient cavern and awakens a towering cyan crystal.",
+    "audience": "General audience; viewers of short, atmospheric science-fiction animation.",
+    "concept": "A small explorer crosses a dim alien plain, follows an unfamiliar glow into a dark rock-cut cave, and discovers a monumental crystal whose light gradually awakens the chamber.",
+    "emotionalArc": [
+      "Isolation",
+      "Curiosity",
+      "Anticipation",
+      "Wonder"
+    ],
+    "visualSystem": {
+      "palette": [
+        "#170e26",
+        "#392339",
+        "#352b3b",
+        "#48c6e0",
+        "#c6ffff"
+      ],
+      "typography": "None. No titles, labels, captions or subtitles.",
+      "composition": "A tiny explorer is framed against a wide alien landscape, then against the much larger cavern and crystal to emphasize scale.",
+      "lighting": "Warm, subdued exterior light gives way to deep-violet cavern shadows and an increasingly bright cyan crystal core.",
+      "textureAndMaterials": "Stylized low-poly rock, dusty terrain, pale pressure-suit fabric, metallic lander panels and faceted translucent crystal geometry."
+    },
+    "motionLanguage": "A controlled pod descent, astronaut locomotion and body bob, a gradual camera push toward the cave, a reveal arc around the crystal, drifting particles and a pulsing emissive core. A brief settled pause after touchdown is intentional; constant motion is not required.",
+    "soundDirection": "Intentional silence. No narration, music, sound effects or audio stream.",
+    "assumptions": [
+      "The astronaut, lander, alien landscape, cave and crystal are original fictional procedural 3D designs.",
+      "The story is communicated entirely through visuals without dialogue or on-screen text.",
+      "A short hold after landing gives the viewer time to register the arrival before the explorer moves."
+    ],
+    "rightsAndFactualConstraints": [
+      "Use only original procedural Three.js geometry and materials in this composition; no external visual assets are required.",
+      "Do not add third-party logos, text or real-world scientific claims."
+    ]
+  },
+  "renderStrategy": {
+    "renderer": "custom-remotion",
+    "compositionId": "TinyAstronautCrystalCave",
+    "availability": "registered",
+    "rationale": "The story depends on an original spatial environment, procedural character, open-front cave, emissive crystal and a continuous 3D camera path; no existing composition provides this specific visual sequence.",
+    "requiredCapabilities": [
+      "Procedural Three.js terrain, landing pod, astronaut, cave and faceted crystal geometry",
+      "A continuous camera path connecting exterior exploration and interior discovery",
+      "Frame-driven astronaut phase changes with no overlapping character instances",
+      "Animated crystal emission, local lighting and drifting cave particles",
+      "A silent 20-second 1920x1080 composition with no editorial overlays"
+    ],
+    "fallback": "Do not substitute an unrelated template. Correct and render the dedicated TinyAstronautCrystalCave composition; if its visual or camera requirements cannot be met, report the blocker."
+  },
+  "shots": [
+    {
+      "id": "arrival",
+      "startSeconds": 0,
+      "durationSeconds": 3.5,
+      "purpose": "Establish the alien world and show the lander touching down before the explorer appears.",
+      "narrativeBeat": "hook",
+      "visual": "A compact pale lander descends onto a rust-coloured plain beneath a huge muted planet and two distant moons; low-poly rock formations frame the horizon.",
+      "visualMethod": "Procedural Three.js environment and landing-pod animation.",
+      "action": "The lander descends, aligns and settles onto its supports. The astronaut is not introduced before the pod is on the ground.",
+      "visualProgression": "Start: lander suspended above the plain. Development: the pod descends as dust and small motes drift. End: the pod rests on its supports and the frame holds briefly.",
+      "framing": "Wide, slightly elevated establishing view with the landing pod left of centre and the planet high in the background.",
+      "cameraMovement": "A slow descending camera drift that settles with the pod.",
+      "transition": "Hold the landed pod briefly, then reveal the explorer below its rim.",
+      "onScreenText": "",
+      "audio": "Intentional silence; no audio stream is expected.",
+      "assets": [],
+      "engineApproach": "custom-remotion",
+      "implementationNotes": "PlanetScene; landing descent completes before the first astronaut phase begins."
+    },
+    {
+      "id": "exploration",
+      "startSeconds": 3.5,
+      "durationSeconds": 5,
+      "purpose": "Make the astronaut's scale and movement readable against the alien terrain.",
+      "narrativeBeat": "development",
+      "visual": "The ivory-suited astronaut leaves the lander and crosses the foreground plain; the distant planet and jagged formations keep the explorer visibly small.",
+      "visualMethod": "Procedural Three.js character animation and terrain.",
+      "action": "The astronaut walks away from the settled lander with alternating leg movement and a restrained body bob.",
+      "visualProgression": "Start: explorer stands near the landed pod. Development: the character moves across the plain as the camera tracks. End: the explorer turns toward the dark cave opening.",
+      "framing": "Medium-wide tracking view, with the astronaut in the lower third and the pod receding behind.",
+      "cameraMovement": "Lateral camera tracking with a gradual push toward the cave direction.",
+      "transition": "Match the explorer's forward movement into a lower, cave-facing approach.",
+      "onScreenText": "",
+      "audio": "Intentional silence; no audio stream is expected.",
+      "assets": [],
+      "engineApproach": "custom-remotion",
+      "implementationNotes": "PlanetScene; the planet astronaut layer ends at frame 269 before the cave-approach layer begins."
+    },
+    {
+      "id": "threshold",
+      "startSeconds": 8.5,
+      "durationSeconds": 4,
+      "purpose": "Move the story from the open alien plain into the cavern.",
+      "narrativeBeat": "escalation",
+      "visual": "The explorer approaches a broad, open-front cavern cut into dark violet rock; the exterior warmth falls away and the first cyan reflections appear inside.",
+      "visualMethod": "Procedural Three.js cave environment and camera transition.",
+      "action": "The camera crosses the cave threshold while the astronaut advances toward the interior.",
+      "visualProgression": "Start: the astronaut stands at the cave mouth. Development: rock shoulders and the cave ceiling frame the view as the scene darkens. End: the open cavern interior and distant crystal shards become visible.",
+      "framing": "Low over-shoulder view that keeps the astronaut small against the cave opening.",
+      "cameraMovement": "A continuous forward push and slight arc into the cavern.",
+      "transition": "Let the exterior scene fall away into the open-front cave as the camera crosses the threshold.",
+      "onScreenText": "",
+      "audio": "Intentional silence; no audio stream is expected.",
+      "assets": [],
+      "engineApproach": "custom-remotion",
+      "implementationNotes": "The cave scene begins at frame 300; the cave-approach astronaut layer is mutually exclusive with the planetary layer."
+    },
+    {
+      "id": "crystal-discovery",
+      "startSeconds": 12.5,
+      "durationSeconds": 4,
+      "purpose": "Reveal the scale and shape of the central crystal.",
+      "narrativeBeat": "reveal",
+      "visual": "The cavern opens around a monumental faceted cyan crystal, with smaller embedded shards, deep rock silhouettes and drifting motes.",
+      "visualMethod": "Procedural Three.js cavern, crystal geometry and lighting.",
+      "action": "The astronaut approaches the crystal while the camera arcs inward and holds the explorer against its scale.",
+      "visualProgression": "Start: the cavern is dark and the crystal is dim. Development: the crystal becomes brighter and nearby facets catch cyan reflections. End: the astronaut stands beside the central crystal.",
+      "framing": "Deep wide reveal with the crystal dominating the centre and the astronaut small at its base.",
+      "cameraMovement": "A measured inward arc that brings the central crystal into a clear hero position.",
+      "transition": "Move closer until the crystal dominates the frame and its internal light begins to pulse.",
+      "onScreenText": "",
+      "audio": "Intentional silence; no audio stream is expected.",
+      "assets": [],
+      "engineApproach": "custom-remotion",
+      "implementationNotes": "Cave and Crystal; the approach astronaut hands off once to the crystal-side placement at frame 430."
+    },
+    {
+      "id": "crystal-awakening",
+      "startSeconds": 16.5,
+      "durationSeconds": 3.5,
+      "purpose": "Deliver the luminous payoff and resolve the discovery.",
+      "narrativeBeat": "payoff",
+      "visual": "The large cyan crystal pulses to full brightness; its glow spills over the astronaut, cave walls, smaller shards and floating motes.",
+      "visualMethod": "Procedural Three.js emissive animation and local light changes.",
+      "action": "The crystal core brightens, the surrounding particles rise and the astronaut pauses to face the awakened light.",
+      "visualProgression": "Start: the core glows softly. Development: the internal pulse intensifies and cyan illumination spreads across the cave. End: the explorer and crystal settle into a final luminous composition.",
+      "framing": "Medium-wide hero composition with crystal centred and astronaut visible at its lower edge.",
+      "cameraMovement": "A restrained pull-back that reveals more of the illuminated cavern, then holds the final image.",
+      "transition": "Peak the crystal pulse, ease the camera back and hold the final image.",
+      "onScreenText": "",
+      "audio": "Intentional silence; no audio stream is expected.",
+      "assets": [],
+      "engineApproach": "custom-remotion",
+      "implementationNotes": "The crystal-awakening astronaut layer starts at frame 430; no earlier astronaut layer remains active."
+    }
+  ],
+  "acceptanceCriteria": [
+    "The render uses the dedicated registered TinyAstronautCrystalCave composition.",
+    "The astronaut is clearly recognizable as a small explorer and remains consistently designed across the exterior and cave.",
+    "Landing, exploration, cave threshold, crystal discovery and awakening are distinct visual story beats.",
+    "Only one astronaut instance is visible at a time; the handoffs at frames 90, 270 and 430 are mutually exclusive.",
+    "The crystal awakening visibly changes the cavern lighting and particle atmosphere.",
+    "No text, captions, logos or dialogue appear.",
+    "The short is intentionally silent; a missing audio stream is acceptable and must not invalidate the render."
+  ],
+  "acceptanceCoverage": [
+    {
+      "criterion": "The render uses the dedicated registered TinyAstronautCrystalCave composition.",
+      "shotIds": [
+        "arrival",
+        "exploration",
+        "threshold",
+        "crystal-discovery",
+        "crystal-awakening"
+      ],
+      "rationale": "The composition ID is fixed at plan level and selected through the registered custom Remotion entry."
+    },
+    {
+      "criterion": "The astronaut is clearly recognizable as a small explorer and remains consistently designed across the exterior and cave.",
+      "shotIds": [
+        "exploration",
+        "threshold",
+        "crystal-discovery",
+        "crystal-awakening"
+      ],
+      "rationale": "The same procedural astronaut geometry and visual language appear at varied scale in the exterior and cavern."
+    },
+    {
+      "criterion": "Landing, exploration, cave threshold, crystal discovery and awakening are distinct visual story beats.",
+      "shotIds": [
+        "arrival",
+        "exploration",
+        "threshold",
+        "crystal-discovery",
+        "crystal-awakening"
+      ],
+      "rationale": "The five sequential shots map one-to-one to the five story beats in the creative brief."
+    },
+    {
+      "criterion": "Only one astronaut instance is visible at a time; the handoffs at frames 90, 270 and 430 are mutually exclusive.",
+      "shotIds": [
+        "exploration",
+        "threshold",
+        "crystal-discovery",
+        "crystal-awakening"
+      ],
+      "rationale": "The frame-phase helper and regression test enforce a single active astronaut layer across every composition frame."
+    },
+    {
+      "criterion": "The crystal awakening visibly changes the cavern lighting and particle atmosphere.",
+      "shotIds": [
+        "crystal-discovery",
+        "crystal-awakening"
+      ],
+      "rationale": "The central crystal's emissive pulse and local lights intensify as the final shot progresses."
+    },
+    {
+      "criterion": "No text, captions, logos or dialogue appear.",
+      "shotIds": [
+        "arrival",
+        "exploration",
+        "threshold",
+        "crystal-discovery",
+        "crystal-awakening"
+      ],
+      "rationale": "The composition contains only procedural 3D visuals and has no title or caption layer."
+    },
+    {
+      "criterion": "The short is intentionally silent; a missing audio stream is acceptable and must not invalidate the render.",
+      "shotIds": [
+        "arrival",
+        "exploration",
+        "threshold",
+        "crystal-discovery",
+        "crystal-awakening"
+      ],
+      "rationale": "The creative brief, sound direction and every shot's audio cue explicitly specify silence."
+    }
+  ]
+}

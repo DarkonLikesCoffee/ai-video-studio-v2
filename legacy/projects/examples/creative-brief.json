@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": "cinematic-launch-brief",
+  "title": "Cinematic Product Launch",
+  "sourcePrompt": "Create a 20-second cinematic launch film for a fictional premium wireless audio product. Make it tactile, restrained and memorable, without inventing product specs.",
+  "objective": "Build desire by revealing the product's tactile design and presence rather than listing features.",
+  "audience": "Design-conscious consumers who respond to premium product craft.",
+  "desiredResponse": "Remember the product silhouette and associate it with thoughtful craftsmanship.",
+  "delivery": {
+    "durationSeconds": 20,
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "format": "mp4",
+    "platform": "web",
+    "language": "en"
+  },
+  "creativeThesis": "Reveal the product through material, sound and controlled movement; each shot uncovers one layer of identity until a confident hero frame.",
+  "emotionalArc": [
+    "Curiosity",
+    "Tactile discovery",
+    "Confidence"
+  ],
+  "visualLanguage": {
+    "palette": [
+      "near-black graphite",
+      "cool silver",
+      "muted teal"
+    ],
+    "typography": "Editorial sans-serif; short all-caps copy only when needed.",
+    "composition": "Asymmetric macro crops evolving into a balanced hero composition.",
+    "lighting": "Soft directional key with narrow edge highlights and rich but readable shadows.",
+    "texture": "Brushed metal, satin polymer and subtle grain."
+  },
+  "storytellingStrategy": "Open on a concealed material detail; progressively reveal silhouette, one meaningful construction detail and then the complete product. Use visual progression rather than feature cards.",
+  "motionLanguage": "Slow macro push, one lateral move, a restrained orbit and deliberate settling motion. Each move is motivated by a reveal.",
+  "soundIdentity": "Minimal electronic pulse with tactile foley, quiet transitions and a clean final tail. No generic whooshes.",
+  "productionMethodStrategy": "Use a custom 3D product scene for macro and hero shots; use typography only to punctuate the reveal. Product is fictional and can be modeled with simple geometry. Avoid unsupported generative-video assumptions.",
+  "constraints": [
+    "No fabricated specifications, endorsements or testimonials.",
+    "Use original assets or assets with verified reuse rights.",
+    "Keep copy short and within title-safe areas."
+  ],
+  "assumptions": [
+    "The product is fictional and no reference images are supplied.",
+    "The 20-second duration is fixed."
+  ],
+  "acceptanceCriteria": [
+    "The silhouette is fully revealed by the midpoint.",
+    "At least three visibly distinct shot scales or compositions are used.",
+    "Every shot has a visible action or material change.",
+    "No unsupported product claims appear.",
+    "The final hero shot resolves the opening visual motif."
+  ]
+}

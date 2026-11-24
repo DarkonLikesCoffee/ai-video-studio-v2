@@ -1,0 +1,271 @@
+{
+  "schemaVersion": 1,
+  "id": "stormlight-keeper",
+  "title": "The Stormlight Keeper",
+  "delivery": {
+    "durationSeconds": 24,
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "format": "mp4",
+    "platform": "web",
+    "language": "none",
+    "audio": "Original 24-second atmospheric score and storm ambience; no narration."
+  },
+  "creativeDirection": {
+    "objective": "Tell a wordless miniature rescue story: a small maintenance robot restores a lighthouse beacon during a violent storm.",
+    "audience": "General audience; atmospheric short-film viewers.",
+    "concept": "A tiny brass-and-ceramic robot crosses a storm-lashed headland, repairs the lighthouse mechanism, and sends a sweeping beam back across the dark sea.",
+    "emotionalArc": [
+      "Isolation",
+      "Determination",
+      "Tension",
+      "Warmth and relief"
+    ],
+    "visualSystem": {
+      "palette": [
+        "#071321",
+        "#183247",
+        "#89aeb7",
+        "#e1ad63",
+        "#fff0c7"
+      ],
+      "typography": "None; no text or labels.",
+      "composition": "Painterly 2.5D layered compositions with strong silhouettes, deep foreground framing and dramatic horizon lines.",
+      "lighting": "Cold blue lightning and moonlit rim light; practical amber work lamp; final warm beacon volumetrics.",
+      "textureAndMaterials": "Weathered stone, wet iron, aged brass, chipped cream enamel, salt spray and rough ocean foam."
+    },
+    "motionLanguage": "Wind-driven rain and sea spray, robot footfalls and arm articulation, pulsing work lamp, spinning optics, mechanical repair action, lighthouse beam sweep and deliberate camera trucking/dolly moves.",
+    "soundDirection": "Original low-string atmospheric score, storm wind, surf, spaced thunder and delicate metal repair accents. No narration.",
+    "assumptions": [
+      "The robot and lighthouse are fictional original designs.",
+      "The entire story is told visually; no text and no spoken dialogue."
+    ],
+    "rightsAndFactualConstraints": [
+      "Original procedural/vector/3D assets and original synthesized sound only."
+    ]
+  },
+  "shots": [
+    {
+      "id": "storm-headland",
+      "startSeconds": 0,
+      "durationSeconds": 4,
+      "purpose": "Establish the dangerous coastline and reveal the small scale of the robot.",
+      "narrativeBeat": "hook",
+      "visual": "A sweeping ultra-wide coastal view: a battered lighthouse stands on a jagged headland above slate-blue waves; a tiny robot trudges into frame through rain.",
+      "framing": "Extreme wide aerial at a high oblique angle; lighthouse on the right third, robot a small warm point in lower-left foreground.",
+      "cameraMovement": "Descending crane and slow lateral drift toward the cliff.",
+      "onScreenText": "",
+      "transition": "Fade up through rain haze.",
+      "audio": "Wind and distant surf swell under a low original score.",
+      "assets": [
+        "lighthouse-main",
+        "robot-main",
+        "storm-sea"
+      ],
+      "engineApproach": "custom-remotion",
+      "visualMethod": "Procedural 3D environment",
+      "action": "Waves surge and break against rocks while the robot climbs the slick path toward the lighthouse.",
+      "visualProgression": "Start: near-black storm and lightning silhouette. Development: coast and tower emerge; robot advances. End: camera aligns toward the tower door."
+    },
+    {
+      "id": "door-and-machine",
+      "startSeconds": 4,
+      "durationSeconds": 4,
+      "purpose": "Make the robot's scale and mission tangible.",
+      "narrativeBeat": "setup",
+      "visual": "Low close tracking shot at the lighthouse base as the robot reaches a warped iron door; its amber lamp glints across rain-beaded rivets.",
+      "framing": "Low medium close-up, robot foreground left, immense curved stone wall rising behind.",
+      "cameraMovement": "Ground-level tracking push that tilts up with the robot looking toward the dark lantern room.",
+      "onScreenText": "",
+      "transition": "Match cut from the tower silhouette to the door's circular rivet.",
+      "audio": "Small metallic footsteps, rain on iron, one heavy thunder roll.",
+      "assets": [
+        "robot-main",
+        "lighthouse-door"
+      ],
+      "engineApproach": "custom-remotion",
+      "visualMethod": "2.5D procedural close-up",
+      "action": "Robot braces against repeated gusts, shifts stance, reaches for the handle and forces the heavy door open; warm light spills into the rain.",
+      "visualProgression": "Start: robot and door already move in the gusts. Development: robot reaches and the door swings open. End: robot slips inside, amber lamp visible."
+    },
+    {
+      "id": "climb-and-discover",
+      "startSeconds": 8,
+      "durationSeconds": 4,
+      "purpose": "Reveal the broken beacon mechanism and raise the stakes.",
+      "narrativeBeat": "development",
+      "visual": "Inside a dark spiral stairwell, the robot climbs past wet stone and broken steps; camera looks down through the central void as it reaches the shattered lantern mechanism.",
+      "framing": "Top-down vertical composition with circular stair geometry and robot moving diagonally through frame.",
+      "cameraMovement": "Slow rotating overhead descent following the spiral.",
+      "onScreenText": "",
+      "transition": "Doorway darkness becomes the stairwell's central void.",
+      "audio": "Interior rain-muted wind, rhythmic gear ticks, footfalls on iron steps.",
+      "assets": [
+        "robot-main",
+        "spiral-stair",
+        "beacon-mechanism"
+      ],
+      "engineApproach": "custom-remotion",
+      "visualMethod": "Procedural 3D set and character animation",
+      "action": "Robot climbs, reaches the lantern room and discovers a snapped drive belt and a dark Fresnel lens.",
+      "visualProgression": "Start: descending view into a deep spiral. Development: robot climbs into the lantern chamber. End: broken gears fill the frame."
+    },
+    {
+      "id": "repair-macro",
+      "startSeconds": 12,
+      "durationSeconds": 4,
+      "purpose": "Show a specific, legible repair rather than a generic action pose.",
+      "narrativeBeat": "escalation",
+      "visual": "Extreme macro of the robot's articulated hands: it aligns a replacement brass coupling, threads a pin through the drive assembly and tightens it as lightning flashes through rain-streaked glass.",
+      "framing": "Macro diagonal crop with coupling and claws dominating; shallow depth of field, lightning-window bokeh behind.",
+      "cameraMovement": "Precise lateral slider with a tiny rack-focus from claw tip to locking pin.",
+      "onScreenText": "",
+      "transition": "Hard cut on first metal contact.",
+      "audio": "Metal click, tiny ratchet sequence, thunder crack; score builds.",
+      "assets": [
+        "robot-hands",
+        "beacon-mechanism"
+      ],
+      "engineApproach": "custom-remotion",
+      "visualMethod": "3D mechanical macro animation",
+      "action": "The robot inserts the coupling, locks the pin and turns the gear by hand; the lens begins to rotate.",
+      "visualProgression": "Start: broken coupling visibly separated. Development: pin slides into aligned holes and locks. End: gears engage and lens starts turning, catching the first amber glint."
+    },
+    {
+      "id": "beacon-ignition",
+      "startSeconds": 16,
+      "durationSeconds": 4,
+      "purpose": "Deliver the visual transformation and emotional payoff.",
+      "narrativeBeat": "reveal",
+      "visual": "From inside the lantern room, the Fresnel lens catches fire with warm light; its rotating beam slices through rain and fog as the robot shields its optics.",
+      "framing": "Wide interior hero shot with lens dominating the center, robot silhouette in right foreground, glass panes and storm beyond.",
+      "cameraMovement": "Dolly orbit around lens as the beam completes its first sweep.",
+      "onScreenText": "",
+      "transition": "The amber glint from the macro match-cuts into the illuminated lens.",
+      "audio": "Mechanical spin-up, rising tonal swell, beacon ignition chime and storm still raging.",
+      "assets": [
+        "lighthouse-lens",
+        "robot-main"
+      ],
+      "engineApproach": "custom-remotion",
+      "visualMethod": "Volumetric 3D lighting and environment",
+      "action": "The lens accelerates from a stutter to a steady rotation; the beam sweeps across the storm.",
+      "visualProgression": "Start: lens dark and still. Development: filament ignites and light refracts through glass prisms. End: beam completes a full sweep into the night."
+    },
+    {
+      "id": "coast-relief",
+      "startSeconds": 20,
+      "durationSeconds": 4,
+      "purpose": "Show the repair's consequence and end on a memorable image.",
+      "narrativeBeat": "payoff",
+      "visual": "Exterior dawn-blue wide shot from out over the water: the lighthouse beam sweeps across the churning sea, revealing a small fishing vessel turning toward the safe harbor; the robot is visible as a tiny silhouette in the lantern room.",
+      "framing": "Very wide water-level composition with beam diagonal across frame; tower on far right and ship centered low.",
+      "cameraMovement": "Slow pullback over waves as the beam passes camera and fades into mist.",
+      "onScreenText": "",
+      "transition": "Match cut from the rotating lens beam to its exterior sweep.",
+      "audio": "Storm softens slightly; score resolves with warm strings and lingering surf.",
+      "assets": [
+        "lighthouse-main",
+        "beacon-beam",
+        "distant-vessel"
+      ],
+      "engineApproach": "custom-remotion",
+      "visualMethod": "3D environment hero wide",
+      "action": "The beam rotates over the water and briefly illuminates the vessel as it turns toward harbor.",
+      "visualProgression": "Start: dark sea with beam just entering. Development: vessel appears under the sweep and changes course. End: lighthouse beacon holds steady while camera retreats."
+    }
+  ],
+  "assetManifestPath": "projects/stormlight-keeper/production/asset-manifest.json",
+  "acceptanceCriteria": [
+    "A new registered LighthouseRepairFilm composition is used and is not a modified prior composition.",
+    "The robot has a consistent, readable silhouette and visible articulated repair action.",
+    "The six shots differ in scale, camera placement and visual event; the sequence tells a complete wordless story.",
+    "Rain, surf, fog, lightning and lighthouse illumination create a coherent storm atmosphere without obscuring the subject.",
+    "The beacon visibly transitions from dark/broken to rotating and illuminating the sea.",
+    "No text, captions, logos or dialogue appear."
+  ],
+  "renderStrategy": {
+    "renderer": "custom-remotion",
+    "compositionId": "LighthouseRepairFilm",
+    "availability": "registered",
+    "rationale": "A dedicated custom Remotion composition using GPU-independent SVG vector rendering guarantees deterministic headless output on GitHub-hosted runners without WebGL/GPU support. The six-shot artwork uses layered SVG paths/shapes and animated transforms, with original robot, lighthouse, storm, mechanism, Fresnel and vessel designs.",
+    "requiredCapabilities": [
+      "Vector lighthouse, storm coastline, articulated maintenance robot, spiral stairwell, repair mechanism, rotating Fresnel lens and distant vessel",
+      "Six distinct scene framings with continuous character, water, rain, gear and beacon motion",
+      "Animated camera-style pan/zoom, atmospheric lightning and warm/cool cinematic lighting",
+      "Original synthesized score and storm ambience"
+    ],
+    "fallback": "The main renderer is SVG/Remotion and requires no GPU."
+  },
+  "acceptanceCoverage": [
+    {
+      "criterion": "A new registered LighthouseRepairFilm composition is used and is not a modified prior composition.",
+      "shotIds": [
+        "storm-headland",
+        "door-and-machine",
+        "climb-and-discover",
+        "repair-macro",
+        "beacon-ignition",
+        "coast-relief"
+      ],
+      "rationale": "The plan and six separate camera configurations support a unique registered composition."
+    },
+    {
+      "criterion": "The robot has a consistent, readable silhouette and visible articulated repair action.",
+      "shotIds": [
+        "storm-headland",
+        "door-and-machine",
+        "repair-macro",
+        "beacon-ignition"
+      ],
+      "rationale": "The same articulated robot character appears at varied scale and performs the repair through changing arm pose."
+    },
+    {
+      "criterion": "The six shots differ in scale, camera placement and visual event; the sequence tells a complete wordless story.",
+      "shotIds": [
+        "storm-headland",
+        "door-and-machine",
+        "climb-and-discover",
+        "repair-macro",
+        "beacon-ignition",
+        "coast-relief"
+      ],
+      "rationale": "Each shot uses a distinct angle, camera distance, subject placement and story event."
+    },
+    {
+      "criterion": "Rain, surf, fog, lightning and lighthouse illumination create a coherent storm atmosphere without obscuring the subject.",
+      "shotIds": [
+        "storm-headland",
+        "door-and-machine",
+        "climb-and-discover",
+        "repair-macro",
+        "beacon-ignition",
+        "coast-relief"
+      ],
+      "rationale": "Storm conditions are represented in the environment and lighting; the warm practical lamp provides subject separation."
+    },
+    {
+      "criterion": "The beacon visibly transitions from dark/broken to rotating and illuminating the sea.",
+      "shotIds": [
+        "repair-macro",
+        "beacon-ignition",
+        "coast-relief"
+      ],
+      "rationale": "The mechanism transitions from repair and gear rotation to an illuminated lens and an exterior sweeping beam."
+    },
+    {
+      "criterion": "No text, captions, logos or dialogue appear.",
+      "shotIds": [
+        "storm-headland",
+        "door-and-machine",
+        "climb-and-discover",
+        "repair-macro",
+        "beacon-ignition",
+        "coast-relief"
+      ],
+      "rationale": "No textual overlays or caption elements are authored in the composition."
+    }
+  ],
+  "audioManifestPath": "projects/stormlight-keeper/assets/audio"
+}

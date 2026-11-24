@@ -1,0 +1,769 @@
+{
+  "schemaVersion": 1,
+  "id": "narrated-sky-explainer",
+  "title": "Por qué el cielo es azul",
+  "description": "A short Spanish motion-graphics explainer used to verify generated narration, phrase captions, per-word highlighting, and voice-led audio mixing.",
+  "composition": {
+    "id": "ProjectVideo",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30
+  },
+  "scenes": [
+    {
+      "id": "sunlight",
+      "type": "title",
+      "durationInFrames": 120,
+      "backgroundColor": "#081321",
+      "accentColor": "#F5C66B",
+      "eyebrow": "LUZ / 01",
+      "title": "UNA LUZ. TODOS LOS COLORES.",
+      "body": "La luz del Sol parece blanca, pero contiene todo el espectro visible.",
+      "titleAnimation": {
+        "opacity": {
+          "keyframes": [
+            {
+              "frame": 0,
+              "value": 0
+            },
+            {
+              "frame": 18,
+              "value": 1,
+              "easing": "ease-out"
+            }
+          ]
+        },
+        "y": {
+          "keyframes": [
+            {
+              "frame": 0,
+              "value": 9,
+              "easing": "ease-out"
+            },
+            {
+              "frame": 24,
+              "value": 0
+            }
+          ]
+        }
+      },
+      "bodyAnimation": {
+        "opacity": {
+          "keyframes": [
+            {
+              "frame": 12,
+              "value": 0
+            },
+            {
+              "frame": 32,
+              "value": 1
+            }
+          ]
+        },
+        "x": {
+          "keyframes": [
+            {
+              "frame": 12,
+              "value": 4
+            },
+            {
+              "frame": 32,
+              "value": 0
+            }
+          ]
+        }
+      },
+      "graphics": [
+        {
+          "id": "sun-core",
+          "type": "ellipse",
+          "x": 72,
+          "y": 25,
+          "width": 15,
+          "height": 28,
+          "fill": "#F5C66B",
+          "opacity": 0.98,
+          "animations": {
+            "scaleX": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 0.82
+                },
+                {
+                  "frame": 89,
+                  "value": 1.08,
+                  "easing": "ease-in-out"
+                }
+              ]
+            },
+            "scaleY": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 0.82
+                },
+                {
+                  "frame": 89,
+                  "value": 1.08,
+                  "easing": "ease-in-out"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "sun-halo",
+          "type": "ellipse",
+          "x": 65,
+          "y": 12,
+          "width": 29,
+          "height": 54,
+          "stroke": "#F5C66B",
+          "strokeWidth": 1,
+          "opacity": 0.48,
+          "animations": {
+            "scaleX": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 0.95
+                },
+                {
+                  "frame": 89,
+                  "value": 1.18
+                }
+              ]
+            },
+            "scaleY": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 0.95
+                },
+                {
+                  "frame": 89,
+                  "value": 1.18
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "white-beam",
+          "type": "path",
+          "x": 49,
+          "y": 51,
+          "width": 42,
+          "height": 2,
+          "d": "M 0 50 L 100 50",
+          "stroke": "#FFF4DA",
+          "strokeWidth": 2,
+          "opacity": 0.8,
+          "animations": {
+            "x": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 15
+                },
+                {
+                  "frame": 89,
+                  "value": -2
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "particleSystems": [
+        {
+          "id": "sun-dust",
+          "count": 38,
+          "seed": 11,
+          "originX": 78,
+          "originY": 39,
+          "spreadX": 25,
+          "spreadY": 45,
+          "lifeInFrames": 80,
+          "angleMinDeg": 150,
+          "angleMaxDeg": 210,
+          "speedMin": 2,
+          "speedMax": 14,
+          "sizeMin": 2,
+          "sizeMax": 7,
+          "opacity": 0.62,
+          "colors": [
+            "#F5C66B",
+            "#FFF4DA",
+            "#E8A95B"
+          ],
+          "shape": "circle",
+          "blendMode": "screen"
+        }
+      ]
+    },
+    {
+      "id": "atmosphere",
+      "type": "content",
+      "durationInFrames": 120,
+      "backgroundColor": "#0A1A2A",
+      "accentColor": "#70C9E8",
+      "transitionIn": {
+        "type": "wipe-left",
+        "durationInFrames": 18,
+        "easing": "ease-in-out"
+      },
+      "eyebrow": "ATMÓSFERA / 02",
+      "title": "EL AIRE DESVÍA LA LUZ.",
+      "body": "Las moléculas de la atmósfera dispersan parte de la luz solar.",
+      "titleAnimation": {
+        "opacity": {
+          "keyframes": [
+            {
+              "frame": 0,
+              "value": 0
+            },
+            {
+              "frame": 20,
+              "value": 1
+            }
+          ]
+        },
+        "x": {
+          "keyframes": [
+            {
+              "frame": 0,
+              "value": 8
+            },
+            {
+              "frame": 30,
+              "value": 0,
+              "easing": "ease-out"
+            }
+          ]
+        }
+      },
+      "graphics": [
+        {
+          "id": "air-molecule-a",
+          "type": "ellipse",
+          "x": 70,
+          "y": 34,
+          "width": 7,
+          "height": 13,
+          "fill": "#70C9E8",
+          "animations": {
+            "x": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 74
+                },
+                {
+                  "frame": 89,
+                  "value": 66
+                }
+              ]
+            },
+            "y": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 31
+                },
+                {
+                  "frame": 89,
+                  "value": 37
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "air-molecule-b",
+          "type": "ellipse",
+          "x": 84,
+          "y": 65,
+          "width": 4,
+          "height": 8,
+          "fill": "#B8E7F2",
+          "opacity": 0.72,
+          "animations": {
+            "x": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 86
+                },
+                {
+                  "frame": 89,
+                  "value": 79
+                }
+              ]
+            },
+            "y": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 60
+                },
+                {
+                  "frame": 89,
+                  "value": 68
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "scatter-ring",
+          "type": "ellipse",
+          "x": 61,
+          "y": 22,
+          "width": 30,
+          "height": 54,
+          "stroke": "#70C9E8",
+          "strokeWidth": 1.5,
+          "opacity": 0.45,
+          "animations": {
+            "scaleX": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 0.65
+                },
+                {
+                  "frame": 89,
+                  "value": 1.15
+                }
+              ]
+            },
+            "scaleY": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 0.65
+                },
+                {
+                  "frame": 89,
+                  "value": 1.15
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "particleSystems": [
+        {
+          "id": "air-particles",
+          "count": 52,
+          "seed": 23,
+          "originX": 76,
+          "originY": 50,
+          "spreadX": 28,
+          "spreadY": 58,
+          "lifeInFrames": 72,
+          "speedMin": 1,
+          "speedMax": 10,
+          "sizeMin": 1,
+          "sizeMax": 4,
+          "opacity": 0.52,
+          "colors": [
+            "#70C9E8",
+            "#B8E7F2",
+            "#FFFFFF"
+          ],
+          "shape": "circle",
+          "blendMode": "screen"
+        }
+      ]
+    },
+    {
+      "id": "blue-scattering",
+      "type": "content",
+      "durationInFrames": 120,
+      "backgroundColor": "#07182B",
+      "accentColor": "#58A9FF",
+      "transitionIn": {
+        "type": "zoom",
+        "durationInFrames": 15,
+        "easing": "ease-out"
+      },
+      "eyebrow": "DISPERSIÓN / 03",
+      "title": "EL AZUL SE DISPERSA MÁS.",
+      "body": "La luz azul, de onda más corta, se desvía con más intensidad que la roja.",
+      "titleAnimation": {
+        "opacity": {
+          "keyframes": [
+            {
+              "frame": 0,
+              "value": 0
+            },
+            {
+              "frame": 18,
+              "value": 1
+            }
+          ]
+        },
+        "y": {
+          "keyframes": [
+            {
+              "frame": 0,
+              "value": -8
+            },
+            {
+              "frame": 26,
+              "value": 0
+            }
+          ]
+        }
+      },
+      "graphics": [
+        {
+          "id": "blue-wave-1",
+          "type": "path",
+          "x": 52,
+          "y": 35,
+          "width": 42,
+          "height": 12,
+          "d": "M 0 50 C 25 0 75 100 100 50",
+          "stroke": "#58A9FF",
+          "strokeWidth": 3,
+          "lineCap": "round",
+          "animations": {
+            "pathProgress": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 0
+                },
+                {
+                  "frame": 70,
+                  "value": 1,
+                  "easing": "ease-out"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "blue-wave-2",
+          "type": "path",
+          "x": 55,
+          "y": 52,
+          "width": 35,
+          "height": 10,
+          "d": "M 0 50 C 20 100 80 0 100 50",
+          "stroke": "#9CCBFF",
+          "strokeWidth": 2,
+          "lineCap": "round",
+          "opacity": 0.82,
+          "animations": {
+            "pathProgress": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 0
+                },
+                {
+                  "frame": 89,
+                  "value": 1
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "particleSystems": [
+        {
+          "id": "blue-scatter",
+          "count": 70,
+          "seed": 37,
+          "originX": 73,
+          "originY": 50,
+          "spreadX": 32,
+          "spreadY": 55,
+          "lifeInFrames": 90,
+          "angleMinDeg": 110,
+          "angleMaxDeg": 250,
+          "speedMin": 4,
+          "speedMax": 18,
+          "sizeMin": 2,
+          "sizeMax": 6,
+          "opacity": 0.74,
+          "colors": [
+            "#58A9FF",
+            "#9CCBFF",
+            "#D9EEFF"
+          ],
+          "shape": "diamond",
+          "blendMode": "screen"
+        }
+      ]
+    },
+    {
+      "id": "all-directions",
+      "type": "content",
+      "durationInFrames": 120,
+      "backgroundColor": "#0D2A46",
+      "accentColor": "#9BCBFF",
+      "transitionIn": {
+        "type": "slide-left",
+        "durationInFrames": 18,
+        "easing": "ease-out"
+      },
+      "eyebrow": "CIELO / 04",
+      "title": "LLEGA DESDE TODAS PARTES.",
+      "body": "La luz azul llega a tus ojos desde distintas direcciones del cielo.",
+      "titleAnimation": {
+        "opacity": {
+          "keyframes": [
+            {
+              "frame": 0,
+              "value": 0
+            },
+            {
+              "frame": 18,
+              "value": 1
+            }
+          ]
+        },
+        "x": {
+          "keyframes": [
+            {
+              "frame": 0,
+              "value": -7
+            },
+            {
+              "frame": 28,
+              "value": 0
+            }
+          ]
+        }
+      },
+      "graphics": [
+        {
+          "id": "ray-left",
+          "type": "path",
+          "x": 42,
+          "y": 20,
+          "width": 48,
+          "height": 60,
+          "d": "M 0 0 L 100 50 L 0 100",
+          "stroke": "#9BCBFF",
+          "strokeWidth": 1.6,
+          "opacity": 0.62,
+          "animations": {
+            "x": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 52
+                },
+                {
+                  "frame": 89,
+                  "value": 32
+                }
+              ]
+            },
+            "opacity": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 0.1
+                },
+                {
+                  "frame": 45,
+                  "value": 0.78
+                },
+                {
+                  "frame": 89,
+                  "value": 0.2
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "sky-orbit",
+          "type": "ellipse",
+          "x": 58,
+          "y": 19,
+          "width": 34,
+          "height": 62,
+          "stroke": "#70C9E8",
+          "strokeWidth": 1,
+          "opacity": 0.3,
+          "animations": {
+            "rotation": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": -18
+                },
+                {
+                  "frame": 89,
+                  "value": 18
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "particleSystems": [
+        {
+          "id": "sky-field",
+          "count": 64,
+          "seed": 41,
+          "originX": 74,
+          "originY": 48,
+          "spreadX": 38,
+          "spreadY": 74,
+          "lifeInFrames": 90,
+          "angleMinDeg": 0,
+          "angleMaxDeg": 360,
+          "speedMin": 2,
+          "speedMax": 12,
+          "sizeMin": 1,
+          "sizeMax": 5,
+          "opacity": 0.64,
+          "colors": [
+            "#9BCBFF",
+            "#70C9E8",
+            "#FFFFFF"
+          ],
+          "shape": "circle",
+          "blendMode": "screen"
+        }
+      ]
+    },
+    {
+      "id": "blue-sky",
+      "type": "outro",
+      "durationInFrames": 120,
+      "backgroundColor": "#1B6FAF",
+      "accentColor": "#EAF7FF",
+      "transitionIn": {
+        "type": "fade",
+        "durationInFrames": 18,
+        "easing": "ease-in-out"
+      },
+      "eyebrow": "LA EXPLICACIÓN / 05",
+      "title": "POR ESO EL CIELO ES AZUL.",
+      "body": "No es el color del Sol: es la atmósfera filtrando y dispersando su luz.",
+      "titleAnimation": {
+        "opacity": {
+          "keyframes": [
+            {
+              "frame": 0,
+              "value": 0
+            },
+            {
+              "frame": 24,
+              "value": 1
+            }
+          ]
+        },
+        "y": {
+          "keyframes": [
+            {
+              "frame": 0,
+              "value": 10
+            },
+            {
+              "frame": 30,
+              "value": 0,
+              "easing": "ease-out"
+            }
+          ]
+        }
+      },
+      "bodyAnimation": {
+        "opacity": {
+          "keyframes": [
+            {
+              "frame": 15,
+              "value": 0
+            },
+            {
+              "frame": 36,
+              "value": 1
+            }
+          ]
+        }
+      },
+      "graphics": [
+        {
+          "id": "blue-sun",
+          "type": "ellipse",
+          "x": 72,
+          "y": 22,
+          "width": 18,
+          "height": 33,
+          "fill": "#EAF7FF",
+          "opacity": 0.96,
+          "animations": {
+            "scaleX": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 0.75
+                },
+                {
+                  "frame": 89,
+                  "value": 1.04
+                }
+              ]
+            },
+            "scaleY": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 0.75
+                },
+                {
+                  "frame": 89,
+                  "value": 1.04
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "horizon",
+          "type": "rect",
+          "x": 0,
+          "y": 75,
+          "width": 100,
+          "height": 25,
+          "fill": "#0C426F",
+          "opacity": 0.7,
+          "animations": {
+            "y": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 82
+                },
+                {
+                  "frame": 89,
+                  "value": 75
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "output": {
+    "format": "mp4",
+    "codec": "h264"
+  },
+  "audioMastering": {
+    "integratedLufs": -16,
+    "truePeakDb": -1.5,
+    "loudnessRange": 11
+  }
+}

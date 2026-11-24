@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "title": "Por qué el cielo es azul",
+  "composition": {
+    "id": "NarratedSkyExplainer",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "durationInFrames": 600
+  }
+}

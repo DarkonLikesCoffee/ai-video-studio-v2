@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "language": "en-us",
+  "voice": "af_heart",
+  "speed": 0.96,
+  "speaker": "NARRATOR",
+  "text": "Why do good players get stuck in Diamond? Because winning aim duels isn't the same as winning rounds. You can hit the first shot and still lose the game. Mechanics get you the kill. Decisions create the advantage. Immortal players read the round before they commit. They track covered angles, teammate trade distance, utility, and enemy control. The costly mistake is ego-peeking alone for a duel that changes nothing. One unnecessary fight gives away numbers, space, and information. The better play is quieter: hold the crossfire, clear danger with utility, move together, and trade the first contact. Before you swing, check who can trade you, which angles remain uncleared, and what utility is ready. If nobody can support the peek, wait, reposition, or create pressure elsewhere before you commit. Every peek has a cost. Every rotation reveals information. Don't ask, can I win this duel? Ask, what does this fight do for the round? Don't chase a highlight. Build a round your team can win. Play smarter. Win more.",
+  "subtitle": {
+    "maxWords": 5,
+    "maxPauseSeconds": 0.42,
+    "maxDurationSeconds": 2.8,
+    "position": "bottom",
+    "fontSize": 34,
+    "fontWeight": 700,
+    "color": "#FFFFFF",
+    "activeWordColor": "#FF6875",
+    "backgroundOpacity": 0.72
+  }
+}

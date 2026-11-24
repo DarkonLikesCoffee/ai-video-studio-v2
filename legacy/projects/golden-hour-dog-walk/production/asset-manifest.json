@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "projectId": "golden-hour-dog-walk",
+  "assets": [
+    {
+      "id": "01-morning",
+      "path": "assets/01-morning.svg",
+      "file": "assets/01-morning.svg",
+      "type": "image/svg+xml",
+      "shotIds": [
+        "morning"
+      ],
+      "sourceType": "generated-original",
+      "source": "Original vector scene illustration authored specifically for Golden Hour — A Walk With a Friend.",
+      "creator": "AI assistant",
+      "license": "Original project artwork created for this production; no third-party material.",
+      "provenance": "Original SVG illustration in this project repository; no external source.",
+      "reusePolicy": "required"
+    },
+    {
+      "id": "02-riverside",
+      "path": "assets/02-riverside.svg",
+      "file": "assets/02-riverside.svg",
+      "type": "image/svg+xml",
+      "shotIds": [
+        "riverside"
+      ],
+      "sourceType": "generated-original",
+      "source": "Original vector scene illustration authored specifically for Golden Hour — A Walk With a Friend.",
+      "creator": "AI assistant",
+      "license": "Original project artwork created for this production; no third-party material.",
+      "provenance": "Original SVG illustration in this project repository; no external source.",
+      "reusePolicy": "required"
+    },
+    {
+      "id": "03-park-detail",
+      "path": "assets/03-park-detail.svg",
+      "file": "assets/03-park-detail.svg",
+      "type": "image/svg+xml",
+      "shotIds": [
+        "park"
+      ],
+      "sourceType": "generated-original",
+      "source": "Original vector scene illustration authored specifically for Golden Hour — A Walk With a Friend.",
+      "creator": "AI assistant",
+      "license": "Original project artwork created for this production; no third-party material.",
+      "provenance": "Original SVG illustration in this project repository; no external source.",
+      "reusePolicy": "required"
+    },
+    {
+      "id": "04-sunset-home",
+      "path": "assets/04-sunset-home.svg",
+      "file": "assets/04-sunset-home.svg",
+      "type": "image/svg+xml",
+      "shotIds": [
+        "sunset"
+      ],
+      "sourceType": "generated-original",
+      "source": "Original vector scene illustration authored specifically for Golden Hour — A Walk With a Friend.",
+      "creator": "AI assistant",
+      "license": "Original project artwork created for this production; no third-party material.",
+      "provenance": "Original SVG illustration in this project repository; no external source.",
+      "reusePolicy": "required"
+    },
+    {
+      "id": "golden-hour-score",
+      "path": "assets/audio/score.wav",
+      "file": "assets/audio/score.wav",
+      "type": "audio/wav",
+      "shotIds": [
+        "all"
+      ],
+      "sourceType": "reused-project-generated-original",
+      "source": "Original score fixture reused from projects/sora/assets/audio/score.wav and copied into the project at render time.",
+      "creator": "AI Video Studio audio fixture generator",
+      "license": "Original project-generated audio; no third-party recording.",
+      "provenance": "Source file: projects/sora/assets/audio/score.wav.",
+      "reusePolicy": "required"
+    },
+    {
+      "id": "golden-hour-transition-whoosh",
+      "path": "assets/audio/transition-whoosh.wav",
+      "file": "assets/audio/transition-whoosh.wav",
+      "type": "audio/wav",
+      "shotIds": [
+        "morning",
+        "riverside",
+        "park"
+      ],
+      "sourceType": "reused-project-generated-original",
+      "source": "Original transition effect reused from projects/showcase-motion/assets/audio/transition-whoosh.wav and copied into the project at render time.",
+      "creator": "AI Video Studio audio fixture generator",
+      "license": "Original project-generated audio; no third-party recording.",
+      "provenance": "Source file: projects/showcase-motion/assets/audio/transition-whoosh.wav.",
+      "reusePolicy": "required"
+    }
+  ]
+}

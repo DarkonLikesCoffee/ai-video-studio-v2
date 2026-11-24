@@ -1,0 +1,41 @@
+{
+  "project": "SORA — Sound, shaped around you",
+  "assets": [
+    {
+      "file": "01-material.svg",
+      "type": "original vector illustration",
+      "shotIds": [
+        "material"
+      ],
+      "provenance": "Created for this repository; no external source.",
+      "license": "Original project artwork."
+    },
+    {
+      "file": "02-silhouette.svg",
+      "type": "original vector illustration",
+      "shotIds": [
+        "silhouette"
+      ],
+      "provenance": "Created for this repository; no external source.",
+      "license": "Original project artwork."
+    },
+    {
+      "file": "03-detail.svg",
+      "type": "original vector illustration",
+      "shotIds": [
+        "control"
+      ],
+      "provenance": "Created for this repository; no external source.",
+      "license": "Original project artwork."
+    },
+    {
+      "file": "04-hero.svg",
+      "type": "original vector illustration",
+      "shotIds": [
+        "hero"
+      ],
+      "provenance": "Created for this repository; no external source.",
+      "license": "Original project artwork."
+    }
+  ]
+}

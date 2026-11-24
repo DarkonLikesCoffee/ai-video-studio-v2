@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 1,
+  "id": "launch-film-example",
+  "title": "A considered product launch",
+  "delivery": {
+    "durationSeconds": 15,
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "format": "mp4",
+    "platform": "web",
+    "language": "en"
+  },
+  "creativeDirection": {
+    "objective": "Introduce a premium everyday object by communicating considered design and tactile quality.",
+    "audience": "Design-conscious adults discovering the product for the first time.",
+    "concept": "A sequence of precise material and detail reveals builds toward one confident hero frame.",
+    "emotionalArc": [
+      "Curiosity",
+      "Tactile discovery",
+      "Confidence"
+    ],
+    "visualSystem": {
+      "palette": [
+        "#0B1118",
+        "#B9C7D3",
+        "#78DAD2"
+      ],
+      "typography": "Restrained grotesk sans-serif with large editorial headlines.",
+      "composition": "Asymmetric product framing with deliberate negative space for short copy.",
+      "lighting": "Soft directional key with controlled edge highlights and deep but readable shadows.",
+      "textureAndMaterials": "Brushed metal, matte polymer and fine machined details."
+    },
+    "motionLanguage": "Slow controlled macro pushes, one lateral orbit, purposeful match cuts and a still final hero shot.",
+    "soundDirection": "Minimal original electronic pulse, subtle tactile foley and one restrained final impact.",
+    "assumptions": [
+      "The product is fictional for this example; no real specifications are claimed."
+    ],
+    "rightsAndFactualConstraints": [
+      "Use original generated visuals and audio or assets with documented reuse rights."
+    ]
+  },
+  "shots": [
+    {
+      "id": "opening-macro",
+      "startSeconds": 0,
+      "durationSeconds": 3,
+      "purpose": "Hook the viewer with tactile detail.",
+      "narrativeBeat": "hook",
+      "visual": "An extreme macro of a brushed metal edge catches a narrow moving highlight; the full product remains partly concealed.",
+      "framing": "Extreme macro, diagonal crop, shallow depth of field.",
+      "cameraMovement": "Slow controlled push-in with a short focus reveal.",
+      "onScreenText": "DESIGNED TO FEEL DIFFERENT.",
+      "transition": "Begin from near-black; cut on the highlight movement.",
+      "audio": "A soft mechanical texture enters before the music pulse.",
+      "assets": [
+        "macro-metal-detail"
+      ],
+      "engineApproach": "external-footage",
+      "visualMethod": "3D macro product scene",
+      "action": "The camera advances toward the brushed metal edge while a narrow highlight travels across it; the full object stays concealed.",
+      "visualProgression": "Start: nearly black with only a sliver of metal. Development: the highlight sweeps and reveals texture. End: the edge becomes a visual bridge to the product silhouette."
+    },
+    {
+      "id": "form-reveal",
+      "startSeconds": 3,
+      "durationSeconds": 7,
+      "purpose": "Reveal the overall silhouette and material language.",
+      "narrativeBeat": "development",
+      "visual": "The product rotates through a clean three-quarter view against a restrained studio background; highlights travel across the surface.",
+      "framing": "Medium product shot, subject right of centre with negative space on the left.",
+      "cameraMovement": "Smooth short orbit with a gentle dolly-out.",
+      "onScreenText": "FORM, WITH INTENTION.",
+      "transition": "Match cut from the moving highlight into the product edge.",
+      "audio": "Music opens slightly; a subtle whoosh follows the camera move.",
+      "assets": [
+        "product-hero"
+      ],
+      "engineApproach": "custom-remotion",
+      "visualMethod": "3D product animation",
+      "action": "The headphones rotate into a three-quarter view as highlights travel across the headband and earcups.",
+      "visualProgression": "Start: the object is only partially visible. Development: the orbit reveals the full silhouette and material. End: the product settles into a clear three-quarter composition."
+    },
+    {
+      "id": "detail-proof",
+      "startSeconds": 7,
+      "durationSeconds": 4,
+      "purpose": "Show one distinctive construction detail.",
+      "narrativeBeat": "reveal",
+      "visual": "A close-up isolates a control or seam; a precise light sweep reveals its finish without adding fictional labels.",
+      "framing": "Tight close-up, shallow angle, asymmetric crop.",
+      "cameraMovement": "Short lateral slider move, then hold.",
+      "onScreenText": "EVERY DETAIL HAS A PURPOSE.",
+      "transition": "Hard cut on the beat.",
+      "audio": "Quiet tactile click; music ducks briefly to make it audible.",
+      "assets": [
+        "control-detail"
+      ],
+      "engineApproach": "external-footage",
+      "visualMethod": "3D macro animation",
+      "action": "A close-up isolates a control or seam while a light sweep exposes its finish.",
+      "visualProgression": "Start: enter on a cropped, ambiguous detail. Development: the lateral camera move and light sweep reveal the construction. End: hold on the readable detail."
+    },
+    {
+      "id": "hero-payoff",
+      "startSeconds": 11,
+      "durationSeconds": 4,
+      "purpose": "Resolve the story with a clear, memorable product frame.",
+      "narrativeBeat": "payoff",
+      "visual": "The complete product settles into a balanced hero composition; the background falls away and the brand lockup appears.",
+      "framing": "Wide hero shot, product centred slightly right, generous safe-area typography.",
+      "cameraMovement": "A final gentle push that eases to a complete stop.",
+      "onScreenText": "MADE TO MATTER.",
+      "transition": "Dissolve into the final lockup; hold to the end.",
+      "audio": "Music resolves; one restrained low-frequency impact and a clean tail.",
+      "assets": [
+        "product-hero",
+        "brand-lockup"
+      ],
+      "engineApproach": "custom-remotion",
+      "visualMethod": "3D hero product scene",
+      "action": "The complete product settles into the hero composition and the brand lockup appears.",
+      "visualProgression": "Start: product is still moving into frame. Development: it settles as the background simplifies. End: the lockup and product hold in a clean final frame."
+    }
+  ],
+  "assetManifestPath": "projects/launch-film-example/production/asset-manifest.json",
+  "acceptanceCriteria": [
+    "The product silhouette is clearly revealed by the end of the second shot.",
+    "The visual identity remains consistent across macro, medium and hero shots.",
+    "No two adjacent shots use the same framing scale and camera movement.",
+    "All on-screen copy is readable and remains inside title-safe areas.",
+    "The soundtrack supports the edit without masking tactile effects.",
+    "The final hero composition holds long enough to read and remember."
+  ],
+  "renderStrategy": {
+    "renderer": "custom-remotion",
+    "compositionId": "ProductRevealFilm",
+    "availability": "to-be-built",
+    "rationale": "The plan calls for multi-shot 3D product macro work, a bespoke product reveal and a camera-driven hero shot. No currently registered composition is a general product renderer.",
+    "requiredCapabilities": [
+      "3D product scene authoring",
+      "macro material and lighting control",
+      "camera moves",
+      "product reveal and hero-shot animation"
+    ],
+    "fallback": "Implement and register ProductRevealFilm before rendering. Do not substitute the ProjectVideo fixed layout without revising the creative plan."
+  }
+}

@@ -1,53 +1,33 @@
 {
-  "name": "ai-video-studio",
-  "version": "0.1.0",
+  "name": "ai-video-studio-v2",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
-  "engines": {
-    "node": ">=22"
-  },
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
   "scripts": {
-    "dev": "npm run dev --workspace @ai-video-studio/studio",
-    "build": "npm run build --workspace @ai-video-studio/studio",
-    "typecheck": "tsc --noEmit -p tsconfig.json",
-    "test": "tsx --test tests/*.test.ts",
-    "validate:demo": "tsx scripts/validate-project.ts projects/demo/scene.json",
-    "validate:project": "tsx scripts/validate-project.ts",
-    "render": "npm run render --workspace @ai-video-studio/video-engine",
-    "render:custom": "npm run render:custom --workspace @ai-video-studio/video-engine --",
-    "assets:audio": "tsx scripts/generate-audio-fixtures.ts",
-    "assets:commons-video": "node scripts/commons-video-assets.mjs",
-    "assets:nasa-video": "node scripts/nasa-video-assets.mjs",
-    "audio:prepare": "tsx scripts/prepare-project-audio.ts",
-    "audio:master": "tsx scripts/master-audio.ts",
-    "validate:plan": "tsx scripts/validate-production-plan.ts",
-    "narration:apply": "tsx scripts/apply-narration.ts",
-    "qa:media": "tsx scripts/qa-media.ts",
-    "storyboard:qa": "tsx scripts/storyboard-qa.ts",
-    "storyboard:preview": "tsx scripts/storyboard-preview.ts",
-    "storyboard:critic": "tsx scripts/storyboard-critic.ts",
-    "storyboard:strategy": "tsx scripts/storyboard-strategy.ts",
-    "storyboard:revision": "tsx scripts/storyboard-revision.ts",
-    "storyboard:beats": "tsx scripts/storyboard-beats.ts",
-    "director:brief": "tsx scripts/director-brief.ts",
-    "director:storyboard-prompt": "tsx scripts/director-storyboard-prompt.ts",
-    "director:production-plan": "tsx scripts/director-production-plan.ts",
-    "director:asset-evidence": "tsx scripts/director-asset-evidence.ts",
-    "qa:contact-sheet": "tsx scripts/qa-contact-sheet.ts",
-    "render:provenance": "tsx scripts/render-provenance.ts",
-    "validate:state": "tsx scripts/production-state.ts",
-    "qa:svg-previews": "node scripts/preview-stormlight-svgs.mjs",
-    "qa:visual-review-report": "tsx scripts/visual-review-report.ts",
-    "qa:visual-review-validate": "tsx scripts/visual-review-validate.ts",
-    "qa:visual-review-session": "tsx scripts/import-visual-review-session.ts",
-    "qa:final-delivery": "tsx scripts/validate-final-delivery.ts"
+    "check": "tsc --noEmit",
+    "still": "node scripts/still.mjs",
+    "sheet": "node scripts/sheet.mjs",
+    "render": "node scripts/render.mjs"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.544",
+    "@remotion/three": "4.0.544",
+    "@remotion/transitions": "4.0.544",
+    "@react-three/fiber": "^9.3.0",
+    "d3-geo": "^3.1.1",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "remotion": "4.0.544",
+    "three": "^0.180.0",
+    "topojson-client": "^3.1.0",
+    "world-atlas": "^2.0.2"
   },
   "devDependencies": {
-    "tsx": "^4.20.6",
+    "@types/d3-geo": "^3.1.0",
+    "@types/react": "^19.1.16",
+    "@types/three": "^0.180.0",
+    "@types/topojson-client": "^3.1.5",
+    "@types/topojson-specification": "^1.0.5",
     "typescript": "~5.9.3"
   }
 }

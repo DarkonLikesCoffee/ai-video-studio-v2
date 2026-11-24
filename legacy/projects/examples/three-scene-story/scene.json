@@ -1,0 +1,501 @@
+{
+  "schemaVersion": 1,
+  "id": "internet-explainer-with-media",
+  "title": "How the Internet Connects Us",
+  "description": "A motion-graphics explainer with animated media layers, a generated ambient music bed, and a timed transition chime.",
+  "composition": {
+    "id": "ProjectVideo",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30
+  },
+  "scenes": [
+    {
+      "id": "opening",
+      "type": "title",
+      "durationInFrames": 90,
+      "eyebrow": "A CONNECTED WORLD",
+      "title": "The Internet Connects Us",
+      "body": "Every message, page, and video starts with a connection.",
+      "backgroundColor": "#0B1020",
+      "accentColor": "#67E8F9",
+      "mediaLayers": [
+        {
+          "id": "connection-map",
+          "type": "image",
+          "src": "assets/connection-map.svg",
+          "x": 54,
+          "y": 10,
+          "width": 42,
+          "height": 80,
+          "fit": "contain",
+          "opacity": 0.96,
+          "zIndex": 1,
+          "animations": {
+            "x": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 64,
+                  "easing": "ease-out"
+                },
+                {
+                  "frame": 54,
+                  "value": 54
+                }
+              ]
+            },
+            "opacity": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 0
+                },
+                {
+                  "frame": 22,
+                  "value": 0.96
+                }
+              ]
+            },
+            "scaleX": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 0.82,
+                  "easing": "spring"
+                },
+                {
+                  "frame": 48,
+                  "value": 1
+                }
+              ]
+            },
+            "scaleY": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 0.82,
+                  "easing": "spring"
+                },
+                {
+                  "frame": 48,
+                  "value": 1
+                }
+              ]
+            },
+            "rotation": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 8,
+                  "easing": "ease-out"
+                },
+                {
+                  "frame": 48,
+                  "value": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "connection-badge",
+          "type": "image",
+          "src": "assets/connection-map.svg",
+          "x": 70,
+          "y": 58,
+          "width": 18,
+          "height": 32,
+          "fit": "contain",
+          "opacity": 0.9,
+          "rotation": -7,
+          "zIndex": 3,
+          "startInFrames": 18,
+          "durationInFrames": 72,
+          "animations": {
+            "x": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 86,
+                  "easing": "back"
+                },
+                {
+                  "frame": 26,
+                  "value": 70
+                }
+              ]
+            },
+            "opacity": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 0
+                },
+                {
+                  "frame": 18,
+                  "value": 0.9
+                }
+              ]
+            },
+            "scaleX": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 0.3,
+                  "easing": "spring"
+                },
+                {
+                  "frame": 22,
+                  "value": 1
+                }
+              ]
+            },
+            "scaleY": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 0.3,
+                  "easing": "spring"
+                },
+                {
+                  "frame": 22,
+                  "value": 1
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "titleAnimation": {
+        "y": {
+          "keyframes": [
+            {
+              "frame": 0,
+              "value": 18,
+              "easing": "ease-out"
+            },
+            {
+              "frame": 24,
+              "value": 0
+            }
+          ]
+        },
+        "opacity": {
+          "keyframes": [
+            {
+              "frame": 0,
+              "value": 0
+            },
+            {
+              "frame": 20,
+              "value": 1
+            }
+          ]
+        },
+        "scaleX": {
+          "keyframes": [
+            {
+              "frame": 0,
+              "value": 0.92,
+              "easing": "spring"
+            },
+            {
+              "frame": 28,
+              "value": 1
+            }
+          ]
+        },
+        "scaleY": {
+          "keyframes": [
+            {
+              "frame": 0,
+              "value": 0.92,
+              "easing": "spring"
+            },
+            {
+              "frame": 28,
+              "value": 1
+            }
+          ]
+        }
+      },
+      "eyebrowAnimation": {
+        "y": {
+          "keyframes": [
+            {
+              "frame": 0,
+              "value": 25,
+              "easing": "ease-out"
+            },
+            {
+              "frame": 18,
+              "value": 0
+            }
+          ]
+        },
+        "opacity": {
+          "keyframes": [
+            {
+              "frame": 0,
+              "value": 0
+            },
+            {
+              "frame": 16,
+              "value": 1
+            }
+          ]
+        }
+      },
+      "bodyAnimation": {
+        "y": {
+          "keyframes": [
+            {
+              "frame": 12,
+              "value": 22,
+              "easing": "ease-out"
+            },
+            {
+              "frame": 34,
+              "value": 0
+            }
+          ]
+        },
+        "opacity": {
+          "keyframes": [
+            {
+              "frame": 12,
+              "value": 0
+            },
+            {
+              "frame": 30,
+              "value": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "journey",
+      "type": "content",
+      "durationInFrames": 120,
+      "eyebrow": "FOLLOW THE DATA",
+      "title": "How information travels",
+      "body": "Your device sends a request through networks to a server. The server responds, and the information travels back to you.",
+      "backgroundColor": "#101426",
+      "accentColor": "#A78BFA",
+      "mediaLayers": [
+        {
+          "id": "flower-footage",
+          "type": "video",
+          "src": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
+          "x": 0,
+          "y": 0,
+          "width": 100,
+          "height": 100,
+          "fit": "cover",
+          "position": "center",
+          "opacity": 0.62,
+          "muted": true,
+          "playbackRate": 1,
+          "zIndex": 0
+        },
+        {
+          "id": "network-overlay",
+          "type": "image",
+          "src": "assets/connection-map.svg",
+          "x": 66,
+          "y": 48,
+          "width": 27,
+          "height": 43,
+          "fit": "contain",
+          "opacity": 0.9,
+          "rotation": 4,
+          "zIndex": 5,
+          "startInFrames": 25,
+          "durationInFrames": 95,
+          "animations": {
+            "x": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 100
+                },
+                {
+                  "frame": 24,
+                  "value": 66,
+                  "easing": "ease-out"
+                }
+              ]
+            },
+            "rotation": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 12,
+                  "easing": "ease-out"
+                },
+                {
+                  "frame": 32,
+                  "value": 4
+                }
+              ]
+            },
+            "opacity": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 0
+                },
+                {
+                  "frame": 24,
+                  "value": 0.9
+                }
+              ]
+            },
+            "scaleX": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 0.7,
+                  "easing": "spring"
+                },
+                {
+                  "frame": 30,
+                  "value": 1
+                }
+              ]
+            },
+            "scaleY": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 0.7,
+                  "easing": "spring"
+                },
+                {
+                  "frame": 30,
+                  "value": 1
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "titleAnimation": {
+        "x": {
+          "keyframes": [
+            {
+              "frame": 0,
+              "value": -12,
+              "easing": "ease-out"
+            },
+            {
+              "frame": 26,
+              "value": 0
+            }
+          ]
+        },
+        "opacity": {
+          "keyframes": [
+            {
+              "frame": 0,
+              "value": 0
+            },
+            {
+              "frame": 20,
+              "value": 1
+            }
+          ]
+        }
+      },
+      "bodyAnimation": {
+        "y": {
+          "keyframes": [
+            {
+              "frame": 8,
+              "value": 14,
+              "easing": "ease-out"
+            },
+            {
+              "frame": 30,
+              "value": 0
+            }
+          ]
+        },
+        "opacity": {
+          "keyframes": [
+            {
+              "frame": 8,
+              "value": 0
+            },
+            {
+              "frame": 26,
+              "value": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "ending",
+      "type": "outro",
+      "durationInFrames": 90,
+      "eyebrow": "ONE GLOBAL NETWORK",
+      "title": "A world of possibilities",
+      "body": "That is the internet: billions of connected devices sharing information.",
+      "backgroundColor": "#111827",
+      "accentColor": "#34D399"
+    }
+  ],
+  "output": {
+    "format": "mp4",
+    "codec": "h264"
+  },
+  "audioTracks": [
+    {
+      "id": "ambient-bed",
+      "role": "music",
+      "src": "assets/audio/ambient-bed.wav",
+      "startInFrames": 0,
+      "durationInFrames": 300,
+      "volume": 0.72,
+      "fadeInFrames": 42,
+      "fadeOutFrames": 48,
+      "volumeAutomation": {
+        "keyframes": [
+          {
+            "frame": 0,
+            "value": 0.9,
+            "easing": "ease-in"
+          },
+          {
+            "frame": 88,
+            "value": 0.58,
+            "easing": "ease-out"
+          },
+          {
+            "frame": 150,
+            "value": 0.9,
+            "easing": "ease-in-out"
+          },
+          {
+            "frame": 280,
+            "value": 0.9
+          }
+        ]
+      }
+    },
+    {
+      "id": "chapter-transition",
+      "role": "sfx",
+      "src": "assets/audio/transition-chime.wav",
+      "startInFrames": 88,
+      "durationInFrames": 48,
+      "volume": 0.58,
+      "fadeInFrames": 2,
+      "fadeOutFrames": 24,
+      "preservePitch": true
+    }
+  ]
+}

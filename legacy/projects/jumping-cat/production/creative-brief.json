@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "title": "A Cat's Little Leap",
+  "objective": "A wordless 2D animation of a cat jumping in a peaceful meadow.",
+  "audience": "General audience",
+  "delivery": {"durationSeconds":20,"width":1920,"height":1080,"fps":30,"format":"mp4","platform":"web","language":"none"},
+  "constraints": ["No on-screen text","Continuous calm wind ambience","A visibly animated jumping cat","Create and render a brand-new dedicated composition"]
+}

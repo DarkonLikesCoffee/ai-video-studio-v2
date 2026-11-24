@@ -1,0 +1,1118 @@
+{
+  "schemaVersion": 1,
+  "id": "kinetic-shift",
+  "title": "KINETIC — Scene Transition Showcase",
+  "description": "A separate motion-design test film built to exercise fade, slide, zoom and wipe transitions between original vector scenes.",
+  "composition": {
+    "id": "ProjectVideo",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30
+  },
+  "scenes": [
+    {
+      "id": "signal",
+      "type": "title",
+      "durationInFrames": 90,
+      "eyebrow": "KINETIC / 01",
+      "title": "SHIFT THE FRAME.",
+      "body": "A cut is a decision. A transition gives it direction.",
+      "backgroundColor": "#080F20",
+      "accentColor": "#72E7FF",
+      "eyebrowAnimation": {
+        "opacity": {
+          "keyframes": [
+            {
+              "frame": 0,
+              "value": 0
+            },
+            {
+              "frame": 12,
+              "value": 1
+            }
+          ]
+        }
+      },
+      "titleAnimation": {
+        "opacity": {
+          "keyframes": [
+            {
+              "frame": 0,
+              "value": 0,
+              "easing": "ease-out"
+            },
+            {
+              "frame": 20,
+              "value": 1
+            }
+          ]
+        },
+        "y": {
+          "keyframes": [
+            {
+              "frame": 0,
+              "value": 12,
+              "easing": "ease-out"
+            },
+            {
+              "frame": 22,
+              "value": 0
+            }
+          ]
+        }
+      },
+      "bodyAnimation": {
+        "opacity": {
+          "keyframes": [
+            {
+              "frame": 10,
+              "value": 0
+            },
+            {
+              "frame": 30,
+              "value": 1
+            }
+          ]
+        }
+      },
+      "graphics": [
+        {
+          "id": "signal-orbit-a",
+          "type": "ellipse",
+          "x": 58,
+          "y": 12,
+          "width": 30,
+          "height": 66,
+          "stroke": "#72E7FF",
+          "strokeWidth": 1.4,
+          "opacity": 0.72,
+          "animations": {
+            "rotation": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": -20
+                },
+                {
+                  "frame": 80,
+                  "value": 18
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "signal-orbit-b",
+          "type": "ellipse",
+          "x": 65,
+          "y": 24,
+          "width": 18,
+          "height": 42,
+          "stroke": "#B9A4FF",
+          "strokeWidth": 1.2,
+          "opacity": 0.55,
+          "animations": {
+            "rotation": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 25
+                },
+                {
+                  "frame": 80,
+                  "value": -16
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "signal-trail",
+          "type": "path",
+          "x": 8,
+          "y": 58,
+          "width": 80,
+          "height": 22,
+          "d": "M 0 65 C 18 5 45 90 68 32 C 82 12 92 20 100 46",
+          "stroke": "#72E7FF",
+          "strokeWidth": 2,
+          "opacity": 0.7,
+          "animations": {
+            "pathProgress": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 0,
+                  "easing": "ease-out"
+                },
+                {
+                  "frame": 62,
+                  "value": 1
+                }
+              ]
+            }
+          },
+          "pathMorph": {
+            "keyframes": [
+              {
+                "frame": 0,
+                "d": "M 0 65 C 18 5 45 90 68 32 C 82 12 92 20 100 46",
+                "easing": "ease-in-out"
+              },
+              {
+                "frame": 40,
+                "d": "M 0 50 C 25 0 35 100 55 50 C 72 0 86 100 100 50",
+                "easing": "ease-in-out"
+              },
+              {
+                "frame": 80,
+                "d": "M 0 65 C 18 5 45 90 68 32 C 82 12 92 20 100 46"
+              }
+            ]
+          }
+        },
+        {
+          "id": "signal-chip",
+          "type": "rect",
+          "x": 78,
+          "y": 20,
+          "width": 7,
+          "height": 7,
+          "fill": "#B9A4FF",
+          "radius": 2,
+          "opacity": 0.9,
+          "animations": {
+            "rotation": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 0
+                },
+                {
+                  "frame": 80,
+                  "value": 180
+                }
+              ]
+            },
+            "scaleX": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 0.7
+                },
+                {
+                  "frame": 38,
+                  "value": 1.2
+                },
+                {
+                  "frame": 80,
+                  "value": 0.9
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "signal-label",
+          "type": "text",
+          "x": 8,
+          "y": 88,
+          "width": 45,
+          "height": 5,
+          "text": "MOTION SYSTEM / 01",
+          "fill": "#9DAFCB",
+          "fontSize": 18,
+          "fontWeight": 600,
+          "letterSpacing": 4,
+          "opacity": 0.78
+        }
+      ],
+      "particleSystems": [
+        {
+          "id": "signal-dust",
+          "count": 28,
+          "seed": 1081,
+          "originX": 54,
+          "originY": 50,
+          "spreadX": 75,
+          "spreadY": 70,
+          "lifeInFrames": 88,
+          "angleMinDeg": 190,
+          "angleMaxDeg": 350,
+          "speedMin": 0.15,
+          "speedMax": 1.5,
+          "gravity": 0,
+          "sizeMin": 1,
+          "sizeMax": 3,
+          "opacity": 0.55,
+          "colors": [
+            "#FFFFFF",
+            "#72E7FF",
+            "#B9A4FF"
+          ],
+          "shape": "circle",
+          "blendMode": "screen"
+        }
+      ]
+    },
+    {
+      "id": "arrival",
+      "type": "content",
+      "durationInFrames": 90,
+      "transitionIn": {
+        "type": "fade",
+        "durationInFrames": 24,
+        "easing": "ease-out"
+      },
+      "eyebrow": "02 / FADE",
+      "title": "Let the next idea arrive.",
+      "body": "A soft blend keeps the eye moving while the message changes.",
+      "backgroundColor": "#17112B",
+      "accentColor": "#C2A6FF",
+      "titleAnimation": {
+        "opacity": {
+          "keyframes": [
+            {
+              "frame": 0,
+              "value": 0
+            },
+            {
+              "frame": 20,
+              "value": 1
+            }
+          ]
+        },
+        "x": {
+          "keyframes": [
+            {
+              "frame": 0,
+              "value": -8,
+              "easing": "ease-out"
+            },
+            {
+              "frame": 24,
+              "value": 0
+            }
+          ]
+        }
+      },
+      "bodyAnimation": {
+        "opacity": {
+          "keyframes": [
+            {
+              "frame": 8,
+              "value": 0
+            },
+            {
+              "frame": 28,
+              "value": 1
+            }
+          ]
+        }
+      },
+      "graphics": [
+        {
+          "id": "arrival-ring",
+          "type": "ellipse",
+          "x": 61,
+          "y": 14,
+          "width": 29,
+          "height": 62,
+          "stroke": "#C2A6FF",
+          "strokeWidth": 2,
+          "opacity": 0.62,
+          "animations": {
+            "rotation": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": -30
+                },
+                {
+                  "frame": 85,
+                  "value": 24
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "arrival-cross",
+          "type": "path",
+          "x": 57,
+          "y": 30,
+          "width": 38,
+          "height": 38,
+          "d": "M0 50 L100 50 M50 0 L50 100",
+          "stroke": "#F0E9FF",
+          "strokeWidth": 1.2,
+          "opacity": 0.48,
+          "animations": {
+            "pathProgress": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 0
+                },
+                {
+                  "frame": 34,
+                  "value": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "arrival-block",
+          "type": "rect",
+          "x": 72,
+          "y": 62,
+          "width": 13,
+          "height": 10,
+          "fill": "#8E75DD",
+          "radius": 3,
+          "opacity": 0.86,
+          "animations": {
+            "scaleY": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 0.2,
+                  "easing": "back"
+                },
+                {
+                  "frame": 26,
+                  "value": 1
+                }
+              ]
+            },
+            "rotation": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": -12
+                },
+                {
+                  "frame": 85,
+                  "value": 12
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "arrival-caption",
+          "type": "text",
+          "x": 8,
+          "y": 84,
+          "width": 42,
+          "height": 5,
+          "text": "FADE / CONTINUITY",
+          "fill": "#C2A6FF",
+          "fontSize": 18,
+          "fontWeight": 700,
+          "letterSpacing": 3,
+          "opacity": 0.8
+        }
+      ],
+      "particleSystems": [
+        {
+          "id": "arrival-particles",
+          "count": 22,
+          "seed": 2082,
+          "originX": 78,
+          "originY": 49,
+          "spreadX": 40,
+          "spreadY": 70,
+          "lifeInFrames": 72,
+          "angleMinDeg": 0,
+          "angleMaxDeg": 360,
+          "speedMin": 0.2,
+          "speedMax": 1.2,
+          "sizeMin": 1,
+          "sizeMax": 3,
+          "opacity": 0.5,
+          "colors": [
+            "#E8DFFF",
+            "#C2A6FF",
+            "#FFFFFF"
+          ],
+          "shape": "diamond",
+          "blendMode": "screen"
+        }
+      ]
+    },
+    {
+      "id": "direction",
+      "type": "content",
+      "durationInFrames": 90,
+      "transitionIn": {
+        "type": "slide-left",
+        "durationInFrames": 24,
+        "easing": {
+          "type": "spring",
+          "stiffness": 105,
+          "damping": 19
+        }
+      },
+      "eyebrow": "03 / SLIDE",
+      "title": "Give the cut a direction.",
+      "body": "A directional push can connect two visual spaces without losing momentum.",
+      "backgroundColor": "#09202A",
+      "accentColor": "#64E7C1",
+      "titleAnimation": {
+        "opacity": {
+          "keyframes": [
+            {
+              "frame": 0,
+              "value": 0
+            },
+            {
+              "frame": 20,
+              "value": 1
+            }
+          ]
+        },
+        "y": {
+          "keyframes": [
+            {
+              "frame": 0,
+              "value": 10
+            },
+            {
+              "frame": 24,
+              "value": 0
+            }
+          ]
+        }
+      },
+      "bodyAnimation": {
+        "opacity": {
+          "keyframes": [
+            {
+              "frame": 12,
+              "value": 0
+            },
+            {
+              "frame": 30,
+              "value": 1
+            }
+          ]
+        }
+      },
+      "graphics": [
+        {
+          "id": "direction-ribbon-a",
+          "type": "path",
+          "x": 4,
+          "y": 22,
+          "width": 92,
+          "height": 26,
+          "d": "M0 72 C18 8 35 94 54 40 S82 15 100 50",
+          "stroke": "#64E7C1",
+          "strokeWidth": 2.4,
+          "opacity": 0.8,
+          "animations": {
+            "pathProgress": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 0
+                },
+                {
+                  "frame": 48,
+                  "value": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "direction-ribbon-b",
+          "type": "path",
+          "x": 4,
+          "y": 31,
+          "width": 92,
+          "height": 31,
+          "d": "M0 52 C15 98 40 0 58 54 S84 90 100 28",
+          "stroke": "#8EDFF0",
+          "strokeWidth": 1.1,
+          "opacity": 0.48,
+          "animations": {
+            "pathProgress": {
+              "keyframes": [
+                {
+                  "frame": 12,
+                  "value": 0
+                },
+                {
+                  "frame": 68,
+                  "value": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "direction-ring",
+          "type": "ellipse",
+          "x": 68,
+          "y": 24,
+          "width": 20,
+          "height": 44,
+          "stroke": "#B6FFF0",
+          "strokeWidth": 1.5,
+          "opacity": 0.6,
+          "animations": {
+            "rotation": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 45
+                },
+                {
+                  "frame": 88,
+                  "value": -45
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "direction-tag",
+          "type": "text",
+          "x": 8,
+          "y": 84,
+          "width": 42,
+          "height": 5,
+          "text": "SLIDE LEFT / VECTOR PUSH",
+          "fill": "#64E7C1",
+          "fontSize": 18,
+          "fontWeight": 700,
+          "letterSpacing": 2,
+          "opacity": 0.8
+        }
+      ],
+      "particleSystems": [
+        {
+          "id": "direction-specks",
+          "count": 26,
+          "seed": 3083,
+          "originX": 47,
+          "originY": 50,
+          "spreadX": 90,
+          "spreadY": 48,
+          "lifeInFrames": 80,
+          "angleMinDeg": 340,
+          "angleMaxDeg": 360,
+          "speedMin": 0.3,
+          "speedMax": 2,
+          "gravity": 0,
+          "sizeMin": 1,
+          "sizeMax": 4,
+          "opacity": 0.48,
+          "colors": [
+            "#64E7C1",
+            "#FFFFFF",
+            "#8EDFF0"
+          ],
+          "shape": "circle",
+          "blendMode": "lighten"
+        }
+      ]
+    },
+    {
+      "id": "impact",
+      "type": "content",
+      "durationInFrames": 90,
+      "transitionIn": {
+        "type": "zoom",
+        "durationInFrames": 22,
+        "easing": "ease-in-out"
+      },
+      "eyebrow": "04 / ZOOM",
+      "title": "Change the scale of attention.",
+      "body": "A controlled push-in makes the next moment feel closer and more important.",
+      "backgroundColor": "#251329",
+      "accentColor": "#FF9ACB",
+      "titleAnimation": {
+        "opacity": {
+          "keyframes": [
+            {
+              "frame": 0,
+              "value": 0
+            },
+            {
+              "frame": 18,
+              "value": 1
+            }
+          ]
+        },
+        "scaleX": {
+          "keyframes": [
+            {
+              "frame": 0,
+              "value": 0.94,
+              "easing": "ease-out"
+            },
+            {
+              "frame": 24,
+              "value": 1
+            }
+          ]
+        },
+        "scaleY": {
+          "keyframes": [
+            {
+              "frame": 0,
+              "value": 0.94,
+              "easing": "ease-out"
+            },
+            {
+              "frame": 24,
+              "value": 1
+            }
+          ]
+        }
+      },
+      "bodyAnimation": {
+        "opacity": {
+          "keyframes": [
+            {
+              "frame": 10,
+              "value": 0
+            },
+            {
+              "frame": 28,
+              "value": 1
+            }
+          ]
+        }
+      },
+      "graphics": [
+        {
+          "id": "impact-ring-outer",
+          "type": "ellipse",
+          "x": 58,
+          "y": 13,
+          "width": 34,
+          "height": 70,
+          "stroke": "#FF9ACB",
+          "strokeWidth": 2,
+          "opacity": 0.66,
+          "animations": {
+            "scaleX": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 0.75
+                },
+                {
+                  "frame": 80,
+                  "value": 1.12
+                }
+              ]
+            },
+            "scaleY": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 0.75
+                },
+                {
+                  "frame": 80,
+                  "value": 1.12
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "impact-ring-inner",
+          "type": "ellipse",
+          "x": 67,
+          "y": 29,
+          "width": 16,
+          "height": 38,
+          "stroke": "#FFD0E6",
+          "strokeWidth": 1.4,
+          "opacity": 0.64,
+          "animations": {
+            "rotation": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 0
+                },
+                {
+                  "frame": 80,
+                  "value": 90
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "impact-core",
+          "type": "ellipse",
+          "x": 72,
+          "y": 44,
+          "width": 6,
+          "height": 12,
+          "fill": "#FF9ACB",
+          "opacity": 0.9,
+          "animations": {
+            "scaleX": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 0.4
+                },
+                {
+                  "frame": 35,
+                  "value": 1.3
+                },
+                {
+                  "frame": 80,
+                  "value": 0.8
+                }
+              ]
+            },
+            "scaleY": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 0.4
+                },
+                {
+                  "frame": 35,
+                  "value": 1.3
+                },
+                {
+                  "frame": 80,
+                  "value": 0.8
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "impact-crosshair",
+          "type": "path",
+          "x": 54,
+          "y": 26,
+          "width": 42,
+          "height": 46,
+          "d": "M50 0 L50 100 M0 50 L100 50",
+          "stroke": "#FFD0E6",
+          "strokeWidth": 1,
+          "opacity": 0.42,
+          "animations": {
+            "pathProgress": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 0
+                },
+                {
+                  "frame": 42,
+                  "value": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "impact-tag",
+          "type": "text",
+          "x": 8,
+          "y": 84,
+          "width": 42,
+          "height": 5,
+          "text": "ZOOM / EMPHASIS",
+          "fill": "#FF9ACB",
+          "fontSize": 18,
+          "fontWeight": 700,
+          "letterSpacing": 3,
+          "opacity": 0.8
+        }
+      ],
+      "particleSystems": [
+        {
+          "id": "impact-glow",
+          "count": 30,
+          "seed": 4084,
+          "originX": 75,
+          "originY": 51,
+          "spreadX": 48,
+          "spreadY": 58,
+          "lifeInFrames": 84,
+          "angleMinDeg": 0,
+          "angleMaxDeg": 360,
+          "speedMin": 0.1,
+          "speedMax": 1.1,
+          "sizeMin": 1,
+          "sizeMax": 3.5,
+          "opacity": 0.58,
+          "colors": [
+            "#FF9ACB",
+            "#FFD0E6",
+            "#FFFFFF"
+          ],
+          "shape": "circle",
+          "blendMode": "screen"
+        }
+      ]
+    },
+    {
+      "id": "reveal",
+      "type": "outro",
+      "durationInFrames": 90,
+      "transitionIn": {
+        "type": "wipe-right",
+        "durationInFrames": 24,
+        "easing": "ease-out"
+      },
+      "eyebrow": "05 / WIPE",
+      "title": "Make every cut count.",
+      "body": "The transition is part of the story, not a pause between scenes.",
+      "backgroundColor": "#071C29",
+      "accentColor": "#9AEAFF",
+      "titleAnimation": {
+        "opacity": {
+          "keyframes": [
+            {
+              "frame": 0,
+              "value": 0
+            },
+            {
+              "frame": 20,
+              "value": 1
+            }
+          ]
+        },
+        "y": {
+          "keyframes": [
+            {
+              "frame": 0,
+              "value": 12,
+              "easing": "ease-out"
+            },
+            {
+              "frame": 22,
+              "value": 0
+            }
+          ]
+        }
+      },
+      "bodyAnimation": {
+        "opacity": {
+          "keyframes": [
+            {
+              "frame": 10,
+              "value": 0
+            },
+            {
+              "frame": 28,
+              "value": 1
+            }
+          ]
+        }
+      },
+      "graphics": [
+        {
+          "id": "reveal-grid-a",
+          "type": "path",
+          "x": 54,
+          "y": 12,
+          "width": 40,
+          "height": 76,
+          "d": "M0 0 L0 100 M25 0 L25 100 M50 0 L50 100 M75 0 L75 100 M100 0 L100 100",
+          "stroke": "#9AEAFF",
+          "strokeWidth": 0.65,
+          "opacity": 0.28
+        },
+        {
+          "id": "reveal-grid-b",
+          "type": "path",
+          "x": 54,
+          "y": 12,
+          "width": 40,
+          "height": 76,
+          "d": "M0 0 L100 0 M0 25 L100 25 M0 50 L100 50 M0 75 L100 75 M0 100 L100 100",
+          "stroke": "#9AEAFF",
+          "strokeWidth": 0.65,
+          "opacity": 0.28
+        },
+        {
+          "id": "reveal-orbit",
+          "type": "ellipse",
+          "x": 63,
+          "y": 22,
+          "width": 26,
+          "height": 56,
+          "stroke": "#9AEAFF",
+          "strokeWidth": 1.6,
+          "opacity": 0.7,
+          "animations": {
+            "rotation": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": -30
+                },
+                {
+                  "frame": 84,
+                  "value": 30
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "reveal-orbit-inner",
+          "type": "ellipse",
+          "x": 70,
+          "y": 34,
+          "width": 12,
+          "height": 32,
+          "stroke": "#D2F7FF",
+          "strokeWidth": 1.2,
+          "opacity": 0.65,
+          "animations": {
+            "rotation": {
+              "keyframes": [
+                {
+                  "frame": 0,
+                  "value": 35
+                },
+                {
+                  "frame": 84,
+                  "value": -35
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "reveal-tag",
+          "type": "text",
+          "x": 8,
+          "y": 84,
+          "width": 42,
+          "height": 5,
+          "text": "WIPE RIGHT / REVEAL",
+          "fill": "#9AEAFF",
+          "fontSize": 18,
+          "fontWeight": 700,
+          "letterSpacing": 3,
+          "opacity": 0.8
+        }
+      ],
+      "particleSystems": [
+        {
+          "id": "reveal-finale",
+          "count": 34,
+          "seed": 5085,
+          "originX": 76,
+          "originY": 51,
+          "spreadX": 64,
+          "spreadY": 64,
+          "lifeInFrames": 86,
+          "angleMinDeg": 0,
+          "angleMaxDeg": 360,
+          "speedMin": 0.15,
+          "speedMax": 1.4,
+          "gravity": 0,
+          "sizeMin": 1,
+          "sizeMax": 4,
+          "opacity": 0.55,
+          "colors": [
+            "#9AEAFF",
+            "#FFFFFF",
+            "#B7A6FF"
+          ],
+          "shape": "diamond",
+          "blendMode": "screen"
+        }
+      ]
+    }
+  ],
+  "output": {
+    "format": "mp4",
+    "codec": "h264"
+  },
+  "audioTracks": [],
+  "subtitles": [
+    {
+      "id": "kinetic-signal-caption",
+      "startInFrames": 74,
+      "durationInFrames": 38,
+      "text": "A visual story begins with a single shift.",
+      "speaker": "NARRATOR",
+      "position": "bottom",
+      "alignment": "center",
+      "fontSize": 34,
+      "color": "#FFFFFF",
+      "backgroundOpacity": 0.78,
+      "fadeInFrames": 6,
+      "fadeOutFrames": 8
+    },
+    {
+      "id": "kinetic-arrival-caption",
+      "startInFrames": 120,
+      "durationInFrames": 64,
+      "text": "Let the next idea arrive without breaking its momentum.",
+      "speaker": "NARRATOR",
+      "position": "bottom",
+      "alignment": "center",
+      "fontSize": 34,
+      "color": "#FFFFFF",
+      "backgroundOpacity": 0.78,
+      "fadeInFrames": 6,
+      "fadeOutFrames": 8
+    },
+    {
+      "id": "kinetic-direction-caption",
+      "startInFrames": 192,
+      "durationInFrames": 64,
+      "text": "Direction turns a hard cut into a deliberate move.",
+      "speaker": "NARRATOR",
+      "position": "bottom",
+      "alignment": "center",
+      "fontSize": 34,
+      "color": "#FFFFFF",
+      "backgroundOpacity": 0.78,
+      "fadeInFrames": 6,
+      "fadeOutFrames": 8
+    },
+    {
+      "id": "kinetic-impact-caption",
+      "startInFrames": 282,
+      "durationInFrames": 64,
+      "text": "A subtle push-in can change what matters.",
+      "speaker": "NARRATOR",
+      "position": "bottom",
+      "alignment": "center",
+      "fontSize": 34,
+      "color": "#FFFFFF",
+      "backgroundOpacity": 0.78,
+      "fadeInFrames": 6,
+      "fadeOutFrames": 8
+    },
+    {
+      "id": "kinetic-reveal-caption",
+      "startInFrames": 372,
+      "durationInFrames": 64,
+      "text": "The transition is part of the story, not a pause between scenes.",
+      "speaker": "NARRATOR",
+      "position": "bottom",
+      "alignment": "center",
+      "fontSize": 34,
+      "color": "#FFFFFF",
+      "backgroundOpacity": 0.78,
+      "fadeInFrames": 6,
+      "fadeOutFrames": 8
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" fill="none">
+<defs>
+ <radialGradient id="bg"><stop stop-color="#16234C"/><stop offset=".48" stop-color="#0A1025"/><stop offset="1" stop-color="#050812"/></radialGradient>
+ <radialGradient id="orb" cx="35%" cy="24%" r="78%"><stop stop-color="#F5E7FF"/><stop offset=".18" stop-color="#9C8DFF"/><stop offset=".47" stop-color="#4E54B8"/><stop offset=".78" stop-color="#19285E"/><stop offset="1" stop-color="#090F28"/></radialGradient>
+ <linearGradient id="ring"><stop stop-color="#68F0FF" stop-opacity="0"/><stop offset=".25" stop-color="#68F0FF"/><stop offset=".7" stop-color="#C8A6FF"/><stop offset="1" stop-color="#C8A6FF" stop-opacity="0"/></linearGradient>
+ <linearGradient id="beam"><stop stop-color="#76E7FF" stop-opacity="0"/><stop offset=".48" stop-color="#76E7FF" stop-opacity=".75"/><stop offset="1" stop-color="#B88CFF" stop-opacity="0"/></linearGradient>
+ <filter id="blur"><feGaussianBlur stdDeviation="34"/></filter><filter id="glow"><feGaussianBlur stdDeviation="9" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse"><path d="M80 0H0V80" stroke="#8EA5FF" stroke-opacity=".08"/></pattern>
+</defs>
+<rect width="1920" height="1080" fill="url(#bg)"/><rect width="1920" height="1080" fill="url(#grid)"/>
+<ellipse cx="1230" cy="540" rx="500" ry="390" fill="#6A62FF" opacity=".12" filter="url(#blur)"/>
+<circle cx="1230" cy="525" r="235" fill="url(#orb)"/>
+<circle cx="1230" cy="525" r="252" stroke="#A7F2FF" stroke-opacity=".3" stroke-width="2"/>
+<ellipse cx="1230" cy="525" rx="410" ry="150" stroke="url(#ring)" stroke-width="3" transform="rotate(-22 1230 525)"/>
+<ellipse cx="1230" cy="525" rx="470" ry="205" stroke="#9D9BFF" stroke-opacity=".42" stroke-width="2" transform="rotate(34 1230 525)"/>
+<ellipse cx="1230" cy="525" rx="520" ry="275" stroke="#74E7FF" stroke-opacity=".2" stroke-width="1.5" transform="rotate(-52 1230 525)"/>
+<path d="M670 840C900 650 980 430 1290 260C1440 177 1575 220 1735 90" stroke="url(#beam)" stroke-width="3"/>
+<path d="M710 970C970 760 1020 610 1310 420C1510 290 1660 340 1840 190" stroke="url(#beam)" stroke-width="2"/>
+<g fill="#E8F8FF" filter="url(#glow)"><circle cx="835" cy="720" r="5"/><circle cx="1580" cy="280" r="7"/><circle cx="1660" cy="710" r="4"/><circle cx="990" cy="188" r="4"/><circle cx="1470" cy="870" r="5"/></g>
+<g stroke="#B7CBFF" stroke-opacity=".32"><path d="M90 160H520M90 174H300M1400 970H1830M1660 956H1830"/><path d="M170 300V780M184 480V780M1760 120V410"/></g>
+<g fill="#AFC0FF" font-family="Arial,sans-serif" font-size="15" letter-spacing="5" opacity=".55"><text x="92" y="140">AETHER / MOTION STUDY 01</text><text x="1510" y="1000">FIG. 001 — ORBITAL FIELD</text></g>
+</svg>

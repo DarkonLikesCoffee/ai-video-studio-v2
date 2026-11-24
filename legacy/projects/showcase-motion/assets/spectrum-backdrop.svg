@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" fill="none">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#100D26"/><stop offset=".5" stop-color="#090D21"/><stop offset="1" stop-color="#050811"/></linearGradient>
+  <radialGradient id="halo"><stop stop-color="#806BFF" stop-opacity=".36"/><stop offset="1" stop-color="#806BFF" stop-opacity="0"/></radialGradient>
+  <linearGradient id="glow" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#6DEBFF" stop-opacity="0"/><stop offset=".5" stop-color="#8E9AFF" stop-opacity=".32"/><stop offset="1" stop-color="#D0A4FF" stop-opacity="0"/></linearGradient>
+</defs>
+<rect width="1920" height="1080" fill="url(#bg)"/>
+<ellipse cx="1260" cy="540" rx="760" ry="510" fill="url(#halo)"/>
+<g stroke="#6D85B8" stroke-opacity=".18">
+  <path d="M140 210H1780M140 355H1780M140 500H1780M140 645H1780M140 790H1780"/>
+  <path d="M200 140V880M400 140V880M600 140V880M800 140V880M1000 140V880M1200 140V880M1400 140V880M1600 140V880"/>
+</g>
+<path d="M180 630C420 510 630 700 880 610S1300 690 1730 570" stroke="url(#glow)" stroke-width="3"/>
+<g fill="#DBEAFE" font-family="Arial,sans-serif" letter-spacing="5" opacity=".48">
+  <text x="145" y="130" font-size="15">AUDIO / SPECTRUM ANALYSIS</text>
+  <text x="1450" y="950" font-size="15">48 KHZ — STEREO</text>
+</g>
+</svg>

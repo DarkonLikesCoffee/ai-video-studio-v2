@@ -1,0 +1,181 @@
+{
+  "schemaVersion": 1,
+  "id": "jumping-cat-short",
+  "title": "A Cat's Little Leap",
+  "delivery": {
+    "durationSeconds": 20,
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "format": "mp4",
+    "platform": "web",
+    "language": "none"
+  },
+  "creativeDirection": {
+    "objective": "Create a charming, wordless 2D animated moment of a cat repeatedly leaping in a calm meadow.",
+    "audience": "General audience; short visual entertainment.",
+    "concept": "A ginger cat gathers itself, springs into the air, floats for a gentle beat, and lands softly amid a breezy meadow. Its jumps repeat with slight timing variation.",
+    "emotionalArc": [
+      "Quiet curiosity",
+      "Anticipation",
+      "Playful lift",
+      "Soft, contented rest"
+    ],
+    "visualSystem": {
+      "palette": [
+        "#d6e7e1",
+        "#f1e4c8",
+        "#a9bf91",
+        "#819c70",
+        "#e9aa70"
+      ],
+      "typography": "None; no on-screen text.",
+      "composition": "Open 16:9 meadow with the cat centered and layered natural shapes providing depth.",
+      "lighting": "Soft warm late-afternoon light.",
+      "textureAndMaterials": "Clean hand-drawn 2D shapes with subtle layered scenery."
+    },
+    "motionLanguage": "Anticipatory crouch, fast spring, gentle arcing airtime, squash-and-stretch landing, expressive tail and breeze-driven grass.",
+    "soundDirection": "Continuous quiet wind ambience only; no music, voices or effects.",
+    "assumptions": [
+      "A simple stylized ginger cat design is appropriate."
+    ]
+  },
+  "shots": [
+    {
+      "id": "meadow",
+      "startSeconds": 0,
+      "durationSeconds": 5,
+      "purpose": "Establish the peaceful setting and introduce the cat.",
+      "visual": "A ginger cat settles into a gentle crouch in a sunlit meadow; distant cloud and grasses drift softly.",
+      "framing": "Wide 16:9, cat centered with layered landscape.",
+      "cameraMovement": "Very subtle parallax drift.",
+      "audio": "Continuous soft wind ambience.",
+      "assets": [],
+      "engineApproach": "custom-remotion",
+      "visualMethod": "Original 2D vector illustration.",
+      "action": "The cat notices something, lowers its body and prepares to jump.",
+      "visualProgression": "Start: relaxed standing cat. Development: tail sways, ears perk, body lowers. End: poised crouch.",
+      "transition": "Continuous movement; the cat's crouch leads directly into the launch."
+    },
+    {
+      "id": "first-leap",
+      "startSeconds": 5,
+      "durationSeconds": 5,
+      "purpose": "Deliver the first expressive jump.",
+      "visual": "The cat springs into the air, paws tucked, body stretching into a high graceful arc.",
+      "framing": "Medium-wide, cat remains fully visible.",
+      "cameraMovement": "Gentle upward follow.",
+      "audio": "Wind continues uninterrupted.",
+      "assets": [],
+      "engineApproach": "custom-remotion",
+      "visualMethod": "Frame-driven 2D character animation.",
+      "action": "Cat launches, rises, floats briefly and drops toward the grass.",
+      "visualProgression": "Start: crouch. Development: quick launch, peak hangtime and falling arc. End: paws almost reach the ground.",
+      "transition": "Stay with the same uninterrupted jump through descent into ground contact."
+    },
+    {
+      "id": "soft-landing",
+      "startSeconds": 10,
+      "durationSeconds": 5,
+      "purpose": "Show a satisfying squash-and-stretch landing and renewed energy.",
+      "visual": "The cat compresses into the landing, rebounds, flicks its tail and gathers for another leap.",
+      "framing": "Medium shot with the character dominant.",
+      "cameraMovement": "Small downward settle and return.",
+      "audio": "Wind remains continuous.",
+      "assets": [],
+      "engineApproach": "custom-remotion",
+      "visualMethod": "Expressive 2D character animation.",
+      "action": "Cat lands with soft squash, stretches back up and prepares a second jump.",
+      "visualProgression": "Start: descending. Development: contact squash and rebound. End: ready stance.",
+      "transition": "A light timing beat carries the rebound into a smaller second leap."
+    },
+    {
+      "id": "playful-repeat",
+      "startSeconds": 15,
+      "durationSeconds": 5,
+      "purpose": "Finish on a second playful leap and calm resolved pose.",
+      "visual": "The cat performs a smaller second jump, lands, sits contentedly as grass ripples around it.",
+      "framing": "Wide composition returning to the opening visual grammar.",
+      "cameraMovement": "Slow settle to stillness.",
+      "audio": "Wind ambience fades very slightly only at the final two seconds.",
+      "assets": [],
+      "engineApproach": "custom-remotion",
+      "visualMethod": "Original 2D animation in the dedicated composition.",
+      "action": "A smaller leap resolves into a relaxed seated cat.",
+      "visualProgression": "Start: poised to jump. Development: shorter arc and landing. End: calm seated pose.",
+      "transition": "Settle the final landing into a held seated pose, then gently fade out."
+    }
+  ],
+  "assetManifestPath": "projects/jumping-cat/production/asset-manifest.json",
+  "acceptanceCriteria": [
+    "A clearly recognizable cat is visibly animated jumping with believable anticipation, airtime and landing.",
+    "The animation is continuous and expressive, not a slideshow.",
+    "No text appears anywhere.",
+    "Soft wind ambience is audible continuously for the entire 20 seconds.",
+    "A new dedicated Remotion composition is used by the render request."
+  ],
+  "renderStrategy": {
+    "renderer": "custom-remotion",
+    "compositionId": "JumpingCat",
+    "availability": "registered",
+    "rationale": "The brief needs a bespoke 2D character performance and a clean wordless full-frame visual language; none of the existing registered compositions matches this story.",
+    "requiredCapabilities": [
+      "Dedicated full-frame 2D SVG character animation",
+      "Frame-driven squash-and-stretch jumping and expressive tail movement",
+      "Layered meadow environment with breeze motion",
+      "Continuous local wind ambience audio"
+    ],
+    "fallback": "Do not substitute another composition. Fix the dedicated JumpingCat composition or report the render blocked."
+  },
+  "acceptanceCoverage": [
+    {
+      "criterion": "A clearly recognizable cat is visibly animated jumping with believable anticipation, airtime and landing.",
+      "shotIds": [
+        "first-leap",
+        "soft-landing",
+        "playful-repeat"
+      ],
+      "rationale": "Dedicated shots explicitly show launch, peak, descent, squash and rebound."
+    },
+    {
+      "criterion": "The animation is continuous and expressive, not a slideshow.",
+      "shotIds": [
+        "meadow",
+        "first-leap",
+        "soft-landing",
+        "playful-repeat"
+      ],
+      "rationale": "A single composition animates the character, landscape and grass at frame level."
+    },
+    {
+      "criterion": "No text appears anywhere.",
+      "shotIds": [
+        "meadow",
+        "first-leap",
+        "soft-landing",
+        "playful-repeat"
+      ],
+      "rationale": "The custom composition contains illustration only."
+    },
+    {
+      "criterion": "Soft wind ambience is audible continuously for the entire 20 seconds.",
+      "shotIds": [
+        "meadow",
+        "first-leap",
+        "soft-landing",
+        "playful-repeat"
+      ],
+      "rationale": "A looping local wind-bed spans the 600-frame composition."
+    },
+    {
+      "criterion": "A new dedicated Remotion composition is used by the render request.",
+      "shotIds": [
+        "meadow",
+        "first-leap",
+        "soft-landing",
+        "playful-repeat"
+      ],
+      "rationale": "The plan and separate request both name the newly registered JumpingCat composition."
+    }
+  ]
+}

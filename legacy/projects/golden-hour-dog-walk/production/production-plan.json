@@ -1,0 +1,215 @@
+{
+  "schemaVersion": 1,
+  "id": "golden-hour-dog-walk",
+  "title": "Golden Hour — A Walk With a Friend",
+  "delivery": {
+    "durationSeconds": 20,
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "format": "mp4",
+    "platform": "web",
+    "language": "none"
+  },
+  "creativeDirection": {
+    "objective": "Tell a warm, word-led but visually grounded miniature story about a man and his dog sharing an unhurried golden-hour walk.",
+    "audience": "General audience; viewers of gentle, everyday-life short films.",
+    "concept": "Follow the same man and dog through four connected outdoor environments—from a sunlit morning path, beside a river, into a quiet park and home at sunset—finding small moments of companionship along the way.",
+    "emotionalArc": [
+      "Gentle anticipation",
+      "Ease and companionship",
+      "A quiet pause",
+      "Warm resolution"
+    ],
+    "visualSystem": {
+      "palette": [
+        "#9bc4df",
+        "#f5c9a0",
+        "#667e76",
+        "#334f48",
+        "#f5d7a1"
+      ],
+      "typography": "Short editorial eyebrow, title and body lines integrated into each scene; no logos or captions beyond the authored copy.",
+      "composition": "Full-frame painterly-vector landscapes with the man and dog kept together as a consistent foreground pair; warm open sky and negative space support restrained typography.",
+      "lighting": "Soft morning blue and peach, cooler riverside reflections, a warm afternoon park, then a low amber sunset under a dusk-blue sky.",
+      "textureAndMaterials": "Layered vector hills, water, paths, trees, grass, sun haze and small dust/seed particles."
+    },
+    "motionLanguage": "Slow camera drift and restrained push/pull moves over the four full-frame vector plates, with seeded atmospheric particle layers and soft cross-fade transitions. The man and dog are consistent illustrated motifs, not independently rigged or character-animated.",
+    "soundDirection": "A continuous original instrumental score with three restrained transition whooshes; no narration or dialogue.",
+    "assumptions": [
+      "The man and dog are fictional illustrated characters, not portraits of real people.",
+      "The four SVG plates are original vector illustrations authored for this short.",
+      "The score and transition whoosh are reused original audio fixtures already in the repository."
+    ],
+    "rightsAndFactualConstraints": [
+      "Use only original project artwork and project-generated audio; no external stock media or third-party branding."
+    ]
+  },
+  "renderStrategy": {
+    "renderer": "project-video",
+    "compositionId": "ProjectVideo",
+    "availability": "registered",
+    "rationale": "The short uses four full-frame 2D vector plates, per-layer camera transforms, titles, particles, transitions and global audio tracks—all capabilities already supported by the registered ProjectVideo composition.",
+    "requiredCapabilities": [
+      "Four local SVG illustration layers with per-scene keyframed transforms",
+      "Four distinct environment palettes and backgrounds",
+      "Camera-style zoom/pan drift and cross-fade transitions",
+      "Editorial title/eyebrow/body overlays and seeded atmospheric particles",
+      "Continuous local score with three transition SFX cues"
+    ],
+    "fallback": "Keep the dedicated four-scene ProjectVideo structure. Do not substitute a custom template or remove the planned audio; fix any unsupported property or report the blocker."
+  },
+  "shots": [
+    {
+      "id": "morning",
+      "startSeconds": 0,
+      "durationSeconds": 5,
+      "purpose": "Introduce the man, dog and warm start to their shared walk.",
+      "narrativeBeat": "hook",
+      "visual": "A painterly morning landscape with distant hills and a low golden sun. The man and dog stand together on a quiet path as the day opens.",
+      "visualMethod": "Full-frame original SVG illustration with layered camera movement.",
+      "action": "The camera slowly pushes through the illustrated morning landscape while the man and dog remain in their authored pose; dust particles provide the only independent foreground motion.",
+      "visualProgression": "Start: wide morning landscape and small figures. Development: a gentle push reveals the pair and the sunlit path. End: the path visually leads into the riverside scene.",
+      "framing": "Wide establishing composition with the man and dog near the centre-left and open sky on the upper right for editorial copy.",
+      "cameraMovement": "Slow push-in from 1.08 scale to 1.00 with a small lateral drift.",
+      "transition": "Soft fade into the riverside environment, with a restrained whoosh at the cut.",
+      "onScreenText": "A SMALL ADVENTURE / 01 — THE CITY WAKES — A familiar route. A new morning.",
+      "audio": "Continuous instrumental score; a quiet transition whoosh near the end.",
+      "assets": [
+        "01-morning.svg",
+        "score.wav",
+        "transition-whoosh.wav"
+      ],
+      "engineApproach": "project-video",
+      "implementationNotes": "Uses the first SVG plate, morning dust particle system, editorial text and the score bed."
+    },
+    {
+      "id": "riverside",
+      "startSeconds": 5,
+      "durationSeconds": 5,
+      "purpose": "Shift the pace and show the walk becoming unhurried companionship.",
+      "narrativeBeat": "development",
+      "visual": "The same pair follows a calm river path, with layered water, distant trees and cool blue reflections.",
+      "visualMethod": "Full-frame original SVG illustration with animated layer transforms and water glints.",
+      "action": "The camera drifts laterally across the static riverside illustration while the man and dog remain in their authored pose; small river-glint particles add atmosphere.",
+      "visualProgression": "Start: riverside and pair emerge from the fade. Development: water and distant banks slide gently past. End: a quiet grassy path leads into the park.",
+      "framing": "Medium-wide landscape with the pair low in the frame and the river stretching across the middle distance.",
+      "cameraMovement": "Subtle pan from left to right with a slow zoom from 1.05 to 1.00.",
+      "transition": "Soft cross-fade toward the park detail, punctuated by a short whoosh.",
+      "onScreenText": "FOLLOW THE WATER / 02 — TAKE THE LONG WAY — He slows down. The world does too.",
+      "audio": "Continuous instrumental score; a soft transition whoosh at the scene boundary.",
+      "assets": [
+        "02-riverside.svg",
+        "score.wav",
+        "transition-whoosh.wav"
+      ],
+      "engineApproach": "project-video",
+      "implementationNotes": "Uses the riverside plate, river-glint particles, editorial text and the shared score/whoosh."
+    },
+    {
+      "id": "park",
+      "startSeconds": 10,
+      "durationSeconds": 5,
+      "purpose": "Create a quiet observational pause where the dog can explore.",
+      "narrativeBeat": "pause",
+      "visual": "A more intimate park environment with a winding path, tree silhouettes and patches of warm light. The man and dog share the foreground.",
+      "visualMethod": "Full-frame original SVG illustration with a closer camera crop and drifting seed particles.",
+      "action": "The illustration holds the dog near the grass and the man waiting beside it; the camera eases closer while floating-seed particles move independently. Character limbs are not animated.",
+      "visualProgression": "Start: park path and figures are revealed. Development: the camera moves closer to the pair and the dog explores the grass. End: the light warms and the route carries the pair toward home.",
+      "framing": "Closer medium-wide composition with the pair more prominent and the path curving through the lower frame.",
+      "cameraMovement": "Gentle push-in from 1.12 to 1.00 with a small vertical drift.",
+      "transition": "Cross-fade to the sunset-home scene with one restrained whoosh.",
+      "onScreenText": "A PAUSE, NOT A PLAN / 03 — LET THEM SNIFF — A thousand stories in one patch of grass.",
+      "audio": "Continuous instrumental score; a subtle transition whoosh.",
+      "assets": [
+        "03-park-detail.svg",
+        "score.wav",
+        "transition-whoosh.wav"
+      ],
+      "engineApproach": "project-video",
+      "implementationNotes": "Uses the park-detail plate, floating-seed particles, editorial text and the same score/whoosh sources."
+    },
+    {
+      "id": "sunset",
+      "startSeconds": 15,
+      "durationSeconds": 5,
+      "purpose": "Resolve the walk with a warm image of the man and dog returning home together.",
+      "narrativeBeat": "payoff",
+      "visual": "A dusk-blue sky with a low warm sun, layered trees and the familiar pair moving home together along a quiet path.",
+      "visualMethod": "Full-frame original SVG illustration with sunset palette, camera drift and floating evening dust.",
+      "action": "The final illustration holds the pair together in the evening landscape; a slow camera pull-back and drifting dust provide a calm visual resolution.",
+      "visualProgression": "Start: warm sunset light and the returning pair. Development: the camera slowly pulls back and evening particles drift. End: the pair remains together in a calm final composition.",
+      "framing": "Wide closing image with the pair together in the lower middle and warm sky space above.",
+      "cameraMovement": "Slow pull-back from 1.07 scale with a gentle horizontal drift.",
+      "transition": "Fade the final image and editorial line gently toward black.",
+      "onScreenText": "THE BEST PART / 04 — HOME, TOGETHER — Some days are made of moments like this.",
+      "audio": "The instrumental score resolves and fades; no additional transition SFX after the final beat.",
+      "assets": [
+        "04-sunset-home.svg",
+        "score.wav"
+      ],
+      "engineApproach": "project-video",
+      "implementationNotes": "Uses the sunset plate, evening-dust particles, final editorial text and score fade."
+    }
+  ],
+  "assetManifestPath": "projects/golden-hour-dog-walk/production/asset-manifest.json",
+  "acceptanceCriteria": [
+    "The short tells one coherent four-location walk story and keeps the man and dog recognizable across all scenes.",
+    "Each of the four environments is visually distinct in palette, landscape and framing.",
+    "Camera drift, transitions and particles add restrained movement without obscuring the illustrations or text.",
+    "The authored editorial text is legible and correctly paired with its intended scene.",
+    "An original continuous score and three transition whooshes are present and mixed at restrained levels."
+  ],
+  "acceptanceCoverage": [
+    {
+      "criterion": "The short tells one coherent four-location walk story and keeps the man and dog recognizable across all scenes.",
+      "shotIds": [
+        "morning",
+        "riverside",
+        "park",
+        "sunset"
+      ],
+      "rationale": "The same illustrated pair appears in four sequential environments and the plan maps each scene to a narrative beat."
+    },
+    {
+      "criterion": "Each of the four environments is visually distinct in palette, landscape and framing.",
+      "shotIds": [
+        "morning",
+        "riverside",
+        "park",
+        "sunset"
+      ],
+      "rationale": "The four authored SVG plates have distinct landscape features, palette and crop."
+    },
+    {
+      "criterion": "Camera drift, transitions and particles add restrained movement without obscuring the illustrations or text.",
+      "shotIds": [
+        "morning",
+        "riverside",
+        "park",
+        "sunset"
+      ],
+      "rationale": "Each shot specifies its own camera transform, particle system and transition."
+    },
+    {
+      "criterion": "The authored editorial text is legible and correctly paired with its intended scene.",
+      "shotIds": [
+        "morning",
+        "riverside",
+        "park",
+        "sunset"
+      ],
+      "rationale": "Each scene includes its own eyebrow, title and body copy with reserved negative space in the artwork."
+    },
+    {
+      "criterion": "An original continuous score and three transition whooshes are present and mixed at restrained levels.",
+      "shotIds": [
+        "morning",
+        "riverside",
+        "park",
+        "sunset"
+      ],
+      "rationale": "The score spans all 600 frames, while three shorter SFX cues align with the scene changes."
+    }
+  ]
+}
