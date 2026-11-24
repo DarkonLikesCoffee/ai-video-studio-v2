@@ -1,5 +1,5 @@
 import {useCurrentFrame} from "remotion";
-import {Sky,Tower,Keeper,Lightning} from "./visuals";
+import {Sky,Tower,Keeper,Lightning} from "../visuals";
 import {StormRain} from "../../../shared/particles";
 const progress=(f:number,a:number,b:number)=>Math.max(0,Math.min(1,(f-a)/(b-a)));
 // The keeper completes the full crossing by local frame 96, before the transition begins.

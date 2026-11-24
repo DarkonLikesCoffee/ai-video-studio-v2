@@ -8,7 +8,7 @@ For every video request, follow this exact sequence:
 4. Render stills at the start, middle, and end of EVERY scene with `npm run still -- <CompositionId> <frames>`.
 5. Open and inspect the actual rendered images. If you cannot view images, say so and stop; never claim visual quality.
 6. Compare at least two frames from `reference/` next to your own stills. Write one sentence in the round's `problems.md` naming the biggest quality gap versus the references.
-7. At the end of each round, write `out/review/<CompositionId>/round-N/problems.md` with the three WORST AESTHETIC problems, ranked by impact: e.g. flat/lifeless scene, weak composition, no depth, dull lighting, stiff character. Technical bugs (black frames, missing elements, render errors) do not count toward these three; list them separately.
+7. At the end of each round, write `out/review/<CompositionId>/round-N/problems.md` with the three WORST AESTHETIC problems, ranked by impact, then copy that file and the stills into `review-log/<CompositionId>/round-N/` for the committed record: e.g. flat/lifeless scene, weak composition, no depth, dull lighting, stiff character. Technical bugs (black frames, missing elements, render errors) do not count toward these three; list them separately.
 8. A round only counts if code changes address problem #1 or #2 from that round's list. Re-render the same scene coverage, inspect it, and complete at least two fix rounds.
 9. Only after the review rounds, run `npm run render -- <CompositionId>`.
 
