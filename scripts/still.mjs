@@ -6,7 +6,8 @@ if (!id || !frames || !/^[0-9,\-]+$/.test(frames)) {
   console.error("Usage: npm run still -- <CompositionId> <frame,frame,...>");
   process.exit(1);
 }
-const output = path.join("out","review",id,"latest");
+const round = process.env.REVIEW_ROUND || "latest";
+const output = path.join("out","review",id,round);
 await mkdir(output,{recursive:true});
 const result = spawnSync("npx",["remotion","render","src/index.ts",id,output,`--frames=${frames}`,"--image-format=png","--sequence"],{stdio:"inherit"});
 process.exit(result.status ?? 1);

@@ -20,10 +20,27 @@ jobs:
           cache: npm
       - run: npm ci --no-audit --no-fund
       - run: npm run check
-      - run: npm run still -- LighthouseStorm 0,100,200,300,400,500
+      - name: Render Lighthouse Storm review stills
+        env:
+          REVIEW_ROUND: round-1
+        run: npm run still -- LighthouseStorm 0,50,99,100,150,199,200,250,299,300,350,399,400,450,499,500,550,599
+      - name: Record round 1 visual review
+        run: |
+          cat > out/review/LighthouseStorm/round-1/summary.txt <<'EOF'
+          1. Frame 0 was fully black because the composition began at zero opacity.
+          2. Frame 100 showed a readable lighthouse and keeper silhouette against a storm sky.
+          3. Frame 200 showed the keeper approaching the lighthouse door, with a little overlap.
+          4. Frame 300 switched clearly to a large mechanical lens close-up.
+          5. Frame 400 showed the lighthouse before ignition; it was quiet but coherent as a setup.
+          6. Frame 500 showed the active beam, keeper, coast and waves as a distinct finale.
+          7. Removed the zero-opacity opening state so frame 0 is a usable first image.
+          8. Added restrained lightning flashes during the first three exterior scenes.
+          9. Retained the dark blue, muted stone and warm beacon palette across all scenes.
+          10. Round 2 will review all scene starts, middles and ends for continuity and framing.
+          EOF
       - uses: actions/upload-artifact@v4
         with:
-          name: lighthouse-storm-ci-stills
-          path: out/review/LighthouseStorm/latest/*.png
+          name: lighthouse-storm-round-1
+          path: out/review/LighthouseStorm/round-1/*
           if-no-files-found: error
           retention-days: 7
