@@ -1,5 +1,5 @@
 import {TransitionSeries} from "@remotion/transitions";
-import {fadeTransition} from "../../../shared/fade-transition";
+import {fadeTransition} from "../../shared/fade-transition";
 import {StormApproach} from "./scenes/storm-approach";
 import {StormStruggle} from "./scenes/storm-struggle";
 import {StormClimb} from "./scenes/storm-climb";
