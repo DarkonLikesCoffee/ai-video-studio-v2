@@ -1,4 +1,4 @@
-import type { VideoProject } from "./project";
+import type { VideoProject } from "../compositions/project-video/project";
 
 export type NarratedFootageShot = {
   id: string;

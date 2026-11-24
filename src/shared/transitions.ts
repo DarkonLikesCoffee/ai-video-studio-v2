@@ -1,5 +1,5 @@
 import { evaluateAnimationTrack } from "./animation";
-import type { SceneTransition } from "./project";
+import type { SceneTransition } from "../compositions/project-video/project";
 
 export type SceneTransitionStyle = {
   opacity?: number;

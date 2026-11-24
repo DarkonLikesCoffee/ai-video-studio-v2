@@ -1,4 +1,4 @@
-import type { SubtitleCue, SubtitleWordTiming } from "./project";
+import type { SubtitleCue, SubtitleWordTiming } from "../compositions/project-video/project";
 
 export type NarrationAlignedWord = {
   index?: number;

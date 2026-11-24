@@ -1,4 +1,4 @@
-import { haveSameMorphableSvgCoordinates, haveSameMorphableSvgTopology, parseMorphableSvgPath } from "./svg-path";
+import { haveSameMorphableSvgCoordinates, haveSameMorphableSvgTopology, parseMorphableSvgPath } from "../../shared/svg-path";
 
 export type SceneType = "title" | "content" | "outro";
 export type MediaType = "image" | "video";

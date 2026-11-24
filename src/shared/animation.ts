@@ -1,5 +1,5 @@
 import { Easing, interpolate } from "remotion";
-import type { AnimationEasing, AnimationKeyframe, AnimationTrack, AnimationTracks, SvgPathMorphTrack } from "./project";
+import type { AnimationEasing, AnimationKeyframe, AnimationTrack, AnimationTracks, SvgPathMorphTrack } from "../compositions/project-video/project";
 import { interpolateMorphableSvgPaths } from "./svg-path";
 
 const easingPresets = {

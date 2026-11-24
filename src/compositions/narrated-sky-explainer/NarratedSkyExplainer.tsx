@@ -12,7 +12,7 @@ import {
   useVideoConfig,
 } from "remotion";
 import { BackSide } from "three";
-import type { SubtitleCue } from "../project";
+import type { SubtitleCue } from "../project-video/project";
 
 export type NarratedFootageClip = {
   id: string;
