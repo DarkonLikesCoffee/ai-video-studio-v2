@@ -13,3 +13,15 @@
 - `src/shared/` holds reusable animation pieces.
 - `public/` holds static assets; `out/` is generated and gitignored.
 - `legacy/` preserves the former orchestration system and project materials for reference.
+
+## Visual scene techniques
+
+- Use Three.js (`@remotion/three` + `@react-three/fiber`) when real spatial depth, camera motion, or props/characters matter.
+- Use generated images plus `ParallaxLayer` / `CameraPush` for atmospheric or establishing shots; do not draw scenery as SVG stacks.
+- Shared scene utilities live in `src/shared/parallax.tsx`, `src/shared/overlays.tsx`, and `src/shared/three-scene.tsx`.
+- Store generated assets under `public/<slug>/`: `<scene>-bg.jpg` (up to 1920x1080, about 500 KB max) and optional transparent `<scene>-mid.png` / `<scene>-fg.png` (about 500 KB max each). When transparent layers are unavailable, use one background with camera movement and overlays.
+- Review image assets before composing; see `AGENTS.md` for the required style-string, scene plan, review, and rendering-performance process.
+
+## Rendering 3D on CI
+
+The project uses Remotion 4.0.544. GitHub-hosted runners do not provide a GPU, so the 3D still workflow must use Chromium's software WebGL backend (`--gl=swiftshader`), not `angle`. The desktop `remotion.config.ts` retains its existing `angle` setting; CI explicitly overrides it.
