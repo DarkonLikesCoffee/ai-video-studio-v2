@@ -26,7 +26,7 @@ export const ThreeScene: React.FC<ThreeSceneProps> = ({children, background = "#
     <directionalLight position={[5, 8, 4]} intensity={2.1} castShadow={false} />
     <directionalLight position={[-5, 4, -3]} intensity={0.75} color="#8db9ff" />
     <pointLight position={[0, 5, -5]} intensity={1.1} color="#ffd3a1" />
-    <CameraRig from={cameraFrom} to={cameraTo} />
+    <CameraRig {...(cameraFrom ? {from: cameraFrom} : {})} {...(cameraTo ? {to: cameraTo} : {})} />
     {children}
   </ThreeCanvas>
 );
