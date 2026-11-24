@@ -53,10 +53,10 @@ jobs:
             review-log/LighthouseStorm/round-2/*
             review-log/LighthouseStorm/round-1/problems.md
             reference/*.png
-      - name: Commit reference frames and round one
+      - name: Commit reference frames and round two
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git add reference review-log/LighthouseStorm/round-1
+          git add reference review-log/LighthouseStorm/round-2
           git commit -m "test: add composition references and lighthouse round one"
           git push origin HEAD:v2-restructure
