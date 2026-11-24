@@ -16,3 +16,5 @@
 - Review round 14 selected stills and contact sheet rendered successfully.
 - Actual frames inspected: 0, 60, 120, 210, 240, 360, 420, 480, 510, 570.
 - Camera motion is driven by the shared ThreeScene CameraRig with shot-local duration; the locomotive moves nose-first in all shots.
+
+Final MP4 render requested after this inspected review round.
