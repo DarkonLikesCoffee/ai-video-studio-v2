@@ -24,4 +24,4 @@
 
 ## Rendering 3D on CI
 
-The project uses Remotion 4.0.544. GitHub-hosted runners do not provide a GPU, so the 3D still workflow must use Chromium's software WebGL backend (`--gl=swiftshader`), not `angle`. The desktop `remotion.config.ts` retains its existing `angle` setting; CI explicitly overrides it.
+The project uses Remotion 4.0.544. Remotion documents `--gl=angle` for WebGL and warns that it fails on GPU-less GitHub Actions runners. In this repository, GitHub Actions also failed to create a WebGL context with `--gl=swiftshader` (Three.js reported `GL_VENDOR = Disabled`). CI therefore runs a minimal non-WebGL baseline still; 3D rendering must be reviewed on a runner with a working WebGL context. Do not treat a passing CI baseline as proof that Three.js renders. The desktop `remotion.config.ts` keeps its `angle` renderer.
