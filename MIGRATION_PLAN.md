@@ -1,24 +1,21 @@
 # Migration plan
 
 ## Keep
-- `src/compositions/madrid-trip/**` — existing Madrid-to-Paris map and Eiffel sequence is a proven authored Remotion composition and quality reference.
-- `src/compositions/tiny-astronaut-crystal-cave/**` — existing 3D astronaut story is the other quality-bar composition.
-- Remaining hand-written Remotion compositions — preserve useful authored examples, even when they are not registered by default.
-- `src/shared/**` — small reusable animation, transition, SVG path, footage and narration helpers needed by retained code.
-- `public/**` — static assets used by compositions; the initial source tree contained no tracked files in the former Remotion public folder.
-- `remotion.config.ts`, root package dependencies and composition entry point — needed to render in Remotion.
-- Original project artifacts and former engine sources — retain under `legacy/**` as historical reference.
+- `src/compositions/madrid-trip/**` — retained map flight and Eiffel sequence, used as a quality reference.
+- `src/compositions/tiny-astronaut-crystal-cave/**` — retained 3D astronaut story, the second quality reference.
+- Other hand-written Remotion compositions — preserved as source examples, whether registered by default or not.
+- `src/shared/camera.ts`, `easing.ts`, `staggered-text.tsx`, `fade-transition.tsx`, `particles.tsx`, and `map-line.tsx` — small reusable motion pieces used by the active compositions.
+- `public/**` — static assets used by compositions; the source public folder contained no tracked files at the start of migration.
+- `src/Root.tsx`, Remotion config, and root dependencies — required to register and render compositions.
 
 ## Archive to /legacy
-- `PROGRESS_LOG.md`, `PROJECT_STATE.md`, `ROADMAP.md`, `START_HERE.md` — process history and planning, not part of rendering.
-- Existing agent playbooks and old Claude skill bundle — superseded by the short root AGENTS.md and official Remotion skills.
-- Old studio app and workspace package — unnecessary for the prompt-to-composition renderer.
-- Prior `scripts/**`, `tests/**`, and `tools/**` — tied to the JSON production system or review ledger.
-- `docs/**` and `schemas/**` — describe the former process and structured pipeline.
-- `projects/**`, render requests, status requests, and production manifests — legacy input format and project artifacts, not the new render path.
-- Prior video engine package sources/configuration and CircleCI configuration — preserved while the active root project is simplified.
+- `PROGRESS_LOG.md`, `PROJECT_STATE.md`, `ROADMAP.md`, `START_HERE.md` — process history, not required for rendering.
+- Former project/studio workspace, JSON project and render-request pipeline, manifests and production state — retained as historical reference only.
+- Old `scripts/**`, `tests/**`, `tools/**`, `docs/**`, and `schemas/**` — specific to the old orchestration, validation and approval workflow.
+- Old data-driven composition renderer and helpers formerly under `src/compositions/project-video/**`, `src/compositions/narrated-sky-explainer/**`, and `src/shared/**` — moved to `legacy/old-json-pipeline/**`; they are not in the active render path.
+- Previous package workspace sources/configuration and agent instructions — retained for reference, superseded by the lean root project and current Remotion skills.
 
 ## Delete
-- Duplicate old source paths after their new locations are committed — avoid two active copies of each composition.
-- Obsolete CircleCI, render-request, final-delivery and preview workflows — they invoke the retired pipeline and must not be triggered in the new project.
-- No working composition source or source asset is intentionally discarded.
+- Duplicate old active source paths after their new copies are archived or moved — avoid maintaining two implementations.
+- Obsolete CircleCI, render-request, final-delivery and preview workflows — they invoked the retired pipeline.
+- No working quality-bar composition or source asset is intentionally discarded.

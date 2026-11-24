@@ -11,7 +11,7 @@ permissions:
 jobs:
   check-and-still:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -20,13 +20,4 @@ jobs:
           cache: npm
       - run: npm ci --no-audit --no-fund
       - run: npm run check
-      - run: npm run sheet -- LighthouseStorm
-      - run: npm run render -- LighthouseStorm
-      - uses: actions/upload-artifact@v4
-        with:
-          name: lighthouse-storm-final-render
-          path: |
-            out/LighthouseStorm.mp4
-            out/review/LighthouseStorm/contact-sheet/*
-          if-no-files-found: error
-          retention-days: 7
+      - run: npm run still -- MadridTrip 0
