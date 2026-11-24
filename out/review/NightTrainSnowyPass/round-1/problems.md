@@ -1,7 +1,14 @@
-# Round 1 — review
-Three worst aesthetic problems, ranked:
-1. The locomotive front reads like a carriage; its nose, cab and headlight need a more convincing profile.
-2. The middle shot is too flat: mountain layers and train have similar contrast and scale.
-3. Opening typography competes with the skyline and feels static.
-Technical inspection checklist (separate): SVG edge aliasing, train-window alignment, snow clipping, transition seams and headlight gradient boundaries need PNG inspection.
-Reference gap: existing references are Madrid/travel and astronaut scenes, not snow-train shots, so a direct comparison is not available. The biggest reference gap is lack of a photographic train/mountain plate.
+# Round 1 — rendered-frame review
+
+Aesthetic problems (ranked by impact):
+1. Train silhouette reads as a bus/coach, not a locomotive hauling a passenger consist. The front is too square, the carriage and cab share one body, and the wheels are too uniform.
+2. Mountain ridges are repeated triangular zigzags with heavy pale outlines. They feel like a graphic chart rather than layered alpine terrain; insufficient atmospheric depth.
+3. Train and title overlap the skyline; the middle scene feels flat and the window lights look like identical rectangular tiles.
+
+Technical issues (separate):
+- Initial still render failed because TransitionSeries timing was supplied as a plain object. Fixed by using linearTiming(); subsequent still rendering succeeded.
+- Rendered PNGs show no black frames. SVG edges and gradients render; no obvious seams in the viewed frames.
+
+Reference comparison: available repository references (Madrid trip and astronaut crystal cave) are not train/mountain matches. Comparing at least two shows stronger image-like material depth and focal hierarchy in the references; our first round is conspicuously flat/vector-like. Biggest gap: no real photographic texture or volumetric depth.
+
+Fixes required for next round: use a distinct locomotive nose and separate passenger coaches, more natural asymmetrical ridge profiles with snow caps, and add atmospheric perspective/foreground silhouettes.
