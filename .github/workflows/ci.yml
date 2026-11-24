@@ -1,4 +1,5 @@
 name: CI
+# Keep CI intentionally small: typecheck and one known-good still render.
 
 on:
   push:
