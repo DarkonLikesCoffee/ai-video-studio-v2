@@ -17,4 +17,5 @@ jobs:
           cache: npm
       - run: npm ci --no-audit --no-fund
       - run: npm run check
-      - run: npm run still -- MadridTrip 0
+      - name: Render one Three.js smoke still with software WebGL
+        run: npx remotion render src/index.ts RenderTechniqueSmoke out/ci-three-smoke.png --frames=30 --image-format=png --gl=swiftshader
