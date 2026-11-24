@@ -1,2 +1,2 @@
 # Round 1 plan
-Three scenes; composition 600 frames at 30 fps. Review coverage: frames 0,100,209,210,310,419,420,520,599.
+Three scene sequence, 600 frames / 20 s / 30 fps / 1920x1080. Code-built parallax artwork (no generated image). Covered opening, pass, and closing scene at all prescribed start/mid/end timings. Round 1 renders revealed simplified bus-like train and overly geometric mountain silhouettes; next pass separates locomotive and carriages and varies mountain profiles.
