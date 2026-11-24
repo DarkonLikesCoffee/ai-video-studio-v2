@@ -1,6 +1,6 @@
 # NightTrainThree — round 11 review
 
-Frame inspection pending.
+Frame inspection pending. Verify the shared camera rig is now the sole camera owner and respects each shot's local duration.
 
 ## Three highest-impact checks
 1. Verify each shot's camera path is controlled by the shared CameraRig with shot-local duration.
