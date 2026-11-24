@@ -1,6 +1,6 @@
 # NightTrainThree — round 7 review
 
-Frame inspection pending.
+Frame inspection pending. Samples cover the side, low-track, and high-pullback shots, including every 30 frames in the final six seconds.
 
 ## Three highest-impact checks
 1. Verify the locomotive faces +X and travels rightward on screen in all shots; keep the locomotive in frame.
