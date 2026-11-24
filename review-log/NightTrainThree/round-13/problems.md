@@ -1,6 +1,6 @@
 # NightTrainThree — round 13 review
 
-Frame inspection pending.
+Frame inspection pending. Recheck frame 0 locomotive bounds and high-shot screen-space displacement.
 
 ## Three highest-impact checks
 1. Verify the complete locomotive is inside frame 0 and travels nose-first rightward through the side shot.
