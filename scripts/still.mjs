@@ -9,5 +9,7 @@ if (!id || !frames || !/^[0-9,\-]+$/.test(frames)) {
 const round = process.env.REVIEW_ROUND || "latest";
 const output = path.join("out","review",id,round);
 await mkdir(output,{recursive:true});
-const result = spawnSync("npx",["remotion","render","src/index.ts",id,output,`--frames=${frames}`,"--image-format=png","--sequence"],{stdio:"inherit"});
+const args = ["remotion","render","src/index.ts",id,output,`--frames=${frames}`,"--image-format=png","--sequence"];
+if (process.env.CI) args.push("--gl=swangle");
+const result = spawnSync("npx",args,{stdio:"inherit"});
 process.exit(result.status ?? 1);
