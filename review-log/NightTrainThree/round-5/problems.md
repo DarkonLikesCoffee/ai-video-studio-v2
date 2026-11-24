@@ -1,16 +1,17 @@
-# NightTrainThree — round 5 review
+# NightTrainThree — round 5 findings
 
-Frame inspection is pending. Camera and look target now travel at roughly half the locomotive's +X displacement, allowing rightward nose-first screen travel. The high shot retreats from z=19 to z=25 while rising from y=8 to y=10.
-
-## Three highest-impact checks
-1. Verify the locomotive faces and travels +X on screen in all three shots; it must remain in frame.
-2. Verify scene 3 (frames 420–570) has continuous rightward train movement during a gradual crane/pull-back, with the train at least 25% of frame width.
-3. Check mountain scale/depth, headlamp contrast, and snowfall readability.
+## Three worst aesthetic problems
+1. **The low-angle locomotive exits the frame.** It moves nose-first toward +X and rightward on screen, but the camera only covers half the train's displacement. By frame 360 the locomotive nose is cropped at the right edge. Increase low-shot camera tracking to about five-sixths of the train's movement so the nose remains visible while still drifting right.
+2. **The closing shot's screen-space travel is weak and can drift left.** The train faces +X, but the pull-back increases camera distance while the camera also shifts right; perspective compresses the locomotive's rightward progress. Keep the high-shot camera/target x fixed while it cranes up and backward, allowing the train to advance rightward in frame.
+3. **Mountain silhouettes remain oversized and repetitive.** The large pale peaks dominate the upper half and have similar cone-like profiles; vary scale and overlap to create more depth.
 
 ## Motion check
-- Subject facing direction: pending inspection.
-- Subject travel direction across sampled frames: pending inspection.
-- 3+ consecutive near-identical one-second samples: pending inspection.
+- Subject facing direction: locomotive nose points +X (screen-right).
+- Subject travel direction across sampled frames: side shot moves rightward; low shot moves rightward but exits the right edge by frame 360; high shot's pull-back causes the train to shrink and its screen-space movement is not clearly rightward. Only the side shot fully reads nose-first in this round.
+- 3+ consecutive near-identical one-second samples: the high shot changes scale across 420–570, but the locomotive's screen position changes too little to read continuous travel.
 
 ## Technical checks
-- Pending `npm run check` and review workflow.
+- `npm run check`: passed.
+- Round-5 review workflow rendered all 10 selected stills and the contact sheet successfully.
+- Frames inspected: 0, 60, 120, 210, 240, 360, 420, 480, 510, 570.
+- Next fix: low camera follows about 5/6 of train movement; high camera x/target stay fixed while y/z crane back.
