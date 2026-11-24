@@ -1,6 +1,6 @@
 # NightTrainThree — round 5 review
 
-Frame inspection is pending. Re-check nose-first screen-space movement after reducing camera tracking speed.
+Frame inspection is pending. Camera and look target now travel at roughly half the locomotive's +X displacement, allowing rightward nose-first screen travel. The high shot retreats from z=19 to z=25 while rising from y=8 to y=10.
 
 ## Three highest-impact checks
 1. Verify the locomotive faces and travels +X on screen in all three shots; it must remain in frame.
