@@ -1,6 +1,6 @@
 # NightTrainThree — round 9 review
 
-Frame inspection pending.
+Frame inspection pending. Render the complete 600-frame composition samples with the corrected shot-local camera driver.
 
 ## Three highest-impact checks
 1. Verify shot-local CameraMove is the sole camera driver and all shots show +X nose-first screen travel.
