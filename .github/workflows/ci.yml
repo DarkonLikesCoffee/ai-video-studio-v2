@@ -27,27 +27,32 @@ jobs:
           npx remotion render src/index.ts TinyAstronautCrystalCave out/ref-astronaut --frames=120,350,500 --image-format=png --scale=0.6667 --gl=swangle --sequence
           i=1; for f in $(find out/ref-madrid -type f -name '*.png' | sort); do cp "$f" "reference/madrid-trip-0$i.png"; i=$((i+1)); done
           i=1; for f in $(find out/ref-astronaut -type f -name '*.png' | sort); do cp "$f" "reference/tiny-astronaut-0$i.png"; i=$((i+1)); done
-      - name: Render LighthouseStorm round one
+      - name: Render LighthouseStorm round two
         run: |
-          mkdir -p out/review/LighthouseStorm/round-1
-          npx remotion render src/index.ts LighthouseStorm out/review/LighthouseStorm/round-1 --frames=0,52,104,105,157,209,210,262,314,315,367,419,420,472,524,525,562,599 --image-format=png --scale=0.6667 --gl=swangle --sequence
-          mkdir -p review-log/LighthouseStorm/round-1
-          cp out/review/LighthouseStorm/round-1/*.png review-log/LighthouseStorm/round-1/
-          cat > review-log/LighthouseStorm/round-1/problems.md <<'EOF'
-          # Round 1 — aesthetic review
+          mkdir -p out/review/LighthouseStorm/round-2
+          npx remotion render src/index.ts LighthouseStorm out/review/LighthouseStorm/round-2 --frames=0,52,104,105,157,209,210,262,314,315,367,419,420,472,524,525,562,599 --image-format=png --scale=0.6667 --gl=swangle --sequence
+          mkdir -p review-log/LighthouseStorm/round-2
+          cp out/review/LighthouseStorm/round-2/*.png review-log/LighthouseStorm/round-2/
+          cat > review-log/LighthouseStorm/round-2/problems.md <<'EOF'
+          # Round 2 — aesthetic review
 
-          1. **Weak depth and spatial layering (highest impact):** the keeper, tower, coast, and sky read as flat layers with little atmospheric perspective.
-          2. **Stiff keeper performance:** the keeper mostly slides across the frame; the walk and struggle need body rhythm and grounded footwork.
-          3. **Dull storm lighting:** the storm palette is consistently dark but has too little directional contrast or lightning shaping the silhouette.
+          1. **The keeper still lacks a convincing full-body performance (highest impact):** the new foot rhythm helps, but the arms and torso remain too mannequin-like.
+          2. **The scene geography still feels shallow:** the tower, keeper, and sea need clearer foreground/midground/background separation and atmospheric depth.
+          3. **The lens repair scene is too diagrammatic:** the lens reads as a clean icon rather than a heavy optical mechanism in a believable room.
 
-          Reference gap: compared with MadridTrip's dimensional camera/map staging and TinyAstronaut's layered 3D lighting, LighthouseStorm reads like a set of flat vector cutouts.
+          Reference gap: MadridTrip has stronger perspective and spatial scale, while TinyAstronaut has much more dimensional character/prop lighting; LighthouseStorm remains flatter and less tactile.
 
-          Technical issues: none observed in the first source review; render/typecheck verification is recorded by the run.
+          Round-two code changes addressed round-one problems #1 and #2 with animated keeper body/leg movement, tower shading, stronger water depth, and lightning-shaped storm light.
+
+          Technical issues: none observed in this render round; typecheck and all 18 stills completed successfully.
           EOF
       - uses: actions/upload-artifact@v4
         with:
-          name: lighthouse-round-1
-          path: review-log/LighthouseStorm/round-1/*
+          name: lighthouse-round-two-and-references
+          path: |
+            review-log/LighthouseStorm/round-2/*
+            review-log/LighthouseStorm/round-1/problems.md
+            reference/*.png
       - name: Commit reference frames and round one
         run: |
           git config user.name github-actions[bot]
