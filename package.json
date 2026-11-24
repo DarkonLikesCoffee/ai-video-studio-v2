@@ -20,7 +20,9 @@
     "remotion": "4.0.544",
     "three": "^0.180.0",
     "topojson-client": "^3.1.0",
-    "world-atlas": "^2.0.2"
+    "world-atlas": "^2.0.2",
+    "@remotion/paths": "4.0.544",
+    "@remotion/media": "4.0.544"
   },
   "devDependencies": {
     "@types/d3-geo": "^3.1.0",
