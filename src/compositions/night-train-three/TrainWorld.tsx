@@ -13,8 +13,8 @@ const CameraMove:React.FC<{from:V3;to:V3;lookFrom:V3;lookTo:V3}> = ({from,to,loo
 };
 const Mountain:React.FC<{position:V3;scale:V3;color:string;seed:number}> = ({position,scale,color,seed})=>{
  const geometry=React.useMemo(()=>{
-  const g=new THREE.ConeGeometry(1,2,7,5); const p=g.attributes.position as THREE.BufferAttribute;
-  for(let i=0;i<p.count;i++){const x=p.getX(i),y=p.getY(i),z=p.getZ(i); const wobble=Math.sin((i+seed)*2.13)*.08+Math.cos((i+seed)*.71)*.05; p.setXYZ(i,x*(1+wobble),y+(y>-.9?wobble*.7:0),z*(1+wobble));}
+  const g=new THREE.ConeGeometry(1,2,9,4); const p=g.attributes.position as THREE.BufferAttribute;
+  for(let i=0;i<p.count;i++){const x=p.getX(i),y=p.getY(i),z=p.getZ(i); const wobble=Math.sin((i+seed)*2.13)*.14+Math.cos((i+seed)*.71)*.09; p.setXYZ(i,x*(1+wobble),y+(y>-.9?wobble*.7:0),z*(1+wobble));}
   g.computeVertexNormals(); return g;
  },[seed]);
  return <mesh geometry={geometry} position={position} scale={scale} receiveShadow><meshStandardMaterial color={color} roughness={1} flatShading/></mesh>;
@@ -31,13 +31,18 @@ const Coach:React.FC<{position:V3;index:number}> = ({position,index})=><group po
  <mesh position={[1.86,.78,0]}><boxGeometry args={[.12,.65,1.52]}/><meshStandardMaterial color="#a6b5bc" metalness={.55} /></mesh>
  </group>;
 const Locomotive:React.FC=()=> <group>
- <mesh position={[0,1.05,0]}><boxGeometry args={[4.3,1.7,1.85]}/><meshStandardMaterial color="#233e50" metalness={.52} roughness={.34} /></mesh>
+ <mesh position={[0,1.05,0]}><boxGeometry args={[4.3,1.7,1.85]}/><meshStandardMaterial color="#29495d" metalness={.35} roughness={.5} /></mesh>
+ <mesh position={[2.12,.98,0]} rotation={[0,0,-.06]}><boxGeometry args={[.42,1.18,1.68]}/><meshStandardMaterial color="#8fa2ad" metalness={.3} roughness={.52}/></mesh>
+ <mesh position={[2.35,1.15,.02]}><boxGeometry args={[.045,.58,1.15]}/><meshStandardMaterial color="#172d3d" metalness={.15} roughness={.2}/></mesh>
+ <mesh position={[2.39,1.15,.02]}><boxGeometry args={[.06,.36,.95]}/><meshStandardMaterial color="#e8c88d" emissive="#ffb24d" emissiveIntensity={2.6}/></mesh>
+ <mesh position={[2.32,.48,0]} rotation={[0,0,-.14]}><boxGeometry args={[.5,.22,1.45]}/><meshStandardMaterial color="#101c27" metalness={.55}/></mesh>
+ <mesh position={[2.35,.28,0]} rotation={[0,0,-.22]}><boxGeometry args={[.72,.12,1.35]}/><meshStandardMaterial color="#a9b7be" metalness={.72} roughness={.3}/></mesh>
  <mesh position={[-1.35,1.9,0]}><boxGeometry args={[1.25,.5,1.9]}/><meshStandardMaterial color="#172c3b" metalness={.4} /></mesh>
  <mesh position={[-.75,1.72,.94]}><boxGeometry args={[.72,.82,.045]}/><meshStandardMaterial color="#e9c88e" emissive="#ffb34d" emissiveIntensity={1.7}/></mesh>
  <mesh position={[.85,1.55,.94]}><boxGeometry args={[.9,.65,.045]}/><meshStandardMaterial color="#e9c88e" emissive="#ffb34d" emissiveIntensity={1.5}/></mesh>
- <mesh position={[2.13,.88,.14]}><boxGeometry args={[.12,.32,.38]}/><meshStandardMaterial color="#e5d4a8" emissive="#ffcf79" emissiveIntensity={3.5}/></mesh>
- <mesh position={[2.12,.88,-.14]}><boxGeometry args={[.12,.32,.38]}/><meshStandardMaterial color="#e5d4a8" emissive="#ffcf79" emissiveIntensity={3.5}/></mesh>
- <mesh position={[2.25,.88,0]}><sphereGeometry args={[.13,10,8]}/><meshStandardMaterial color="#fff2ca" emissive="#ffc568" emissiveIntensity={4}/></mesh>
+ <mesh position={[2.18,.82,.66]}><sphereGeometry args={[.2,12,10]}/><meshStandardMaterial color="#fff0c7" emissive="#ffc66f" emissiveIntensity={5}/></mesh>
+ <mesh position={[2.18,.82,-.66]}><sphereGeometry args={[.2,12,10]}/><meshStandardMaterial color="#fff0c7" emissive="#ffc66f" emissiveIntensity={5}/></mesh>
+ <mesh position={[2.32,1.55,0]}><boxGeometry args={[.14,.12,.6]}/><meshStandardMaterial color="#cbd7dc" metalness={.6}/></mesh>
  <mesh position={[-.1,2.03,0]}><cylinderGeometry args={[.23,.28,.75,9]}/><meshStandardMaterial color="#101b25" roughness={.7} /></mesh>
  <mesh position={[0,.18,0]}><boxGeometry args={[4.5,.22,1.95]}/><meshStandardMaterial color="#0a121a" metalness={.5} /></mesh>
  {[-1.35,1.3].map(x=><group key={x} position={[x,.28,0]}>{[-.82,.82].map(z=><mesh key={z} position={[0,0,z]} rotation={[Math.PI/2,0,0]}><cylinderGeometry args={[.43,.43,.16,14]}/><meshStandardMaterial color="#070d13" roughness={.9}/></mesh>)}</group>)}
@@ -57,17 +62,17 @@ const Snowfall:React.FC=()=>{
 const SceneLights:React.FC=()=> <><ambientLight intensity={.32}/><directionalLight position={[-8,13,4]} intensity={1.5} color="#b8d5ef"/><directionalLight position={[5,6,-7]} intensity={.8} color="#809fc7"/><pointLight position={[5,3,2]} intensity={22} distance={25} color="#ffc777"/></>;
 export const TrainWorld:React.FC<{shot:"side"|"low"|"high"}> = ({shot})=>{
  const f=useCurrentFrame();
- const trainX=shot==="side"?interpolate(f,[0,209],[15,-15]):shot==="low"?interpolate(f,[0,209],[7,-8]):interpolate(f,[0,209],[3,-5]);
- const camera=shot==="side"?{from:[9,4.2,12] as V3,to:[-2,4.0,12] as V3,lookFrom:[0,1,0] as V3,lookTo:[0,1,0] as V3}:shot==="low"?{from:[11,1.45,4] as V3,to:[2,1.55,4] as V3,lookFrom:[0,1.0,0] as V3,lookTo:[-1,1,0] as V3}:{from:[15,13,18] as V3,to:[8,17,23] as V3,lookFrom:[0,0,0] as V3,lookTo:[-3,0,0] as V3};
+ const trainX=shot==="side"?interpolate(f,[0,209],[10,-10]):shot==="low"?interpolate(f,[0,209],[5,-7]):interpolate(f,[0,209],[1,-5]);
+ const camera=shot==="side"?{from:[10,4.5,15] as V3,to:[-1,4.2,15] as V3,lookFrom:[-1,1.1,0] as V3,lookTo:[-1,1.1,0] as V3}:shot==="low"?{from:[11,1.75,5] as V3,to:[2,1.85,5] as V3,lookFrom:[0,1.25,0] as V3,lookTo:[-1,1.2,0] as V3}:{from:[13,9,20] as V3,to:[8,10,17] as V3,lookFrom:[0,1.1,0] as V3,lookTo:[-1,1.1,0] as V3};
  return <ThreeScene background="#081522" fog="#263b50" cameraFrom={camera.from} cameraTo={camera.to}>
   <CameraMove {...camera}/>
-  <SceneLights/>
+  <SceneLights/><pointLight position={[8,4,5]} intensity={32} distance={32} color="#ffd28c"/><pointLight position={[-8,5,-2]} intensity={18} distance={35} color="#9ec8ef"/>
   <group position={[0,-.08,0]}><GroundPlane color="#1b2c3b" width={70} depth={40}/></group>
   <Track/>
   <group position={[trainX,0,0]}><Locomotive/>{Array.from({length:5},(_,i)=><Coach key={i} position={[-4.05-i*3.9,0,0]} index={i}/>)}</group>
-  <Mountain position={[-17,5,-10]} scale={[10,12,8]} color="#71879b" seed={1}/>
-  <Mountain position={[-4,5,-13]} scale={[9,11,8]} color="#526e83" seed={2}/>
-  <Mountain position={[12,4,-12]} scale={[12,10,8]} color="#435c70" seed={3}/>
+  <Mountain position={[-17,5,-10]} scale={[10,12,8]} color="#8299ac" seed={1}/>
+  <Mountain position={[-4,5,-13]} scale={[9,11,8]} color="#637f94" seed={2}/>
+  <Mountain position={[12,4,-12]} scale={[12,10,8]} color="#526e85" seed={3}/>
   <Mountain position={[20,3,8]} scale={[9,8,7]} color="#31485e" seed={4}/>
   <Mountain position={[-23,3,8]} scale={[9,9,8]} color="#405a70" seed={5}/>
   <Snowfall/>
