@@ -1,6 +1,6 @@
 import React from "react";
 import {TransitionSeries} from "@remotion/transitions";
-import {fadeTransition} from "../../../shared/fade-transition";
+import {fadeTransition} from "../../shared/fade-transition";
 import {SpatialSmoke} from "./scenes/spatial";
 import {AtmosphereSmoke} from "./scenes/atmosphere";
 
