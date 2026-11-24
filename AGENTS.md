@@ -13,7 +13,7 @@
 8. Each round writes `out/review/<CompositionId>/<round>/problems.md` with the three worst aesthetic problems ranked by impact; list technical issues separately. Commit small PNG stills and that round's `problems.md` to `review-log/<CompositionId>/<round>/`. Do not create extra review docs such as `implementation.md`.
 9. Compare at least two available reference frames. References are stylized low-poly 3D, not photographs. State concrete gaps such as depth, lighting, scale, or camera; never cite missing “photographic texture.”
 10. If problem #1 is the technique itself (flat, vector-like, illustrative, or lacking depth), the next round must change technique, not polish details. Each round must change code to address problem #1 or #2 and then re-render and inspect the same coverage.
-11. Motion check every contact sheet: if 3 or more consecutive one-second samples are nearly identical, list insufficient motion as an aesthetic problem. Never hold a static frame for more than about 2 seconds.
+11. Motion check every round in `problems.md`: state the direction the subject faces and the direction it travels across the sampled frames; they must match (vehicles move nose-first). If 3 or more consecutive one-second samples are nearly identical, list insufficient motion as an aesthetic problem. Never hold a static frame for more than about 2 seconds.
 12. Complete at least two review/fix rounds. Never say output looks good unless you viewed its rendered frames.
 
 ## Rendering and delivery
