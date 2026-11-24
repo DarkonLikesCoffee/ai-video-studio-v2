@@ -9,6 +9,7 @@
 ## Structure
 - `src/Root.tsx` registers compositions.
 - `src/compositions/<slug>/` holds hand-written video scenes.
+- `reference/` contains small quality-bar stills from the retained MadridTrip and TinyAstronautCrystalCave compositions for visual comparison.
 - `src/shared/` holds reusable animation pieces.
 - `public/` holds static assets; `out/` is generated and gitignored.
 - `legacy/` preserves the former orchestration system and project materials for reference.
