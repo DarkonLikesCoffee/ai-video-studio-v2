@@ -75,7 +75,7 @@ export const TrainWorld:React.FC<{shot:"side"|"low"|"high"}> = ({shot})=>{
  const f=useCurrentFrame();
  const trainX=shot==="side"?interpolate(f,[0,209],[10,-10]):shot==="low"?interpolate(f,[0,209],[5,-7]):interpolate(f,[0,209],[2,-2]);
  const camera=shot==="side"?{from:[10,4.5,15] as V3,to:[-1,4.2,15] as V3,lookFrom:[-1,1.1,0] as V3,lookTo:[-1,1.1,0] as V3}:shot==="low"?{from:[11,1.75,5] as V3,to:[2,1.85,5] as V3,lookFrom:[0,1.25,0] as V3,lookTo:[-1,1.2,0] as V3}:{from:[9,7,14] as V3,to:[6,8,13] as V3,lookFrom:[0,1.1,0] as V3,lookTo:[-0.5,1.1,0] as V3};
- return <ThreeScene background="#081522" fog={shot==="high" ? undefined : "#263b50"} cameraFrom={camera.from} cameraTo={camera.to}>
+ return <ThreeScene background="#081522" {...(shot==="high" ? {} : {fog:"#263b50"})} cameraFrom={camera.from} cameraTo={camera.to}>
   <CameraMove {...camera}/>
   <SceneLights/><ambientLight intensity={shot==="high" ? 1.05 : .32}/><directionalLight position={[7,9,8]} intensity={shot==="high" ? 2.4 : 1.1} color="#d7e9f5"/><directionalLight position={[-6,5,-5]} intensity={shot==="high" ? 1.5 : .75} color="#8db9ff"/><pointLight position={[8,4,5]} intensity={shot==="high" ? 46 : 32} distance={shot==="high" ? 48 : 32} color="#ffd28c"/><pointLight position={[-8,5,-2]} intensity={shot==="high" ? 25 : 18} distance={35} color="#9ec8ef"/>
   <group position={[0,-.08,0]}><GroundPlane color="#1b2c3b" width={70} depth={40}/></group>
