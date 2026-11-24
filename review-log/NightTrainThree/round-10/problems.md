@@ -1,6 +1,6 @@
 # NightTrainThree — round 10 review
 
-Frame inspection pending.
+Frame inspection pending. Re-render selected frames and verify camera motion is no longer overwritten by ThreeScene's default rig.
 
 ## Three highest-impact checks
 1. Verify the frame callback owns the camera and the shot-specific camera moves are visible.
