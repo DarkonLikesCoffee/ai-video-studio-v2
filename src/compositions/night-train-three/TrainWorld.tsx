@@ -13,7 +13,7 @@ const CameraMove:React.FC<{from:V3;to:V3;lookFrom:V3;lookTo:V3}> = ({from,to,loo
 };
 const Mountain:React.FC<{position:V3;scale:V3;color:string;seed:number}> = ({position,scale,color,seed})=>{
  const geometry=React.useMemo(()=>{
-  const g=new THREE.ConeGeometry(1,2,7,5); const p=g.attributes.position;
+  const g=new THREE.ConeGeometry(1,2,7,5); const p=g.attributes.position as THREE.BufferAttribute;
   for(let i=0;i<p.count;i++){const x=p.getX(i),y=p.getY(i),z=p.getZ(i); const wobble=Math.sin((i+seed)*2.13)*.08+Math.cos((i+seed)*.71)*.05; p.setXYZ(i,x*(1+wobble),y+(y>-.9?wobble*.7:0),z*(1+wobble));}
   g.computeVertexNormals(); return g;
  },[seed]);
