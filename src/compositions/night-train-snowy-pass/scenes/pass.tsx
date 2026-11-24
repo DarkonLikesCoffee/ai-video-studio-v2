@@ -4,8 +4,8 @@ import {AtmosphereParticles,Fog,Vignette,LightSweep} from "../../../shared/overl
 export const Pass:React.FC=()=>{
  const f=useCurrentFrame(),move=interpolate(f,[0,210],[0,1],{easing:Easing.inOut(Easing.cubic)});
  const trainX=interpolate(f,[0,210],[2400,-2100],{easing:Easing.inOut(Easing.cubic)});
- const ridgeFar="M0 555 120 390 245 430 385 215 500 380 670 145 800 420 950 260 1090 445 1260 185 1410 425 1560 245 1740 455 1920 300V1080H0Z";
- const ridgeNear="M0 715 145 585 260 640 450 455 600 690 785 470 950 700 1140 455 1300 690 1495 475 1660 670 1815 520 1920 595V1080H0Z";
+ const ridgeFar="M0 565 Q55 485 120 400 Q175 370 245 435 Q310 335 385 225 Q445 245 500 390 Q585 295 670 165 Q740 260 800 420 Q885 335 950 275 Q1025 315 1090 445 Q1175 305 1260 195 Q1335 300 1410 425 Q1495 345 1560 255 Q1650 345 1740 455 Q1830 365 1920 310V1080H0Z";
+ const ridgeNear="M0 720 Q75 640 145 590 Q210 560 260 645 Q350 525 450 465 Q520 555 600 695 Q695 550 785 480 Q875 570 950 705 Q1050 570 1140 465 Q1215 565 1300 695 Q1400 575 1495 485 Q1570 580 1660 675 Q1735 600 1815 530 Q1870 550 1920 605V1080H0Z";
  return <AbsoluteFill style={{overflow:"hidden",background:"linear-gradient(180deg,#071522,#294052 62%,#091825)"}}>
   <svg viewBox="0 0 1920 1080" style={{position:"absolute",width:"100%",height:"100%"}}>
    <defs>
@@ -27,14 +27,14 @@ export const Pass:React.FC=()=>{
    <path d="M0 974 Q560 875 1020 962T1920 930" fill="none" stroke="#536f80" strokeWidth="6" opacity=".8"/>
   </svg>
   <svg viewBox="0 0 1920 1080" style={{position:"absolute",width:"100%",height:"100%",transform:`translateX(${-move*72}px)`}}>
-   <path d="M0 1000 Q500 880 980 960T1920 910" stroke="#9eb3bf" strokeWidth="8" fill="none" opacity=".8"/>
-   <path d="M0 1023 Q500 903 980 983T1920 933" stroke="#dce7eb" strokeWidth="4" fill="none" opacity=".65"/>
+   <path d="M0 988 Q480 865 980 945T1920 900" stroke="#9eb3bf" strokeWidth="8" fill="none" opacity=".86"/>
+   <path d="M0 1016 Q480 893 980 973T1920 928" stroke="#dce7eb" strokeWidth="4" fill="none" opacity=".72"/>
    <g transform={`translate(${trainX} 0)`}>
     {Array.from({length:5},(_,i)=><g key={i} transform={`translate(${-i*300} 0)`}>
      <path d="M40 715 Q40 660 102 660 H330 Q390 660 408 713 L408 846 H40Z" fill="url(#coach)" stroke="#a9c0cb" strokeWidth="6"/>
      <path d="M45 720H405" stroke="#b89a69" strokeWidth="12"/>
      {Array.from({length:2},(_,j)=><g key={j}><rect x={95+j*145} y="690" width="100" height="83" rx="7" fill="#0e2634" stroke="#9eb4bf" strokeWidth="7"/><rect x={102+j*145} y="697" width="86" height="69" fill="#e9c98a" opacity={.42+.1*Math.sin(f*.06+i+j)}/></g>)}
-     <path d="M78 840H370" stroke="#111c25" strokeWidth="18"/>
+     <path d="M78 840H370" stroke="#111c25" strokeWidth="18"/><path d="M55 872H392" stroke="#596c78" strokeWidth="8"/>
      {[105,345].map((x,k)=><g key={k}><circle cx={x} cy="850" r="32" fill="#070e15" stroke="#697d89" strokeWidth="8"/><circle cx={x} cy="850" r="9" fill="#c2ccd1"/></g>)}
      <path d="M408 695v135" stroke="#d4e0e4" strokeWidth="7"/>
     </g>)}
