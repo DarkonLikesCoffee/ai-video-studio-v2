@@ -17,5 +17,5 @@ jobs:
           cache: npm
       - run: npm ci --no-audit --no-fund
       - run: npm run check
-      - name: Render one Three.js smoke still with software WebGL
-        run: npm run still -- RenderTechniqueSmoke 30
+      - name: Render one baseline still (CI runner lacks a usable WebGL context)
+        run: npm run still -- MadridTrip 0
