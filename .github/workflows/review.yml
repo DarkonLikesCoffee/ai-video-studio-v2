@@ -24,6 +24,7 @@ jobs:
           FRAMES="$(get_value frames)"
           ROUND="$(get_value round)"
           FINAL="$(get_value final)"
+          [[ "$COMPOSITION" =~ ^[A-Za-z0-9_-]+$ ]]
           test -n "$COMPOSITION" && test -n "$FRAMES" && test -n "$ROUND"
           [[ "$FRAMES" =~ ^[0-9,]+$ ]]
           [[ "$ROUND" =~ ^[0-9]+$ ]]
