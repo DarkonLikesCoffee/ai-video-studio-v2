@@ -6,9 +6,9 @@ on:
 permissions:
   contents: read
 jobs:
-  final-render:
+  check-and-still:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -17,11 +17,4 @@ jobs:
           cache: npm
       - run: npm ci --no-audit --no-fund
       - run: npm run check
-      - name: Final LighthouseStorm render
-        run: npx remotion render src/index.ts LighthouseStorm out/LighthouseStorm.mp4 --gl=swangle
-      - uses: actions/upload-artifact@v4
-        with:
-          name: lighthouse-storm-final-v2
-          path: out/LighthouseStorm.mp4
-          if-no-files-found: error
-          retention-days: 7
+      - run: npm run still -- MadridTrip 0
