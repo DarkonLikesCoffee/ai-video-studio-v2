@@ -1,14 +1,15 @@
 # Round 2 — rendered-frame review
 
 Aesthetic problems (ranked):
-1. Snow ridges still retain a deliberately stylized angular profile; secondary peaks need softer, more irregular contours for natural alpine scale.
-2. The locomotive shape is clearer, but the train/track relationship is still sparse: more visible sleepers and trackside parallax would sell motion and weight.
-3. The moon and illuminated windows are clean graphic elements; restrained atmospheric bloom and varied window intensity would improve integration.
+1. The mountain ridges remain angular and repetitive, giving the shot a designed/vector appearance instead of natural alpine scale.
+2. The train/track relationship is underdeveloped: rails and sleepers do not convincingly anchor the large train to the pass.
+3. The locomotive is much more readable, but coach geometry and windows remain simple, and the warm windows could vary more naturally.
 
-Technical issues checked separately:
-- The transition timing fix remains stable; PNG frames rendered successfully.
-- Check clipping at locomotive entry/exit and repeated coach wheel spacing. Reviewed frames show no black frames and no obvious hard seams.
+Technical issues:
+- Round-2 selected stills and contact sheet rendered successfully after the timing fix.
+- The locomotive is cut off at scene transitions by design, but verify no hard clipping at frame boundaries.
+- No black frames or obvious SVG seams in the inspected stills.
 
-Reference comparison: repository references (Madrid trip and crystal-cave) show richer material texture and atmospheric separation. Our train now has more readable form, but the remaining gap is stylized matte artwork rather than a richly textured photographic plate.
+Reference comparison: two existing repo references (Madrid trip and crystal-cave) have better atmospheric layering and surface richness. Our scene now has an improved silhouette, but lacks photo-real textures; this is a conscious trade-off because image generation was unavailable/not used.
 
-Round 3 adjustments: soften far-ridge contrast, add track sleepers and foreground snow streaks, vary coach-window glow and reduce overlay dominance.
+Round 3: soften ridge geometry and contrast, enrich track ties and perspective, vary coach window light, and improve consistency of train scale in the closing shot.
