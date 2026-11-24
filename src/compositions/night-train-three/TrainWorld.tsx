@@ -21,31 +21,31 @@ const Mountain:React.FC<{position:V3;scale:V3;color:string;seed:number}> = ({pos
 };
 const Window:React.FC<{x:number;y:number;z:number}> = ({x,y,z})=><mesh position={[x,y,z]}><boxGeometry args={[.34,.3,.035]}/><meshStandardMaterial color="#ffca78" emissive="#ff9d3e" emissiveIntensity={2.4} roughness={.35}/></mesh>;
 const Coach:React.FC<{position:V3;index:number}> = ({position,index})=><group position={position}>
- <mesh position={[0,.82,0]}><boxGeometry args={[3.65,1.45,1.55]}/><meshStandardMaterial color={index%2?"#263e50":"#314c5d"} metalness:.38 roughness:.48/></mesh>
- <mesh position={[0,1.58,0]}><boxGeometry args={[3.68,.12,1.58]}/><meshStandardMaterial color="#9aaab0" metalness:.65 roughness:.32/></mesh>
- <mesh position={[0,.21,0]}><boxGeometry args={[3.72,.22,1.62]}/><meshStandardMaterial color="#101d27" metalness:.3/></mesh>
+ <mesh position={[0,.82,0]}><boxGeometry args={[3.65,1.45,1.55]}/><meshStandardMaterial color={index%2?"#263e50":"#314c5d"} metalness={.38} roughness={.48}/></mesh>
+ <mesh position={[0,1.58,0]}><boxGeometry args={[3.68,.12,1.58]}/><meshStandardMaterial color="#9aaab0" metalness={.65} roughness={.32}/></mesh>
+ <mesh position={[0,.21,0]}><boxGeometry args={[3.72,.22,1.62]}/><meshStandardMaterial color="#101d27" metalness={.3}/></mesh>
  {Array.from({length:7},(_,i)=><Window key={i} x={-1.48+i*.49} y={1.05} z={.792}/>)}
  {[-1.1,1.1].map(x=><group key={x} position={[x,.25,0]}>
-  {[-.62,.62].map(z=><mesh key={z} position={[0,0,z]} rotation={[Math.PI/2,0,0]}><cylinderGeometry args={[.35,.35,.13,12]}/><meshStandardMaterial color="#080d13" roughness:.9/></mesh>)}
+  {[-.62,.62].map(z=><mesh key={z} position={[0,0,z]} rotation={[Math.PI/2,0,0]}><cylinderGeometry args={[.35,.35,.13,12]}/><meshStandardMaterial color="#080d13" roughness={.9}/></mesh>)}
  </group>)}
- <mesh position={[1.86,.78,0]}><boxGeometry args={[.12,.65,1.52]}/><meshStandardMaterial color="#a6b5bc" metalness:.55/></mesh>
+ <mesh position={[1.86,.78,0]}><boxGeometry args={[.12,.65,1.52]}/><meshStandardMaterial color="#a6b5bc" metalness={.55}/></mesh>
  </group>;
 const Locomotive:React.FC=()=> <group>
- <mesh position={[0,1.05,0]}><boxGeometry args={[4.3,1.7,1.85]}/><meshStandardMaterial color="#233e50" metalness:.52 roughness:.34/></mesh>
- <mesh position={[-1.35,1.9,0]}><boxGeometry args={[1.25,.5,1.9]}/><meshStandardMaterial color="#172c3b" metalness:.4/></mesh>
+ <mesh position={[0,1.05,0]}><boxGeometry args={[4.3,1.7,1.85]}/><meshStandardMaterial color="#233e50" metalness={.52} roughness={.34}/></mesh>
+ <mesh position={[-1.35,1.9,0]}><boxGeometry args={[1.25,.5,1.9]}/><meshStandardMaterial color="#172c3b" metalness={.4}/></mesh>
  <mesh position={[-.75,1.72,.94]}><boxGeometry args={[.72,.82,.045]}/><meshStandardMaterial color="#e9c88e" emissive="#ffb34d" emissiveIntensity={1.7}/></mesh>
  <mesh position={[.85,1.55,.94]}><boxGeometry args={[.9,.65,.045]}/><meshStandardMaterial color="#e9c88e" emissive="#ffb34d" emissiveIntensity={1.5}/></mesh>
  <mesh position={[2.13,.88,.14]}><boxGeometry args={[.12,.32,.38]}/><meshStandardMaterial color="#e5d4a8" emissive="#ffcf79" emissiveIntensity={3.5}/></mesh>
  <mesh position={[2.12,.88,-.14]}><boxGeometry args={[.12,.32,.38]}/><meshStandardMaterial color="#e5d4a8" emissive="#ffcf79" emissiveIntensity={3.5}/></mesh>
  <mesh position={[2.25,.88,0]}><sphereGeometry args={[.13,10,8]}/><meshStandardMaterial color="#fff2ca" emissive="#ffc568" emissiveIntensity={4}/></mesh>
- <mesh position={[-.1,2.03,0]}><cylinderGeometry args={[.23,.28,.75,9]}/><meshStandardMaterial color="#101b25" roughness:.7/></mesh>
- <mesh position={[0,.18,0]}><boxGeometry args={[4.5,.22,1.95]}/><meshStandardMaterial color="#0a121a" metalness:.5/></mesh>
- {[-1.35,1.3].map(x=><group key={x} position={[x,.28,0]}>{[-.82,.82].map(z=><mesh key={z} position={[0,0,z]} rotation={[Math.PI/2,0,0]}><cylinderGeometry args={[.43,.43,.16,14]}/><meshStandardMaterial color="#070d13" roughness:.9/></mesh>)}</group>)}
+ <mesh position={[-.1,2.03,0]}><cylinderGeometry args={[.23,.28,.75,9]}/><meshStandardMaterial color="#101b25" roughness={.7}/></mesh>
+ <mesh position={[0,.18,0]}><boxGeometry args={[4.5,.22,1.95]}/><meshStandardMaterial color="#0a121a" metalness={.5}/></mesh>
+ {[-1.35,1.3].map(x=><group key={x} position={[x,.28,0]}>{[-.82,.82].map(z=><mesh key={z} position={[0,0,z]} rotation={[Math.PI/2,0,0]}><cylinderGeometry args={[.43,.43,.16,14]}/><meshStandardMaterial color="#070d13" roughness={.9}/></mesh>)}</group>)}
  </group>;
 const Track:React.FC=()=> <group position={[0,.03,0]}>
- <mesh rotation={[-Math.PI/2,0,0]} position={[0,0,0]}><planeGeometry args={[100,12]}/><meshStandardMaterial color="#172532" roughness:1/></mesh>
+ <mesh rotation={[-Math.PI/2,0,0]} position={[0,0,0]}><planeGeometry args={[100,12]}/><meshStandardMaterial color="#172532" roughness={1}/></mesh>
  {Array.from({length:72},(_,i)=><mesh key={i} position={[-40+i*1.15,.08,0]}><boxGeometry args={[.22,.16,3.8]}/><meshStandardMaterial color="#5d6264" roughness:1}/></mesh>)}
- {[-1.15,1.15].map(z=><mesh key={z} position={[0,.2,z]}><boxGeometry args={[100,.2,.16]}/><meshStandardMaterial color="#85929a" metalness:.8 roughness:.35}/></mesh>)}
+ {[-1.15,1.15].map(z=><mesh key={z} position={[0,.2,z]}><boxGeometry args={[100,.2,.16]}/><meshStandardMaterial color="#85929a" metalness={.8} roughness={.35}}/></mesh>)}
  </group>;
 const Snowfall:React.FC=()=>{
  const f=useCurrentFrame();
