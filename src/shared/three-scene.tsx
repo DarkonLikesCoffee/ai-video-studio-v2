@@ -1,7 +1,7 @@
 import React from "react";
 import {ThreeCanvas} from "@remotion/three";
 import {useCurrentFrame, useVideoConfig} from "remotion";
-import {Canvas, useThree} from "@react-three/fiber";
+import {useThree} from "@react-three/fiber";
 import * as THREE from "three";
 
 type CameraRigProps = {from?: [number, number, number]; to?: [number, number, number]; lookAt?: [number, number, number]};
