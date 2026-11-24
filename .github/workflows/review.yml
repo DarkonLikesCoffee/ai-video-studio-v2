@@ -8,8 +8,13 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: review-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   render-review:
+    if: contains(github.event.head_commit.message, 'composition=')
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
@@ -24,7 +29,6 @@ jobs:
           FRAMES="$(get_value frames)"
           ROUND="$(get_value round)"
           FINAL="$(get_value final)"
-          [[ "$COMPOSITION" =~ ^[A-Za-z0-9_-]+$ ]]
           [[ "$COMPOSITION" =~ ^[A-Za-z0-9_-]+$ ]]
           test -n "$COMPOSITION" && test -n "$FRAMES" && test -n "$ROUND"
           [[ "$FRAMES" =~ ^[0-9,]+$ ]]

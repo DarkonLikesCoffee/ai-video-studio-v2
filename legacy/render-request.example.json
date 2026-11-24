@@ -1,8 +1,0 @@
-{
-  "provider": "github-actions",
-  "projectPath": "projects/showcase-motion/scene.json",
-  "compositionId": "ProjectVideo",
-  "outputName": "aether-motion-showcase",
-  "requestId": "m3-6-aether-showcase-20261117-01",
-  "candidateSha": "<40-character SHA of the remote candidate commit>"
-}

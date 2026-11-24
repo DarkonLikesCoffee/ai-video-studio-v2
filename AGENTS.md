@@ -19,4 +19,7 @@
 ## Rendering and delivery
 13. For review renders, push to a `review/**` branch with commit metadata in the message: `composition=<id> frames=<comma-separated-frames> round=<n> final=<true|false>`. The review workflow renders stills/contact sheet and, when final=true, MP4 plus measured elapsed time.
 14. Use `npm run still -- <id> <frames>`, `npm run sheet -- <id>`, and finally `npm run render -- <id>`. CI uses `--gl=swangle`.
-15. Keep Three.js geometry low-poly and render-efficient. Report the measured final MP4 render time, not an estimate.
+15. Keep Three.js geometry low-poly and render-efficient.
+
+## Branch workflow
+16. Work happens on `review/<slug>` branches created from `main`; merge to `main` by PR when approved.

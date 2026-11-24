@@ -1,8 +1,8 @@
 name: CI
 on:
-  push:
-    branches: ["**"]
   pull_request:
+  push:
+    branches: [main]
 permissions:
   contents: read
 jobs:
@@ -24,9 +24,6 @@ jobs:
           frame=$(find out/review/ThreeSmoke -type f -name "*.png" -print -quit)
           test -n "$frame"
           cp "$frame" out/ci-artifacts/ThreeSmoke-frame-30.png
-      - name: Render ThreeSmoke MP4 (swangle, concurrency 1)
-        run: |
-          /usr/bin/time -f "THREESMOKE_MP4_SECONDS=%e" npx remotion render src/index.ts ThreeSmoke out/ci-artifacts/ThreeSmoke.mp4 --gl=swangle --concurrency=1
       - uses: actions/upload-artifact@v4
         with:
           name: threesmoke-render-review

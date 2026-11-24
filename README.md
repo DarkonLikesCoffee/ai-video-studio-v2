@@ -1,27 +1,18 @@
-# AI Video Studio — Remotion-first
+# AI Video Studio v2
 
-## Commands
-- `npm run check` — TypeScript check.
-- `npm run still -- CompositionId 0,150,300` — render selected PNG frames to `out/review/`.
-- `npm run sheet -- CompositionId` — render a contact sheet, about one frame per second.
-- `npm run render -- CompositionId` — render an MP4 to `out/`.
+A Remotion-based video studio. Videos are authored as code-first compositions in `src/compositions/<slug>/`, with shared components in `src/shared/`.
 
-## Structure
-- `src/Root.tsx` registers compositions.
-- `src/compositions/<slug>/` holds hand-written video scenes.
-- `reference/` contains small quality-bar stills from the retained MadridTrip and TinyAstronautCrystalCave compositions for visual comparison.
-- `src/shared/` holds reusable animation pieces.
-- `public/` holds static assets; `out/` is generated and gitignored.
-- `legacy/` preserves the former orchestration system and project materials for reference.
+## npm scripts
 
-## Visual scene techniques
+- `npm run check` — run the TypeScript check.
+- `npm run still -- <id> <frames>` — render selected frames.
+- `npm run sheet -- <id>` — create a contact sheet.
+- `npm run render -- <id>` — render the composition to MP4.
 
-- Use Three.js (`@remotion/three` + `@react-three/fiber`) when real spatial depth, camera motion, or props/characters matter.
-- Use generated images plus `ParallaxLayer` / `CameraPush` for atmospheric or establishing shots; do not draw scenery as SVG stacks.
-- Shared scene utilities live in `src/shared/parallax.tsx`, `src/shared/overlays.tsx`, and `src/shared/three-scene.tsx`.
-- Store generated assets under `public/<slug>/`: `<scene>-bg.jpg` (up to 1920x1080, about 500 KB max) and optional transparent `<scene>-mid.png` / `<scene>-fg.png` (about 500 KB max each). When transparent layers are unavailable, use one background with camera movement and overlays.
-- Review image assets before composing; see `AGENTS.md` for the required style-string, scene plan, review, and rendering-performance process.
+## Review branches and commit metadata
 
-## Rendering 3D on CI
+Create each task branch from `main` using the name `review/<slug>`. Push ordinary work commits to the review branch; the review workflow runs only when the commit message contains render metadata:
 
-Use `--gl=swangle` on GitHub Actions; use `angle` for local desktop renders. `ImageSmoke` remains pending until generated background/layer images are added under `public/render-technique-smoke/`.
+`composition=<id> frames=<comma-separated-frames> round=<n> final=<true|false>`
+
+The metadata identifies the composition and frames to inspect, the review round, and whether to render a final MP4. Commits without `composition=` skip the review-render job. Once the work is approved, merge the review branch into `main` through a pull request.

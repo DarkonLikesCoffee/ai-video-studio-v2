@@ -1,1 +1,0 @@
-Round 2 fix implementation: a distinct locomotive nose, multiple passenger coach bodies, individual windows/bogies, layered and varied mountain contours. Round 2 stills rendered and inspected. The main remaining issues are over-angular mountain profiles and limited track detail.
