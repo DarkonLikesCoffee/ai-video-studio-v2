@@ -1,12 +1,15 @@
-# Round 2 — technique and framing correction
+# Round 1 — actual frame inspection
 
-## Three worst aesthetic problems found in round 1
-1. **Train-front readability:** actual frames show the locomotive as a near-black rectangular mass with almost no recognizable nose or cab shape. The headlamps are indistinct, so the train reads as coaches. Round 2 changes the locomotive geometry: sloped nose, front windshield, broader pilot and separate warm headlamps.
-2. **Subject visibility in the high pull-back:** at frames 420–480 the train becomes almost invisible in the fog and the image is mostly empty sky/track. Round 2 changes the high camera target and travel range to keep the moving consist in frame, and adds warm/cool separation lights.
-3. **Mountain silhouettes and lighting:** the mountain cones form enormous hard-edged wedges; the world reads too dark and planar. Round 2 increases the faceted irregularity, broadens the peak profile, brightens snow-facing colors, and adds cool fill.
+## Three worst aesthetic problems, ranked by impact
+1. **Closing-shot train visibility and motion fail.** Frames 420, 450 and 480 show the train almost disappearing into fog; the subject is far below a quarter of frame width and its movement is not legible across those consecutive one-second samples.
+2. **Locomotive silhouette is unreadable.** Frames 120, 240 and 360 show a mostly dark rectangular body; the nose, cab and front light do not read as a locomotive, so the train is mistaken for a sequence of coaches.
+3. **Mountain scale and depth are weak.** The oversized cone silhouettes dominate the upper frame and merge into a dark wall instead of framing the train with distinct foreground, midground and distant ridges.
+
+## Reference comparison
+Compared with `reference/tiny-astronaut-01.png` and `reference/tiny-astronaut-02.png`, which are stylized low-poly 3D frames, the references use more varied mountain scales, clearer near/far separation and a stronger lighting hierarchy around the subject. The train render's concrete gaps are depth, lighting and vehicle silhouette—not missing photographic texture.
 
 ## Motion check
-Round 1 one-second contact-sheet samples showed the train changing position clearly through the first and second shots, but the last shot drifted out of useful visibility. The round-2 high framing specifically addresses that loss.
+Frames 420, 450 and 480 are nearly identical at a glance because fog hides the moving train. This violates the rule against three consecutive one-second samples with no legible motion.
 
 ## Technical issues
-Round 1 rendered all 21 requested stills and the contact sheet successfully; TypeScript check passed on the current fixed source.
+The round-1 still render and contact-sheet workflow completed successfully. The branch's subsequent CI run passed the strict TypeScript check after the JSX and geometry-attribute fixes.
