@@ -1,16 +1,24 @@
 import {mkdir,writeFile} from "node:fs/promises";
-import {spawnSync} from "node:child_process";
-import {selectComposition} from "@remotion/renderer";
+import path from "node:path";
+import {selectComposition, renderStill} from "@remotion/renderer";
+import {bundle} from "@remotion/bundler";
+import {ensureBrowser} from "@remotion/renderer";
+import {getCompositions} from "@remotion/renderer";
+
 const [id]=process.argv.slice(2);
 if(!id){console.error("Usage: npm run sheet -- <CompositionId>");process.exit(1);}
-const serve=spawnSync("npx",["remotion","compositions","src/index.ts"],{encoding:"utf8"});
-if(serve.status!==0){process.stderr.write(serve.stderr||"Could not list compositions\n");process.exit(serve.status??1);}
-const match=serve.stdout.match(new RegExp(`"id"\\s*:\\s*"${id}"[\\s\\S]{0,350}?"durationInFrames"\\s*:\\s*(\\d+)[\\s\\S]{0,150}?"fps"\\s*:\\s*(\\d+)`));
-if(!match){console.error(`Could not read duration/fps for ${id} from Remotion composition list.`);process.exit(1);}
-const duration=Number(match[1]),fps=Number(match[2]);
-const frames=Array.from({length:Math.ceil(duration/fps)},(_,i)=>i*fps).join(",");
-const output=`out/review/${id}/contact-sheet`; await mkdir(output,{recursive:true});
-const rendered=spawnSync("npx",["remotion","render","src/index.ts",id,output,`--frames=${frames}`,"--image-format=jpeg","--sequence"],{stdio:"inherit"});
-if(rendered.status!==0)process.exit(rendered.status??1);
-const result=spawnSync("node",["scripts/contact-sheet.mjs",output],{stdio:"inherit"});
-process.exit(result.status??1);
+const serveUrl=await bundle({entryPoint:"src/index.ts"});
+const composition=await selectComposition({serveUrl,id});
+const fps=composition.fps;
+const totalFrames=composition.durationInFrames;
+const frames=Array.from({length:Math.ceil(totalFrames/fps)},(_,i)=>i*fps).filter(f=>f<totalFrames);
+const output=path.join("out","review",id,"contact-sheet");
+await mkdir(output,{recursive:true});
+for(const frame of frames){
+ const filename=path.join(output,`frame-${String(frame).padStart(5,"0")}.jpeg`);
+ await renderStill({serveUrl,composition,output:filename,frame, imageFormat:"jpeg"});
+}
+const images=frames.map(f=>`frame-${String(f).padStart(5,"0")}.jpeg`);
+const html=`<!doctype html><meta charset="utf-8"><title>${id} contact sheet</title><style>body{margin:20px;background:#10141a;color:#eee;font:13px system-ui;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}figure{margin:0}img{display:block;width:100%;height:auto;background:#252a33}figcaption{padding:6px}</style>${images.map(f=>`<figure><img src="${f}"><figcaption>${f}</figcaption></figure>`).join("")}`;
+await writeFile(path.join(output,"index.html"),html);
+console.log(path.join(output,"index.html"));
