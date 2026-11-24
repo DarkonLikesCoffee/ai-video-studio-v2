@@ -1,9 +1,9 @@
 # Round 1 — initial Three.js composition
 
-## Three worst aesthetic problems
-1. **Camera/subject scale is not yet verified.** The side and low-angle shots must show the locomotive and coaches occupying at least roughly one quarter of frame width; verify against rendered samples.
-2. **Mountain depth and train separation need visual validation.** The multi-layer mountain placements, atmospheric fog, and train lighting must read as distinct near/mid/far planes rather than one dark silhouette.
-3. **Motion cadence needs a full contact-sheet check.** Confirm train displacement and camera travel across each one-second sample; any three consecutive nearly identical samples are unacceptable.
+## Three worst aesthetic problems (pre-render inspection)
+1. **Motion and scale evidence missing.** The contact sheet must confirm the locomotive spans >=25% of the frame and train displacement persists across samples.
+2. **Camera angle distinction unverified.** Confirm that side tracking, rail-level, and high pull-back visibly alter perspective and reveal wheel/track depth.
+3. **Mountain depth hierarchy unverified.** Confirm near, middle, and far ridges separate through scale, lighting, and fog rather than merging into a dark wall.
 
 ## Technical issues
-- Not yet checked: run the TypeScript check and render before asserting any visual/technical status.
+- Pending TypeScript and Actions render evidence.
