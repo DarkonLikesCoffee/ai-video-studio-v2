@@ -2,26 +2,48 @@
 
 For every video request, follow this exact sequence:
 
-1. Plan the story, scenes, visual language, palette, motion, sound, and timing in 5–8 lines.
-2. Write a NEW Remotion composition in `src/compositions/<slug>/`. Put one scene per file in `scenes/`, then sequence those scene components from an `index.tsx`. Keep composition/scene files under about 150 lines; extract only genuinely reusable helpers.
-3. Run `npm run check`.
-4. Render stills at the start, middle, and end of EVERY scene with `npm run still -- <CompositionId> <frames>`.
-5. Open and inspect the actual rendered images. If you cannot view images, say so and stop; never claim visual quality.
-6. Compare at least two frames from `reference/` next to your own stills. Write one sentence in the round's `problems.md` naming the biggest quality gap versus the references.
-7. At the end of each round, write `out/review/<CompositionId>/round-N/problems.md` with the three WORST AESTHETIC problems, ranked by impact, then copy that file and the stills into `review-log/<CompositionId>/round-N/` for the committed record: e.g. flat/lifeless scene, weak composition, no depth, dull lighting, stiff character. Technical bugs (black frames, missing elements, render errors) do not count toward these three; list them separately.
-8. A round only counts if code changes address problem #1 or #2 from that round's list. Re-render the same scene coverage, inspect it, and complete at least two fix rounds.
-9. Only after the review rounds, run `npm run render -- <CompositionId>`.
+1. Before coding, write a one-line STYLE STRING and reuse it verbatim in every image prompt. Write a per-scene plan naming the technique (3D or images+parallax) and why.
+2. Generate required images with the available image tool, save them under `public/<slug>/`, commit them, and VIEW each image before composing. If image generation or viewing is unavailable, say so and stop; do not substitute hand-drawn scenery.
+3. Plan the story, scenes, palette, motion, sound, and timing.
+4. Write a NEW Remotion composition in `src/compositions/<slug>/`. Put one substantial scene per file in `scenes/`, then sequence those scene components from `index.tsx`. Keep files focused and generally under about 150 lines.
+5. Run `npm run check`.
+6. Render stills at the start, middle, and end of EVERY scene. Open and inspect the actual rendered images. If you cannot view images, say so and stop; never claim visual quality.
+7. Compare at least two frames from `reference/` next to your own stills. Write one sentence in the round's `problems.md` naming the biggest quality gap versus the references.
+8. At the end of each review round, write `out/review/<CompositionId>/round-N/problems.md` with the three WORST AESTHETIC problems, ranked by impact, then copy that file and the stills into `review-log/<CompositionId>/round-N/` for the committed record. Technical bugs (black frames, missing elements, render errors) do not count toward these three; list them separately.
+9. A round only counts if code changes address problem #1 or #2 from that round's list. Re-render the same scene coverage, inspect it, and complete at least two fix rounds.
+10. Only after review rounds, run `npm run render -- <CompositionId>` when the user explicitly asks for final rendering.
 
-Structure and timing:
-- Use one file per scene in `src/compositions/<slug>/scenes/` and an index file that sequences them.
-- No single-file composition or scene files over approximately 150 lines.
-- Join scenes with real transitions from `@remotion/transitions` (fade, slide, wipe, etc.). Never create scene changes using `Math.floor(frame / N)` hard cuts.
-- Define scene length and its actions together. Every action must finish before its scene boundary/transition; do not cut motion off mid-action.
-- Keep `spring()` and `interpolate()` motion purposeful; do not move static plates with camera motion alone.
-- Stagger entrances, exits, and related actions to create visual hierarchy.
-- Make every scene visually distinct in framing, scale, palette, or visual technique.
-- Avoid large persistent text over footage; keep all text readable at full-frame size.
-- Use a consistent, intentional palette and real motion in every scene.
-- Save round stills and problems.md under `out/review/<CompositionId>/round-N/`.
-- Never claim something looks good unless you viewed its actual rendered frames.
-- If image viewing is unavailable, say so and stop rather than claiming a review.
+## Visual production rules
+
+- Every scene must use at least two layers or objects moving at different speeds, one animated code overlay, real transitions, and one substantial scene file (not a five-line wrapper).
+- Never draw scenery or characters as stacks of handmade SVG shapes. Choose Three.js (`@remotion/three` + `@react-three/fiber`) for real spatial depth, camera movement, and characters/props; choose generated imagery plus parallax for atmospheric and establishing scenes.
+- Use a consistent style string across all image prompts in one video. Save generated images under `public/<slug>/` and view them before using them.
+- If transparent layers cannot be generated, use one background image with `CameraPush` and animated overlays.
+- Every scene needs real motion and a distinct composition, scale, palette, or visual technique. Keep all actions inside the scene duration and transitions.
+- Each review round must include a technical-issues check for hard-edged shapes, boxes, seams in overlays, and visible beam edges. List technical issues separately from aesthetic rankings.
+- Never claim something looks good unless you viewed the actual rendered frames. If image generation or viewing is unavailable, stop rather than claiming a review.
+
+## Asset convention
+
+- Store scene assets in `public/<slug>/`.
+- Background: `<scene>-bg.jpg`, maximum 1920x1080 and approximately 500 KB.
+- Optional transparent layers: `<scene>-mid.png` and `<scene>-fg.png`, each approximately 500 KB or less.
+- If transparent layers are not available, use the background alone with parallax camera movement and overlays.
+
+## Rendering and performance
+
+- Keep the GitHub Actions workflow minimal: install dependencies, run checks, and render one representative test still. Put multi-frame/manual review stills in a manually triggered workflow if needed.
+- In Remotion 4 on GitHub Actions, do not force `angle`: hosted runners have no GPU. Use the software WebGL backend `swiftshader` (or `swangle` where available) for Three.js CI renders.
+- Measure the 3D smoke still render on GitHub Actions and report the elapsed time; do not estimate it from local performance.
+- Performance budget: a 20-second 1080p video should render in a reasonable GitHub Actions runtime. If a scene exceeds the budget, simplify geometry, reduce lights/shadows, or switch that scene to generated imagery plus parallax.
+- Keep Three.js geometry low-poly and light, with minimal shadows and no heavy post-processing.
+- Avoid `Math.floor(frame / N)` hard cuts. Join scenes using real transitions from `@remotion/transitions`.
+- Make motion purposeful; stagger entrances, exits, and related actions to establish hierarchy.
+
+## Project commands and review records
+
+- `npm run check` — TypeScript check.
+- `npm run still -- <CompositionId> <frames>` — render selected PNG frames.
+- `npm run sheet -- <CompositionId>` — render a contact sheet.
+- `npm run render -- <CompositionId>` — render an MP4.
+- Save round stills and `problems.md` under `out/review/<CompositionId>/round-N/`; copy reviewed stills and notes to `review-log/<CompositionId>/round-N/`.
